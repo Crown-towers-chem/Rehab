@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Sec 2 - Unit 4: Beyond the Brand (Lesson 2)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --A: #1e3a8a; --A2: #1e40af; --blue4: #dbeafe; --blue5: #f8fafc;
+            --text: #1E293B; --text2: #64748B; --card: #ffffff; --border: #e2e8f0;
+            --bg: #f1f5f9; --radius: 12px; --stop: #ef4444; --pause: #94a3b8;
+            --highlight-bg: rgba(30, 58, 138, 0.08);
+            --word-highlight: #fde047;
+            --fab-bg: #1e293b; --fab-text: #ffffff;
+        }
+        [data-theme="ocean"] {
+            --A: #0e7490; --A2: #0891b2; --blue4: #cffafe; --blue5: #f0fdfa;
+            --text: #1E293B; --text2: #64748B; --card: #ffffff; --border: #e2e8f0;
+            --bg: #f1f5f9; --stop: #ef4444; --highlight-bg: rgba(14, 116, 144, 0.08);
+            --fab-bg: #0e7490; --fab-text: #ffffff;
+        }
+        [data-theme="slate"] {
+            --A: #334155; --A2: #475569; --blue4: #e2e8f0; --blue5: #f8fafc;
+            --text: #0f172a; --text2: #475569; --card: #ffffff; --border: #cbd5e1;
+            --bg: #f1f5f9; --stop: #ef4444; --highlight-bg: rgba(51, 65, 85, 0.1);
+            --fab-bg: #1e293b; --fab-text: #ffffff;
+        }
+        [data-theme="dark"] {
+            --A: #2dd4bf; --A2: #0d9488; --blue4: #134e4a; --blue5: #0f172a;
+            --text: #f8fafc; --text2: #94a3b8; --card: #1e293b; --border: #334155;
+            --bg: #0f172a; --stop: #f87171; --pause: #64748b; --highlight-bg: rgba(45, 212, 191, 0.15);
+            --word-highlight: #facc15; --fab-bg: #facc15; --fab-text: #1e293b;
+        }
+        *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+        body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:100px;overflow-x:hidden;transition:background .3s,color .3s;}
+        .hero{color:#fff;text-align:center;padding:32px 20px 26px;margin-bottom:24px;background:linear-gradient(135deg, #0f172a, var(--A2)); box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+        .hero .emoji-big{font-size:3rem;display:block;margin-bottom:8px;}
+        .hero h1{font-size:1.6rem;font-weight:900;letter-spacing:0.5px;}
+        .hero .sub{font-size:.95rem;opacity:.85;margin-top:5px;font-family:'Cairo',sans-serif;font-weight:600;}
+        .toolbar{max-width:840px;margin:0 auto 24px;padding:0 16px;text-align:center;}
+        .toolbar-inner{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px 20px;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+        .toolbar label{font-weight:800;color:var(--A);font-size:13px;}
+        input[type=range]{width:90px;accent-color:var(--A);}
+        .rate-badge{font-weight:900;font-size:13px;color:var(--A);min-width:34px;}
+        select{padding:6px 10px;border-radius:6px;border:1px solid var(--border);font-weight:600;background:var(--card);color:var(--text);}
+        .theme-switcher{display:flex;align-items:center;gap:6px;margin-left:auto;}
+        .theme-btn{-webkit-appearance:none;appearance:none;border:2px solid transparent;border-radius:8px;padding:4px 12px;font-size:11px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:#fff;letter-spacing:.5px;transition:all .2s;}
+        .theme-btn.t-teal{background:linear-gradient(135deg,#0f766e,#2dd4bf);}
+        .theme-btn.t-ocean{background:linear-gradient(135deg,#0e7490,#06b6d4);}
+        .theme-btn.t-slate{background:linear-gradient(135deg,#334155,#94a3b8);}
+        .theme-btn.t-dark{background:linear-gradient(135deg,#1e293b,#475569);color:#e2e8f0;}
+        .theme-btn.active{border-color:#fff;box-shadow:0 0 0 2px currentColor;transform:scale(1.06);}
+        .container{max-width:840px;margin:auto;padding:0 16px;}
+        .section-block{background:var(--card);border-radius:var(--radius);margin-bottom:22px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid var(--border);}
+        .sec-title{color:#fff;font-size:.8rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:12px 20px;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--A),var(--A2));}
+        .sec-title::before{content:"";display:inline-block;width:6px;height:6px;background:rgba(255,255,255,.5);border-radius:50%;flex-shrink:0;}
+        .sec-body{padding:18px;}
+        .sec-play-bar{display:flex;gap:7px;margin-bottom:18px;flex-wrap:wrap;align-items:center;}
+        .big-btn{-webkit-appearance:none;appearance:none;border:none;border-radius:6px;padding:8px 16px;font-size:13px;font-weight:800;cursor:pointer;color:#fff;display:inline-flex;align-items:center;gap:5px;transition:transform .12s;font-family:'Nunito',sans-serif;}
+        .big-btn:active{transform:scale(.95);}
+        .big-btn.pause-btn{background:var(--pause);}
+        .big-btn.stop-btn{background:var(--stop);}
+        .big-btn.play-all-btn{background:linear-gradient(135deg, var(--A), var(--A2)); margin-left: 12px;}
+        .info-box{background:var(--blue5);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px;}
+        .info-title{display:flex;align-items:center;gap:6px;font-weight:900;font-size:.78rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--A2);}
+        .vocab{display:flex;flex-wrap:wrap;gap:8px;}
+        .pill{padding:10px 14px;border-radius:6px;background:var(--card);border:1px solid var(--blue4);text-align:center;cursor:pointer;flex:1 1 auto;min-width:80px;transition:all .15s;}
+        .pill:active{transform:scale(.96);}
+        .pill .en{font-weight:800;font-size:14px;display:block;color:var(--A);}
+        .pill .tr{font-size:11px;color:var(--text2);font-family:'Cairo',sans-serif;font-weight:600;}
+        .story-card{background:var(--blue5);border:1px solid var(--border);border-left:4px solid var(--A);border-radius:8px;padding:18px;margin-bottom:12px;}
+        .sentence{display:block;cursor:pointer;border-radius:6px;padding:10px 12px;margin-bottom:12px;transition:background .2s;line-height:1.8;font-size:17px;font-weight:600;color:var(--text);background:rgba(255,255,255,0.4);}
+        [data-theme="dark"] .sentence { background: rgba(255,255,255,0.05); }
+        .sentence .word{transition:background 0.15s;border-radius:3px;padding:0 1px;}
+        .sentence .word.highlight{background:var(--word-highlight);}
+        .sentence.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .sentence .speaker-label{display:inline-block;font-weight:900;color:var(--A2);margin-right:10px;background:var(--blue4);padding:2px 10px;border-radius:20px;font-size:0.9rem;}
+        .pill.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .rule-item.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .story-ar{font-family:'Cairo',sans-serif;color:var(--text2);font-size:14px;text-align:right;direction:rtl;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-weight:600;line-height:2;}
+        .story-title{font-family:'Cairo',sans-serif;font-weight:800;color:var(--A2);font-size:15px;text-align:right;direction:rtl;margin-bottom:10px;}
+        .rules-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;}
+        .rule-item{display:flex;align-items:flex-start;gap:12px;background:var(--blue5);border:1px solid var(--border);border-radius:6px;padding:12px 14px;cursor:pointer;transition:all .2s;}
+        .rule-item .rule-text{flex:1;}
+        .rule-item .rule-text .en{font-size:15px;font-weight:700;color:var(--text);}
+        .rule-item .rule-text .ar{font-family:'Cairo',sans-serif;font-size:13px;color:var(--text2);text-align:right;direction:rtl;font-weight:600;margin-top:4px;}
+        .qbox{background:var(--blue5);border:1px dashed var(--border);border-radius:8px;padding:14px 16px;margin-top:6px;}
+        .qbox .qitem{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;}
+        .qbox .qitem:last-child{margin-bottom:0;}
+        footer{text-align:center;margin-top:14px;padding:20px;color:var(--text2);font-size:12px;}
+        footer strong{color:var(--A);}
+        .voice-note{font-size:11px;color:#b45309;margin-top:4px;display:block;}
+        .fab-pause{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:var(--fab-bg);color:var(--fab-text);border:none;box-shadow:0 4px 16px rgba(0,0,0,0.2);font-size:24px;display:none;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s,opacity 0.2s;}
+        .fab-pause:active{transform:scale(.9);}
+        .fab-pause.show{display:flex;}
+    </style>
+</head>
+<body>
+
+<div class="hero"><span class="emoji-big">🏷️</span><h1>Unit 4: Beyond the Brand</h1><p class="sub">Sec 2 - Lesson 2 (4.2)</p></div>
+
+<div class="toolbar"><div class="toolbar-inner">
+    <label for="rateRange">Speed</label><input id="rateRange" type="range" min="0.5" max="1.2" step="0.1" value="1"/>
+    <span class="rate-badge" id="rateBadge">1.0x</span>
+    <select id="voiceSelect" style="max-width:180px;"></select>
+    <span id="voiceNote" class="voice-note"></span>
+    <div class="theme-switcher">
+        <button class="theme-btn t-teal" onclick="setTheme('teal',this)">Teal</button>
+        <button class="theme-btn t-ocean" onclick="setTheme('ocean',this)">Ocean</button>
+        <button class="theme-btn t-slate" onclick="setTheme('slate',this)">Slate</button>
+        <button class="theme-btn t-dark" onclick="setTheme('dark',this)">Dark</button>
+    </div>
+    <button class="big-btn play-all-btn" onclick="playAll()">🔊 Play All</button>
+</div></div>
+
+<main class="container">
+    <div id="sections-container"></div>
+</main>
+
+<button class="fab-pause" id="fabPause" onclick="toggleFabPause()" title="إيقاف / استئناف">⏯️</button>
+
+<script>
+function cleanForSpeech(text) {
+    let result = text;
+    result = result.replace(/\([^)]*\)/g, ' ');
+    result = result.replace(/[→]/g, ' ');
+    result = result.replace(/'/g, '');
+    result = result.replace(/\s+/g, ' ').trim();
+    return result;
+}
+
+// ===================== البيانات =====================
+
+const keyVocab = [
+    ["belonging (n)", "انتماء"],
+    ["brand (n)", "علامة تجارية"],
+    ["logo (n)", "شعار"],
+    ["loyalty (n)", "ولاء / إخلاص"],
+    ["preference (n)", "تفضيل"],
+    ["resist (v)(ed)", "يقاوم"]
+];
+
+const mainVocab = [
+    ["active (adj)", "نشيط / فعال"],
+    ["actual (adj)", "حقيقى / فعلى"],
+    ["admittedly (adv)", "من المسلم به / باعتراف الجميع"],
+    ["advantage (n)", "ميزة / فائدة"],
+    ["brand-building (n)", "بناء العلامة التجارية"],
+    ["cartoon (n)", "رسم كرتونى / شخصية كرتونية"],
+    ["catchy (adj)", "جذاب / لافت للانتباه"],
+    ["cereal (n)", "طعام إفطار من الحبوب (قمح)"],
+    ["challenge (n)(v)(d)", "تحدٍ / يتحدى"],
+    ["comfortable (adj)", "مريح"],
+    ["consequently (adv)", "وبالتالى / نتيجة لذلك"],
+    ["consistently (adv)", "باستمرار / بصورة منتظمة"],
+    ["desirable (adj)", "مرغوب فيه"],
+    ["determined (adj)", "مصمم / عازم"],
+    ["device (n)", "جهاز"],
+    ["else (adv)", "غير ذلك / آخر"],
+    ["emotions (n)", "مشاعر / عواطف"],
+    ["equally (adv)", "بالتساوى / بنفس القدر"],
+    ["elegant (adj)", "أنيق"],
+    ["expect (v)(ed)", "يتوقع"],
+    ["feature (v)(d)", "يضم / يتميز بـ"],
+    ["furthermore (adv)", "علاوة على ذلك"],
+    ["free (adj)", "مجانى / حر"],
+    ["invest (v)(ed)", "يستثمر"],
+    ["mention (v)(ed)", "يذكر"],
+    ["price (n)", "سعر"],
+    ["practical (adj)", "عملى"],
+    ["products (n)", "منتجات"],
+    ["raise (v)(d)", "يرفع / يزيد من"],
+    ["realize (v)(d)", "يدرك"],
+    ["recognized (adj)", "معروف / معترف به"],
+    ["represent (v)(ed)", "يمثل"],
+    ["restate (v)(d)", "يعيد الصياغة / يذكرمرة أخرى"],
+    ["similarly (adv)", "وبالمثل"],
+    ["storytelling (n)", "سرد القصص"],
+    ["survive (v)(d)", "ينجو / يبقى على قيد الحياة"],
+    ["tick (v)(ed)", "يضع علامة ✓"],
+    ["unbranded (adj)", "غير تابع لعلامة تجارية"],
+    ["unknown (adj)", "غير معروف"],
+    ["valuable (adj)", "ذو قيمة / قيّم"],
+    ["wear (v)", "يرتدى"],
+    ["well-known (adj)", "مشهور / معروف جيدًا"]
+];
+
+const idiomsData = [
+    ["by the door", "بجانب الباب"],
+    ["feel worth", "يشعر بأن شيئًا يستحق"],
+    ["for instance", "على سبيل المثال"],
+    ["In addition", "بالإضافة إلى ذلك"],
+    ["make choices", "يختار / يستقر على"],
+    ["make decisions", "يتخذ قرارات"],
+    ["mindful consumption", "استهلاك واعٍ"],
+    ["on the market", "فى السوق، مطروح للبيع"],
+    ["On the other hand", "من ناحية أخرى"],
+    ["ready for", "مستعد لـ"],
+    ["the feeling of belonging", "الشعور بالانتماء"]
+];
+
+const prepositionsData = [
+    ["according to", "وفقًا لـ / بحسب"],
+    ["connect to", "يتصل بـ / يرتبط بـ"],
+    ["resistant to", "مقاوم لـ"],
+    ["spend ... on", "ينفق ... على"],
+    ["surrounded by", "محاط بـ"],
+    ["wake up", "يستيقظ"]
+];
+
+const defsData = [
+    {word: "belonging", ar: "الانتماء", def: "the feeling of being part of a group"},
+    {word: "brand", ar: "علامة تجارية", def: "a well-known name associated with a company's products or services"},
+    {word: "logo", ar: "شعار", def: "a picture or symbol used to represent a company"},
+    {word: "loyalty", ar: "الولاء / الإخلاص", def: "always choosing the same brand and not wanting to change"},
+    {word: "preference", ar: "التفضيل", def: "liking one thing more than another"},
+    {word: "resist", ar: "يقاوم", def: "to stop yourself from doing something"}
+];
+
+const synData = [
+    {word: "active", syn: "energetic, busy, lively"},
+    {word: "advantage", syn: "benefit, gain, merit"},
+    {word: "belonging", syn: "connection, attachment, membership"},
+    {word: "comfortable", syn: "cozy, relaxing, pleasant"},
+    {word: "consistently", syn: "regularly, continually, steadily"},
+    {word: "elegant", syn: "stylish, graceful"},
+    {word: "loyalty", syn: "faithfulness, devotion"},
+    {word: "resist", syn: "oppose, fight, withstand"}
+];
+
+const antData = [
+    {word: "active", ant: "inactive, lazy"},
+    {word: "advantage", ant: "disadvantage, drawback"},
+    {word: "belonging", ant: "isolation, separation"},
+    {word: "comfortable", ant: "uncomfortable, uneasy"},
+    {word: "consistently", ant: "irregularly, inconsistently"},
+    {word: "elegant", ant: "untidy, plain, inelegant"},
+    {word: "loyalty", ant: "betrayal, disloyalty"},
+    {word: "resist", ant: "accept, surrender"}
+];
+
+const derivativesData = [
+    {word: "— (no verb)", forms: ["loyalty (n)", "loyal (adj)"], ar: "ولاء ، إخلاص / مخلص ، وفى"},
+    {word: "belong (v)", forms: ["belonging (n)", "belonging (adj)"], ar: "ينتمى / انتماء / متعلق أو تابع (استخدام محدود كصفة)"},
+    {word: "desire (v)", forms: ["desire (n)", "desirable (adj)"], ar: "يرغب فى / رغبة / مرغوب فيه"},
+    {word: "determine (v)", forms: ["determination (n)", "determined / determining (adj)"], ar: "يحدد / يعزم / عزم ، إصرار / مصمم ، عازم / حاسم ، محدد"},
+    {word: "equal (v)", forms: ["equality (n)", "equal (adj)"], ar: "يعادل / يساوى / مساواة / متساوٍ"},
+    {word: "prefer (v)", forms: ["preference (n)", "preferable (adj)"], ar: "يفضل / تفضيل / أفضل ، مفضل"},
+    {word: "produce (v)", forms: ["product / production / productivity / producer (n)", "productive (adj)"], ar: "ينتج / منتج ، إنتاج ، إنتاجية ، منتج / منتج ، مثمر"},
+    {word: "resist (v)", forms: ["resistance (n)", "resistant (adj)"], ar: "يقاوم / مقاومة / مقاوم"},
+    {word: "survive (v)", forms: ["survival / survivor (n)", "surviving (adj)"], ar: "ينجو ، يبقى حيًا ، يستمر / بقاء ، نجاة / ناجٍ / باقٍ على قيد الحياة"},
+    {word: "value (v)", forms: ["value (n)", "valuable (adj)"], ar: "يقدر / قيمة / قيّم ، ذو قيمة"}
+];
+
+const confusionData = [
+    {word: "logo", ar: "رمز أو تصميم يمثل شركة أو مؤسسة ويساعد الناس على التعرف عليها", ex: "The company's logo appears on every product."},
+    {word: "brand", ar: "الاسم أو الهوية الكاملة التى تميز شركة أو منتجًا، وتشمل السمعة والشعار والتصميم", ex: "Many teenagers prefer this brand because they trust it."},
+    {word: "symbol", ar: "علامة أو صورة تمثل فكرة أو شيئًا معينًا، وليس بالضرورة شركة", ex: "The dove is a symbol of peace."},
+    {word: "trademark", ar: "علامة أو اسم أو تصميم مسجل قانونيًا لحماية هوية منتج أو شركة", ex: "The company registered its trademark to protect its identity."},
+    {word: "cartoon", ar: "رسم أو شخصية مرسومة، وغالبًا تكون مضحكة أو موجهة للأطفال", ex: "The children enjoyed watching the cartoon after school."},
+    {word: "animation", ar: "أسلوب صنع أفلام أو مقاطع متحركة باستخدام الرسوم أو الحاسوب", ex: "The studio is famous for its animation movies."},
+    {word: "illustration", ar: "رسم يُستخدم لتوضيح كتاب أو قصة أو مقال", ex: "The book contains colorful illustrations."},
+    {word: "mention", ar: "يعنى أن تشير إلى شىء أو تتحدث عنه باختصار دون تفاصيل كثيرة", ex: "The secretary mentioned the problem during the meeting."},
+    {word: "refer to", ar: "يعنى أن تشير إلى شخص أو شىء بشكل مباشر أو غير مباشر", ex: "The teacher referred to the new rules in class."},
+    {word: "state", ar: "يعنى أن تذكر معلومة أو رأيًا بوضوح ورسمية", ex: "The report states that sales increased last year."}
+];
+
+const listeningVocab = [];
+const listeningTitle = "";
+const listeningTextL2 = [];
+
+const readingTitle = { en: "More Than a Logo: How Brands Shape What We Buy", ar: "أكثر من مجرد شعار: كيف تُشكّل العلامات التجارية ما نشتريه" };
+
+const readingTextL1 = [
+    {en: "Every day, by the time most teenagers in Egypt have had breakfast, they have already made more brand choices than they realize.", ar: "كل يوم، بحلول الوقت الذى يتناول فيه معظم المراهقين فى مصر إفطارهم، يكونون قد اتخذوا بالفعل قرارات تخص العلامات التجارية أكثر مما يدركون."},
+    {en: "The phone that wakes them up is one of the most recognized devices in the world.", ar: "الهاتف الذى يوقظهم هو أحد أكثر الأجهزة شهرة فى العالم."},
+    {en: "The shoes by the door carry a tick that is far more famous than the company's actual name.", ar: "الحذاء بجانب الباب يحمل علامة صح أشهر بكثير من اسم الشركة نفسه."},
+    {en: "Furthermore, the cereal box on the table features a cartoon bird that has remained unchanged longer than many brands have survived.", ar: "علاوة على ذلك، تحمل علبة حبوب الإفطار على الطاولة طائرًا كرتونيًا ظل دون تغيير لفترة أطول من عمر كثير من العلامات التجارية."},
+    {en: "None of this is an accident.", ar: "لا شىء من هذا صدفة."},
+    {en: "The biggest companies invest more heavily in brand-building than in almost anything else.", ar: "تستثمر أكبر الشركات بكثافة فى بناء العلامة التجارية أكثر من أى شىء آخر تقريبًا."},
+    {en: "This is because a well-known brand is more valuable than any single product.", ar: "وذلك لأن العلامة التجارية المعروفة أكثر قيمة من أى منتج بمفرده."},
+    {en: "In addition, they spend more on emotional storytelling than on simply describing what their products do.", ar: "بالإضافة إلى ذلك، تنفق أكثر على سرد القصص العاطفى بدلاً من مجرد وصف وظيفة منتجاتها."},
+    {en: "A brand is much more than a logo.", ar: "العلامة التجارية أكثر بكثير من مجرد شعار."},
+    {en: "It is a set of feelings and ideas, and the strongest brands build those feelings more carefully and more consistently than smaller companies ever could.", ar: "إنها مجموعة من المشاعر والأفكار، وأقوى العلامات التجارية تبنى هذه المشاعر بعناية أكبر وباستمرار أكثر مما تستطيعه الشركات الأصغر أبدًا."},
+    {en: "When brand X puts its tick on a shoe and writes \"Just Do It\", it is selling not only shoes, but also the idea that the person who wears them is stronger, more determined, and more ready for a challenge than someone who does not.", ar: "عندما تضع العلامة التجارية X علامتها على حذاء وتكتب \"فقط افعلها\"، فإنها لا تبيع أحذية فقط، بل أيضًا فكرة أن من يرتديها أقوى وأكثر تصميمًا واستعدادًا لمواجهة تحدٍ ممن لا يرتديها."},
+    {en: "Similarly, when a brand phone presents a new phone in a clean white room, it is selling the idea that its products are simpler, more elegant, and more desirable than anything else on the market.", ar: "وبالمثل، عندما تقدم علامة هواتف تجارية هاتفًا جديدًا فى غرفة بيضاء نظيفة، فإنها تبيع فكرة أن منتجاتها أبسط وأكثر أناقة وأكثر رغوبية من أى شىء آخر فى السوق."},
+    {en: "A branded product is almost always more expensive than a similar unbranded one.", ar: "المنتج ذو العلامة التجارية يكون دائمًا تقريبًا أغلى من منتج مماثل بلا علامة تجارية."},
+    {en: "Even though the quality difference is often smaller than people expect, they still choose the brand because the feeling it gives them feels worth far more than the price difference.", ar: "ورغم أن الفرق فى الجودة غالبًا ما يكون أصغر مما يتوقعه الناس، فإنهم لا يزالون يختارون العلامة التجارية لأن الشعور الذى تمنحهم إياه يبدو يستحق أكثر بكثير من فارق السعر."},
+    {en: "Psychologists who study how people make choices have found something interesting.", ar: "وجد علماء النفس الذين يدرسون كيفية اتخاذ الناس لقراراتهم شيئًا مثيرًا للاهتمام."},
+    {en: "When people see the logo of their favorite brand, the part of the brain linked to personal identity becomes more active than when they see an unknown label.", ar: "عندما يرى الناس شعار علامتهم التجارية المفضلة، يصبح الجزء من المخ المرتبط بالهوية الشخصية أكثر نشاطًا مما لو رأوا ملصقًا غير معروف."},
+    {en: "As a result, choosing a brand is rarely a simple or purely practical decision.", ar: "ونتيجة لذلك، نادرًا ما يكون اختيار علامة تجارية قرارًا بسيطًا أو عمليًا بحتًا."},
+    {en: "This means that when someone chooses X over Z, they are often making a deeper choice than simply picking a more comfortable shoe, they are saying something about who they are, or who they most want to be.", ar: "وهذا يعنى أنه عندما يختار شخص X بدلاً من Z، فإنه غالبًا ما يتخذ قرارًا أعمق من مجرد اختيار حذاء أكثر راحة، بل يقول شيئًا عن هويته، أو عمن يريد أن يكون."},
+    {en: "Understanding why we prefer one brand to another can be an important step towards mindful consumption.", ar: "فهم سبب تفضيلنا لعلامة تجارية على أخرى يمكن أن يكون خطوة مهمة نحو استهلاك واعٍ."},
+    {en: "For instance, for many young people in Egypt, wearing the most popular brand feels more important than wearing the most practical one, because brands have become one of the most powerful languages we use to show where we belong.", ar: "على سبيل المثال، بالنسبة لكثير من الشباب فى مصر، يبدو ارتداء العلامة التجارية الأكثر شعبية أهم من ارتداء الأكثر عملية، لأن العلامات التجارية أصبحت إحدى أقوى اللغات التى نستخدمها لإظهار انتمائنا."},
+    {en: "Admittedly, not everyone is equally influenced by brand image.", ar: "وبالطبع، ليس الجميع متأثرًا بصورة العلامة التجارية بنفس القدر."},
+    {en: "Although companies benefit greatly from this power, the influence of brands also raises one of the most important questions in modern life: are we truly free when we make choices, or do companies create our preferences for us?", ar: "ورغم أن الشركات تستفيد كثيرًا من هذه القوة، فإن تأثير العلامات التجارية يثير أيضًا أحد أهم أسئلة الحياة الحديثة: هل نحن حقًا أحرار عندما نتخذ خياراتنا، أم أن الشركات تخلق تفضيلاتنا نيابة عنا؟"},
+    {en: "On the other hand, understanding how brands work gives us a real advantage as consumers.", ar: "من ناحية أخرى، فهم كيفية عمل العلامات التجارية يمنحنا ميزة حقيقية كمستهلكين."},
+    {en: "This helps us avoid blind brand loyalty, where we buy a product based on emotion rather than quality.", ar: "وهذا يساعدنا على تجنب الولاء الأعمى للعلامة التجارية، حيث نشترى منتجًا بناءً على العاطفة بدلاً من الجودة."},
+    {en: "The most successful brands do not just sell products. They sell the feeling of belonging somewhere.", ar: "أنجح العلامات التجارية لا تبيع منتجات فقط، بل تبيع الشعور بالانتماء إلى مكان ما."},
+    {en: "Consequently, this feeling becomes stronger, far more personal.", ar: "وبالتالى، يصبح هذا الشعور أقوى، وأكثر شخصية بكثير."},
+    {en: "It also becomes harder to resist than any simple advertisement could ever be.", ar: "كما يصبح من الصعب مقاومته أكثر من أى إعلان بسيط."},
+    {en: "Overall, the more aware we are of how brands shape our thinking, the better and freer our choices can become.", ar: "بشكل عام، كلما زاد وعينا بكيفية تشكيل العلامات التجارية لتفكيرنا، أصبحت خياراتنا أفضل وأكثر حرية."}
+];
+
+const readingQuestions = [];
+
+// ===================== بناء الواجهة =====================
+function makeWordSpans(text) {
+    const words = text.trim().split(/\s+/);
+    return words.map((w, idx) => `<span class="word" data-word-index="${idx}">${w}</span>`).join(' ');
+}
+
+function buildAllSections() {
+    const container = document.getElementById('sections-container');
+
+    function makePills(wordsArray, sectionId) {
+        return wordsArray.map((w, i) => {
+            const id = `${sectionId}_p${i}`;
+            const wordHtml = makeWordSpans(w[0]);
+            const speakText = cleanForSpeech(w[0]);
+            return `<div class="pill" id="${id}" data-speak="${speakText}" onclick="playOne('${id}')"><span class="en">${wordHtml}</span><span class="tr">${w[1]}</span></div>`;
+        }).join('');
+    }
+
+    function makeRuleItem(icon, sectionId, index, speakText, arText, displayText) {
+        const id = `${sectionId}_${index}`;
+        const wordHtml = makeWordSpans(displayText || speakText);
+        const finalSpeak = cleanForSpeech(speakText);
+        return `<div class="rule-item" id="${id}" data-speak="${finalSpeak}" onclick="playOne('${id}')">
+            <span class="rule-icon">${icon}</span>
+            <div class="rule-text">
+                <span class="en">${wordHtml}</span>
+                <span class="ar">${arText || ''}</span>
+            </div>
+        </div>`;
+    }
+
+    function playBar(sectionId) {
+        return `<div class="sec-play-bar">
+            <button class="big-btn" style="background:linear-gradient(135deg,var(--A),var(--A2))" onclick="playSection('${sectionId}')">▶ Play</button>
+            <button class="big-btn pause-btn" onclick="pauseAll()">⏸ Pause</button>
+            <button class="big-btn stop-btn" onclick="stopAll()">⏹ Stop</button>
+        </div>`;
+    }
+
+    function makeStorySection(title, titleAr, storyData) {
+        const speakerEmojis = {"Sarah":"👩‍⚕️","Operator":"🎙️","Caller":"📞"};
+        const knownSpeakers = new Set(Object.keys(speakerEmojis));
+
+        return `<div class="story-card">
+            <div style="font-weight:bold;color:var(--A);margin-bottom:6px;">${title}</div>
+            ${titleAr ? `<div class="story-title">${titleAr}</div>` : ''}
+            ${storyData.map((s,i) => {
+                const id = `secStory_${title.replace(/\s/g,'')}_${i}`;
+                let enText = s.en;
+                let speaker = '';
+                let dialogueText = enText;
+                const colonIndex = enText.indexOf(': ');
+                if (colonIndex > 0) {
+                    const candidate = enText.substring(0, colonIndex);
+                    if (knownSpeakers.has(candidate)) {
+                        speaker = candidate;
+                        dialogueText = enText.substring(colonIndex + 2);
+                    }
+                }
+                const emoji = speakerEmojis[speaker] || '📖';
+                const wordHtml = makeWordSpans(dialogueText);
+                let speakerHtml = '';
+                if (speaker) {
+                    speakerHtml = `<span class="speaker-label">${emoji} ${speaker}</span> `;
+                }
+                return `<div class="sentence" id="${id}" data-speak="${s.en}" onclick="playOne('${id}')">
+                    ${speakerHtml} ${wordHtml}
+                </div> `;
+            }).join('')}
+            <div class="story-ar">${storyData.map(s => s.ar).join(' ')}</div>
+        </div>`;
+    }
+
+    const sections = [];
+
+    // 1. Key Vocabulary
+    if (keyVocab && keyVocab.length > 0) {
+        sections.push({ title:"💊 Key Vocabulary", id:"secKeyVocab", content: `<div class="info-box"><div class="info-title">Key Vocabulary (4.2)</div><div class="vocab">${makePills(keyVocab, "secKeyVocab")}</div></div>` });
+    }
+
+    // 2. Main Vocabulary
+    if (mainVocab && mainVocab.length > 0) {
+        sections.push({ title:"📚 Main Vocabulary", id:"secMainVocab", content: `<div class="info-box"><div class="info-title">Main Vocabulary (4.2)</div><div class="vocab">${makePills(mainVocab, "secMainVocab")}</div></div>` });
+    }
+
+    // 3. Phrases, Expressions & Idioms
+    if (idiomsData && idiomsData.length > 0) {
+        sections.push({ title:"💡 Phrases, Expressions & Idioms", id:"secIdioms", content: `<div class="rules-grid">${idiomsData.map((e,i) => makeRuleItem('✨', 'secIdioms', i, e[0], e[1], e[0])).join('')}</div>` });
+    }
+
+    // 4. Prepositions
+    if (prepositionsData && prepositionsData.length > 0) {
+        sections.push({ title:"🔗 Prepositions", id:"secPrepositions", content: `<div class="rules-grid">${prepositionsData.map((p,i) => makeRuleItem('🔗', 'secPrepositions', i, p[0], p[1], p[0])).join('')}</div>` });
+    }
+
+    // 5. Definitions
+    if (defsData && defsData.length > 0) {
+        sections.push({ title:"📝 Definitions", id:"secDefs", content: `<div class="rules-grid">${defsData.map((d,i) => {
+            const speakText = cleanForSpeech(d.word) + " | " + d.def;
+            const displayText = `${d.word} → ${d.def}`;
+            return makeRuleItem('📖', 'secDefs', i, speakText, d.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 6. Synonyms & Antonyms
+    if (synData && synData.length > 0) {
+        sections.push({ title:"🔄 Synonyms", id:"secSyn", content: `<div class="rules-grid">${synData.map((s,i) => makeRuleItem('↔️', 'secSyn', i, s.word + " | " + s.syn, s.syn, s.word)).join('')}</div>` });
+    }
+    if (antData && antData.length > 0) {
+        sections.push({ title:"🚫 Antonyms", id:"secAnt", content: `<div class="rules-grid">${antData.map((a,i) => makeRuleItem('🛑', 'secAnt', i, a.word + " | " + a.ant, a.ant, a.word)).join('')}</div>` });
+    }
+
+    // 7. Derivatives
+    if (derivativesData && derivativesData.length > 0) {
+        sections.push({ title:"🔨 Derivatives (Word Families)", id:"secDerivatives", content: `<div class="rules-grid">${derivativesData.map((d,i) => {
+            const formsStr = d.forms.join(" | ");
+            const speakText = `${d.word} | ${formsStr}`;
+            const displayText = `${d.word} → ${formsStr}`;
+            return makeRuleItem('🔨', 'secDerivatives', i, speakText, d.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 8. Focus on Vocabulary (Clear the Confusion)
+    if (confusionData && confusionData.length > 0) {
+        sections.push({ title:"🧐 Focus on Vocabulary", id:"secConfusion", content: `<div class="rules-grid">${confusionData.map((c,i) => {
+            const speakText = `${c.word} | ${c.ex}`;
+            const displayText = `${c.word} → ${c.ex}`;
+            return makeRuleItem('🧐', 'secConfusion', i, speakText, c.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 9. Reading Text
+    if (readingTextL1 && readingTextL1.length > 0) {
+        let readingContent = makeStorySection(readingTitle.en, readingTitle.ar, readingTextL1);
+        if (readingQuestions && readingQuestions.length > 0) {
+            readingContent += `<div class="qbox"><div class="info-title">JRE (Justify – Reason – Evidence)</div>${readingQuestions.map(q => `<div class="qitem">${q}</div>`).join('')}</div>`;
+        }
+        sections.push({ title:"📖 Reading Text (More Than a Logo)", id:"secReadL1", content: readingContent });
+    }
+
+    // 10. Listening Text
+    if (listeningTextL2 && listeningTextL2.length > 0) {
+        let listeningContent = '';
+        if (listeningVocab && listeningVocab.length > 0) {
+            listeningContent += `<div class="info-box"><div class="info-title">Listening Glossary</div><div class="vocab">${makePills(listeningVocab, "secListenVocab")}</div></div>`;
+        }
+        listeningContent += makeStorySection(listeningTitle, '', listeningTextL2);
+        sections.push({ title:"🎧 Listening Text", id:"secListenL2", content: listeningContent });
+    }
+
+    let html = '';
+    sections.forEach(sec => {
+        html += `<div class="section-block" id="${sec.id}">
+            <div class="sec-title">${sec.title}</div>
+            <div class="sec-body">
+                ${playBar(sec.id)}
+                ${sec.content}
+            </div>
+        </div>`;
+    });
+    container.innerHTML = html;
+}
+
+// ===================== نظام الصوت =====================
+const rateRange = document.getElementById('rateRange');
+const rateBadge = document.getElementById('rateBadge');
+const fabPause = document.getElementById('fabPause');
+
+const savedRate = localStorage.getItem('speechRate') || 1;
+rateRange.value = savedRate;
+rateBadge.textContent = parseFloat(savedRate).toFixed(1)+'x';
+rateRange.addEventListener('input', () => {
+    const val = parseFloat(rateRange.value).toFixed(1);
+    rateBadge.textContent = val+'x';
+    localStorage.setItem('speechRate', val);
+});
+
+let voices = [];
+let voiceLoadAttempts = 0;
+const voiceSelectEl = document.getElementById('voiceSelect');
+const voiceNoteEl = document.getElementById('voiceNote');
+
+function loadVoices() {
+    voices = window.speechSynthesis.getVoices();
+    voiceLoadAttempts++;
+    populateVoiceSelect();
+}
+
+function pickBestVoice(list, langPrefix) {
+    if (!list.length) return null;
+    const normalizeLang = (lang) => (lang || '').replace('_', '-');
+    const isLangMatch = (voiceLang) => normalizeLang(voiceLang) === langPrefix || normalizeLang(voiceLang).startsWith(langPrefix + '-');
+    const candidates = list.filter(v => isLangMatch(v.lang));
+    if (!candidates.length) return null;
+    const scored = candidates.map(v => {
+        let score = 0;
+        if (v.localService) score += 2;
+        if (/Google|Natural|Neural|Online/i.test(v.name)) score += 3;
+        if (v.default) score += 1;
+        return { v, score };
+    }).sort((a, b) => b.score - a.score);
+    return scored[0].v;
+}
+
+function accentFlag(lang) {
+    const l = (lang || '').toLowerCase();
+    if (l.startsWith('en-us')) return '🇺🇸';
+    if (l.startsWith('en-gb')) return '🇬🇧';
+    if (l.startsWith('en-au')) return '🇦🇺';
+    if (l.startsWith('en-ca')) return '🇨🇦';
+    if (l.startsWith('en-in')) return '🇮🇳';
+    if (l.startsWith('en-ie')) return '🇮🇪';
+    if (l.startsWith('en-za')) return '🇿🇦';
+    return '🌐';
+}
+
+// نفرض فقط لكنتين: أمريكى وبريطانى. حتى لو المتصفح مش بيدي أصوات منفصلة لكل لكنة،
+// بنجبر utterance.lang على القيمة المطلوبة (en-US / en-GB) — ده هو اللي بيغيّر النطق فعليًا
+// على أغلب محركات النطق (خصوصًا على الموبايل)، مش اختيار "voice" بس.
+const FORCED_ACCENTS = [
+    { code: 'en-US', label: '🇺🇸 American' },
+    { code: 'en-GB', label: '🇬🇧 British' }
+];
+
+function populateVoiceSelect() {
+    const allVoices = voices;
+    if (!allVoices.length) {
+        voiceNoteEl.textContent = voiceLoadAttempts > 4 ? '⚠️ لم يتم العثور على أصوات. جرّب تحديث الصفحة.' : '⏳ جاري تحميل الأصوات...';
+    }
+    const savedCode = localStorage.getItem('ttsLangCode') || 'en-US';
+    voiceSelectEl.innerHTML = FORCED_ACCENTS.map(a => `<option value="${a.code}">${a.label}</option>`).join('');
+    voiceSelectEl.value = savedCode;
+
+    // نوضّح للمستخدم هل فيه صوت مخصص فعليًا لكل لكنة على جهازه أم لأ (معلومة فقط، مش بتمنع التبديل)
+    if (allVoices.length) {
+        const usV = pickBestVoice(allVoices, 'en-US');
+        const gbV = pickBestVoice(allVoices, 'en-GB');
+        if (usV && gbV && usV.voiceURI === gbV.voiceURI) {
+            voiceNoteEl.textContent = 'ℹ️ الجهاز فيه صوت واحد مُثبَّت، وبيتغيّر النطق حسب اللكنة المختارة قدر الإمكان.';
+        } else {
+            voiceNoteEl.textContent = '';
+        }
+    }
+}
+voiceSelectEl.addEventListener('change', function() {
+    localStorage.setItem('ttsLangCode', this.value);
+});
+
+function getSelectedVoice() {
+    const code = localStorage.getItem('ttsLangCode') || 'en-US';
+    return pickBestVoice(voices, code) || voices.find(vv => (vv.lang || '').toLowerCase().startsWith('en')) || null;
+}
+function getSelectedLangCode() {
+    return localStorage.getItem('ttsLangCode') || 'en-US';
+}
+
+window._q = []; window._qi = 0;
+window._currentUtterance = null;
+let currentHighlightedId = null;
+
+function clearAllHighlights() {
+    document.querySelectorAll('.active-sent').forEach(e => e.classList.remove('active-sent'));
+    currentHighlightedId = null;
+}
+function showFab(show) { if (show) fabPause.classList.add('show'); else fabPause.classList.remove('show'); }
+function updateFabIcon() {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) fabPause.innerHTML = '⏸️';
+    else if (window.speechSynthesis.paused) fabPause.innerHTML = '▶️';
+    else fabPause.innerHTML = '⏯️';
+}
+
+function playQueue() {
+    if (window._qi >= window._q.length) {
+        clearAllHighlights(); showFab(false); return;
+    }
+    const item = window._q[window._qi];
+    if (currentHighlightedId !== item.id) {
+        clearAllHighlights();
+        const el = document.getElementById(item.id);
+        if (el) {
+            el.classList.add('active-sent');
+            el.scrollIntoView({behavior:'smooth',block:'nearest'});
+            currentHighlightedId = item.id;
+        }
+    }
+    const u = new SpeechSynthesisUtterance(item.text);
+    u.rate = parseFloat(rateRange.value) || 1;
+    // نحدد اللكنة عن طريق u.lang دايمًا (مش بس اختيار voice) — ده اللي بيغيّر النطق فعليًا
+    // على أغلب محركات النطق فى الموبايل حتى لو مفيش صوت منفصل مسجل لكل لكنة
+    u.lang = getSelectedLangCode();
+    const voice = getSelectedVoice();
+    if (voice) u.voice = voice;
+
+    u.onstart = () => { showFab(true); updateFabIcon(); };
+    u.onend = function() { window._qi++; playQueue(); };
+    u.onerror = function(e) { console.warn('Speech error', e); window._qi++; playQueue(); };
+    u.onpause = () => updateFabIcon();
+    u.onresume = () => updateFabIcon();
+
+    window._currentUtterance = u;
+    window.speechSynthesis.speak(u);
+}
+
+function splitAndQueue(textParts, id) {
+    textParts.forEach((p) => { const trimmed = p.trim(); if (trimmed) window._q.push({id: id, text: trimmed}); });
+}
+
+function playSection(secId) {
+    stopAll();
+    const sec = document.getElementById(secId);
+    const els = [...sec.querySelectorAll('[data-speak]')];
+    els.forEach(el => {
+        const text = el.dataset.speak;
+        const parts = text.split('|').map(p => p.trim());
+        splitAndQueue(parts, el.id);
+    });
+    window._qi = 0;
+    playQueue();
+}
+
+function playAll() {
+    stopAll();
+    const els = [...document.querySelectorAll('[data-speak]')];
+    els.forEach(el => {
+        const text = el.dataset.speak;
+        const parts = text.split('|').map(p => p.trim());
+        splitAndQueue(parts, el.id);
+    });
+    window._qi = 0;
+    playQueue();
+}
+
+function playOne(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const text = el.dataset.speak;
+    stopAll();
+    const parts = text.split('|').map(p => p.trim());
+    splitAndQueue(parts, id);
+    window._qi = 0;
+    playQueue();
+}
+
+function pauseAll() {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+        window.speechSynthesis.pause(); updateFabIcon();
+    } else if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume(); updateFabIcon();
+    }
+}
+
+function stopAll() {
+    window._q = []; window._qi = 0;
+    clearAllHighlights();
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    showFab(false);
+}
+
+function toggleFabPause() { pauseAll(); }
+
+// ===================== الثيمات =====================
+function setTheme(theme, btn) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    localStorage.setItem('theme', theme);
+}
+const savedTheme = localStorage.getItem('theme') || 'teal';
+document.documentElement.setAttribute('data-theme', savedTheme);
+document.querySelectorAll('.theme-btn').forEach(b => {
+    if (b.classList.contains('t-'+savedTheme)) b.classList.add('active');
+});
+
+// ===================== بدء التشغيل =====================
+buildAllSections();
+loadVoices();
+setTimeout(loadVoices, 300);
+setTimeout(loadVoices, 1000);
+setTimeout(loadVoices, 2500);
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadVoices;
+</script>
+</body>
+</html>

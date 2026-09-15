@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Sec 2 - Unit 2: Screen Time and Young People (Lesson 1)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --A: #1e3a8a; --A2: #1e40af; --blue4: #dbeafe; --blue5: #f8fafc;
+            --text: #1E293B; --text2: #64748B; --card: #ffffff; --border: #e2e8f0;
+            --bg: #f1f5f9; --radius: 12px; --stop: #ef4444; --pause: #94a3b8;
+            --highlight-bg: rgba(30, 58, 138, 0.08);
+            --word-highlight: #fde047;
+            --fab-bg: #1e293b; --fab-text: #ffffff;
+        }
+        [data-theme="ocean"] {
+            --A: #0e7490; --A2: #0891b2; --blue4: #cffafe; --blue5: #f0fdfa;
+            --text: #1E293B; --text2: #64748B; --card: #ffffff; --border: #e2e8f0;
+            --bg: #f1f5f9; --stop: #ef4444; --highlight-bg: rgba(14, 116, 144, 0.08);
+            --fab-bg: #0e7490; --fab-text: #ffffff;
+        }
+        [data-theme="slate"] {
+            --A: #334155; --A2: #475569; --blue4: #e2e8f0; --blue5: #f8fafc;
+            --text: #0f172a; --text2: #475569; --card: #ffffff; --border: #cbd5e1;
+            --bg: #f1f5f9; --stop: #ef4444; --highlight-bg: rgba(51, 65, 85, 0.1);
+            --fab-bg: #1e293b; --fab-text: #ffffff;
+        }
+        [data-theme="dark"] {
+            --A: #2dd4bf; --A2: #0d9488; --blue4: #134e4a; --blue5: #0f172a;
+            --text: #f8fafc; --text2: #94a3b8; --card: #1e293b; --border: #334155;
+            --bg: #0f172a; --stop: #f87171; --pause: #64748b; --highlight-bg: rgba(45, 212, 191, 0.15);
+            --word-highlight: #facc15; --fab-bg: #facc15; --fab-text: #1e293b;
+        }
+        *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+        body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:100px;overflow-x:hidden;transition:background .3s,color .3s;}
+        .hero{color:#fff;text-align:center;padding:32px 20px 26px;margin-bottom:24px;background:linear-gradient(135deg, #0f172a, var(--A2)); box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+        .hero .emoji-big{font-size:3rem;display:block;margin-bottom:8px;}
+        .hero h1{font-size:1.6rem;font-weight:900;letter-spacing:0.5px;}
+        .hero .sub{font-size:.95rem;opacity:.85;margin-top:5px;font-family:'Cairo',sans-serif;font-weight:600;}
+        .toolbar{max-width:840px;margin:0 auto 24px;padding:0 16px;text-align:center;}
+        .toolbar-inner{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px 20px;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+        .toolbar label{font-weight:800;color:var(--A);font-size:13px;}
+        input[type=range]{width:90px;accent-color:var(--A);}
+        .rate-badge{font-weight:900;font-size:13px;color:var(--A);min-width:34px;}
+        select{padding:6px 10px;border-radius:6px;border:1px solid var(--border);font-weight:600;background:var(--card);color:var(--text);}
+        .theme-switcher{display:flex;align-items:center;gap:6px;margin-left:auto;}
+        .theme-btn{-webkit-appearance:none;appearance:none;border:2px solid transparent;border-radius:8px;padding:4px 12px;font-size:11px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:#fff;letter-spacing:.5px;transition:all .2s;}
+        .theme-btn.t-teal{background:linear-gradient(135deg,#0f766e,#2dd4bf);}
+        .theme-btn.t-ocean{background:linear-gradient(135deg,#0e7490,#06b6d4);}
+        .theme-btn.t-slate{background:linear-gradient(135deg,#334155,#94a3b8);}
+        .theme-btn.t-dark{background:linear-gradient(135deg,#1e293b,#475569);color:#e2e8f0;}
+        .theme-btn.active{border-color:#fff;box-shadow:0 0 0 2px currentColor;transform:scale(1.06);}
+        .container{max-width:840px;margin:auto;padding:0 16px;}
+        .section-block{background:var(--card);border-radius:var(--radius);margin-bottom:22px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid var(--border);}
+        .sec-title{color:#fff;font-size:.8rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:12px 20px;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--A),var(--A2));}
+        .sec-title::before{content:"";display:inline-block;width:6px;height:6px;background:rgba(255,255,255,.5);border-radius:50%;flex-shrink:0;}
+        .sec-body{padding:18px;}
+        .sec-play-bar{display:flex;gap:7px;margin-bottom:18px;flex-wrap:wrap;align-items:center;}
+        .big-btn{-webkit-appearance:none;appearance:none;border:none;border-radius:6px;padding:8px 16px;font-size:13px;font-weight:800;cursor:pointer;color:#fff;display:inline-flex;align-items:center;gap:5px;transition:transform .12s;font-family:'Nunito',sans-serif;}
+        .big-btn:active{transform:scale(.95);}
+        .big-btn.pause-btn{background:var(--pause);}
+        .big-btn.stop-btn{background:var(--stop);}
+        .big-btn.play-all-btn{background:linear-gradient(135deg, var(--A), var(--A2)); margin-left: 12px;}
+        .info-box{background:var(--blue5);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px;}
+        .info-title{display:flex;align-items:center;gap:6px;font-weight:900;font-size:.78rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--A2);}
+        .vocab{display:flex;flex-wrap:wrap;gap:8px;}
+        .pill{padding:10px 14px;border-radius:6px;background:var(--card);border:1px solid var(--blue4);text-align:center;cursor:pointer;flex:1 1 auto;min-width:80px;transition:all .15s;}
+        .pill:active{transform:scale(.96);}
+        .pill .en{font-weight:800;font-size:14px;display:block;color:var(--A);}
+        .pill .tr{font-size:11px;color:var(--text2);font-family:'Cairo',sans-serif;font-weight:600;}
+        .story-card{background:var(--blue5);border:1px solid var(--border);border-left:4px solid var(--A);border-radius:8px;padding:18px;margin-bottom:12px;}
+        .sentence{display:block;cursor:pointer;border-radius:6px;padding:10px 12px;margin-bottom:12px;transition:background .2s;line-height:1.8;font-size:17px;font-weight:600;color:var(--text);background:rgba(255,255,255,0.4);}
+        [data-theme="dark"] .sentence { background: rgba(255,255,255,0.05); }
+        .sentence .word{transition:background 0.15s;border-radius:3px;padding:0 1px;}
+        .sentence .word.highlight{background:var(--word-highlight);}
+        .sentence.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .sentence .speaker-label{display:inline-block;font-weight:900;color:var(--A2);margin-right:10px;background:var(--blue4);padding:2px 10px;border-radius:20px;font-size:0.9rem;}
+        .pill.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .rule-item.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .story-ar{font-family:'Cairo',sans-serif;color:var(--text2);font-size:14px;text-align:right;direction:rtl;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-weight:600;line-height:2;}
+        .story-title{font-family:'Cairo',sans-serif;font-weight:800;color:var(--A2);font-size:15px;text-align:right;direction:rtl;margin-bottom:10px;}
+        .rules-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;}
+        .rule-item{display:flex;align-items:flex-start;gap:12px;background:var(--blue5);border:1px solid var(--border);border-radius:6px;padding:12px 14px;cursor:pointer;transition:all .2s;}
+        .rule-item .rule-text{flex:1;}
+        .rule-item .rule-text .en{font-size:15px;font-weight:700;color:var(--text);}
+        .rule-item .rule-text .ar{font-family:'Cairo',sans-serif;font-size:13px;color:var(--text2);text-align:right;direction:rtl;font-weight:600;margin-top:4px;}
+        .qbox{background:var(--blue5);border:1px dashed var(--border);border-radius:8px;padding:14px 16px;margin-top:6px;}
+        .qbox .qitem{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;}
+        .qbox .qitem:last-child{margin-bottom:0;}
+        footer{text-align:center;margin-top:14px;padding:20px;color:var(--text2);font-size:12px;}
+        footer strong{color:var(--A);}
+        .voice-note{font-size:11px;color:#b45309;margin-top:4px;display:block;}
+        .fab-pause{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:var(--fab-bg);color:var(--fab-text);border:none;box-shadow:0 4px 16px rgba(0,0,0,0.2);font-size:24px;display:none;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s,opacity 0.2s;}
+        .fab-pause:active{transform:scale(.9);}
+        .fab-pause.show{display:flex;}
+    </style>
+</head>
+<body>
+
+<div class="hero"><span class="emoji-big">🖥️</span><h1>Unit 2: Screen Time and Young People</h1><p class="sub">Sec 2 - Lesson 1 (2.1)</p></div>
+
+<div class="toolbar"><div class="toolbar-inner">
+    <label for="rateRange">Speed</label><input id="rateRange" type="range" min="0.5" max="1.2" step="0.1" value="1"/>
+    <span class="rate-badge" id="rateBadge">1.0x</span>
+    <select id="voiceSelect" style="max-width:180px;"></select>
+    <span id="voiceNote" class="voice-note"></span>
+    <div class="theme-switcher">
+        <button class="theme-btn t-teal" onclick="setTheme('teal',this)">Teal</button>
+        <button class="theme-btn t-ocean" onclick="setTheme('ocean',this)">Ocean</button>
+        <button class="theme-btn t-slate" onclick="setTheme('slate',this)">Slate</button>
+        <button class="theme-btn t-dark" onclick="setTheme('dark',this)">Dark</button>
+    </div>
+    <button class="big-btn play-all-btn" onclick="playAll()">🔊 Play All</button>
+</div></div>
+
+<main class="container">
+    <div id="sections-container"></div>
+</main>
+
+<button class="fab-pause" id="fabPause" onclick="toggleFabPause()" title="إيقاف / استئناف">⏯️</button>
+
+<script>
+function cleanForSpeech(text) {
+    let result = text;
+    result = result.replace(/\([^)]*\)/g, ' ');
+    result = result.replace(/[→]/g, ' ');
+    result = result.replace(/'/g, '');
+    result = result.replace(/\s+/g, ' ').trim();
+    return result;
+}
+
+// ===================== البيانات =====================
+
+const keyVocab = [
+    ["addictive (adj)", "مُسبُبُ الإدمان / ميال إلى الإدمان"],
+    ["anxiety (n)", "قلق"],
+    ["boundaries (n)", "حدود / حواجز"],
+    ["fulfilling (adj)", "مُرضٍ / مُجزٍ"],
+    ["interfere (v)(d)", "يتدخل / يتداخل"],
+    ["mindful (adj)", "واعٍ / مُتنبّه"],
+    ["replicate (v)(d)", "يقلد / يحاكى"],
+    ["withdraw (v)", "ينسحب / يسحب"]
+];
+
+const mainVocab = [
+    ["active (adj)", "نشط / فعال"],
+    ["appearance (n)", "مظهر"],
+    ["associated (adj)", "مرتبط"],
+    ["average (n)", "متوسط / معدل"],
+    ["comparison (n)", "مقارنة"],
+    ["concentration (n)", "تركيز"],
+    ["concern (n)", "موضع اهتمام / قلق"],
+    ["constant (adj)", "ثابت / دائم"],
+    ["coordination (n)", "تنسيق / توافق"],
+    ["creativity (n)", "إبداع"],
+    ["debate (n)", "جدال / مناظرة"],
+    ["essential (adj)", "أساسى / جوهرى"],
+    ["expressive (adj)", "تعبيرى"],
+    ["gaming disorder (n)", "اضطراب الألعاب (الإلكترونية)"],
+    ["interactive (adj)", "تفاعلى"],
+    ["leisure (n)", "وقت فراغ"],
+    ["loneliness (n)", "الشعور بالوحدة / الوحدة"],
+    ["manage (v)(d)", "يدير / يتحكم فى"],
+    ["mental (adj)", "عقلى / ذهنى"],
+    ["mood (n)", "مزاج / حالة نفسية"],
+    ["negatively (adv)", "بشكل سلبى"],
+    ["navigate (d)", "يجتاز / ينتقل"],
+    ["overall (adj)(adv)", "إجمالى / شامل / بشكل عام"],
+    ["passion (n)", "عاطفة / شغف"],
+    ["passive (adj)", "سلبى"],
+    ["period (n)", "فترة / مدة"],
+    ["produce (v)(d)", "ينتج"],
+    ["real-life (adj)", "فى الحياة الواقعية"],
+    ["restrict (v)(ed)", "يقيد / يحدّ من"],
+    ["restore (v)(d)", "يستعيد"],
+    ["satisfied (adj)", "راضٍ / قانع"],
+    ["screen time (n)", "وقت الشاشة"],
+    ["screen-saturated (adj)", "مشبع بالشاشة / مملوء بالشاشة"],
+    ["self-esteem (n)", "تقدير الذات"],
+    ["self-expression (n)", "التعبير عن الذات"],
+    ["self-image (n)", "صورة الذات / النظرة إلى الذات"],
+    ["sleep quality (n)", "جودة النوم"],
+    ["social (adj)", "اجتماعى"],
+    ["socialize (v)(d)", "يتفاعل اجتماعيًا"],
+    ["spark (n)(v)(ed)", "شرارة / يثير"],
+    ["spectrum (n)", "نطاق"],
+    ["stimulation (n)", "تحفيز"],
+    ["streaming (n)", "بث مباشر"],
+    ["video gaming (n)", "ألعاب الفيديو"],
+    ["worth (n)", "قيمة / أهمية"]
+];
+
+const idiomsData = [
+    ["(be) in control of", "يتحكّم فى"],
+    ["develop a wrong sense of", "يطوّر شعورًا خاطئًا تجاه"],
+    ["do well in", "يحسن الأداء فى"],
+    ["find a healthy balance", "يحصل على توازن صحى"],
+    ["give the best chance", "يمنح أفضل فرصة"],
+    ["make it easy for", "يسهّل الأمر على"],
+    ["on average", "فى المتوسط"],
+    ["screen-free times", "أوقات الابتعاد عن الشاشات"],
+    ["set clear boundaries", "يضع حدودًا واضحة"],
+    ["take breaks from", "يأخذ فترات راحة من"]
+];
+
+const prepositionsData = [
+    ["beneficial for", "مفيد لـ"],
+    ["combined with", "مرتبط / متصل بـ"],
+    ["concerned about", "قلق / مهموم بشأن"],
+    ["count as", "يُعتبر كـ"],
+    ["harmful to", "ضار لـ"],
+    ["interfere with", "يؤثر على"],
+    ["lead ... to", "يقود ... إلى"],
+    ["mindful of", "منتبه لـ"],
+    ["point out", "ينبه إلى"],
+    ["stop ... from", "يمنع ... من"],
+    ["worry about", "يقلق بشأن"]
+];
+
+const defsData = [
+    {word: "addictive", ar: "مُسبُبُ الإدمان", def: "causing a very strong need or desire to keep doing or using something"},
+    {word: "anxiety", ar: "قَلَق", def: "an uncomfortable feeling of nervousness or worry about something that is happening"},
+    {word: "boundaries", ar: "حدود", def: "limits or rules that show what is acceptable or allowed"},
+    {word: "fulfilling", ar: "مُرضٍ", def: "making you feel happy, satisfied, and complete"},
+    {word: "interfere", ar: "يَتَدَخَّل (يعرقل - يسبب مشكلة)", def: "to affect a situation in a negative way or stop something from working properly"},
+    {word: "mindful", ar: "واعٍ", def: "paying conscious attention to the present moment"},
+    {word: "replicate", ar: "يُكرر", def: "to copy something exactly or produce something similar"},
+    {word: "withdraw", ar: "ينسحب / يسحب", def: "to take or move out or back, or to remove"}
+];
+
+const synData = [
+    {word: "anxiety", syn: "worry, nervousness"},
+    {word: "associated", syn: "connected, linked, related"},
+    {word: "concern", syn: "worry, care, interest"},
+    {word: "fulfilling", syn: "satisfying, rewarding"},
+    {word: "leisure", syn: "free time, relaxation"},
+    {word: "mindful", syn: "aware, attentive"},
+    {word: "passive", syn: "inactive, submissive"},
+    {word: "withdraw", syn: "pull back, retreat"}
+];
+
+const antData = [
+    {word: "anxiety", ant: "calm, peace, relaxation"},
+    {word: "associated", ant: "separate, disconnected"},
+    {word: "concern", ant: "indifference, disregard"},
+    {word: "fulfilling", ant: "disappointing, unsatisfying"},
+    {word: "leisure", ant: "work, labor"},
+    {word: "mindful", ant: "unaware, distracted"},
+    {word: "passive", ant: "active, energetic"},
+    {word: "withdraw", ant: "advance, join"}
+];
+
+const derivativesData = [
+    {word: "associate (v)", forms: ["association (n)", "associated / associative (adj)"], ar: "يربط / ارتباط / مرتبط ، ترابطى"},
+    {word: "compare (v)", forms: ["comparison (n)", "comparative (adj)"], ar: "يقارن / مقارنة / مُقارن"},
+    {word: "coordinate (v)", forms: ["coordination / coordinator (n)", "coordinated / coordinative (adj)"], ar: "ينسق / تنسيق ، مُنَسِّق / منسق ، تنسيقى"},
+    {word: "interact (v)", forms: ["interaction (n)", "interactive (adj)"], ar: "يتفاعل / تفاعل / تفاعلى"},
+    {word: "interfere (v)", forms: ["interference (n)", "interfering (adj)"], ar: "يتدخل / تداخل / متداخل"},
+    {word: "produce (v)", forms: ["product / production / producer (n)", "productive (adj)"], ar: "ينتج / منتج ، إنتاج ، منتج / منتج"},
+    {word: "replicate (v)", forms: ["replication / replica (n)", "replicable / replicative (adj)"], ar: "يحاكى ، يقلد / تكرار ، نسخ ، نسخة طبق الأصل / قابل للتكرار"},
+    {word: "stimulate (v)", forms: ["stimulation / stimulant (n)", "stimulated / stimulating (adj)"], ar: "يحفز / تحفيز ، منشط / مُحفَّز ، مُحفِّز"},
+    {word: "withdraw (v)", forms: ["withdrawal (n)", "withdrawn (adj)"], ar: "ينسحب / انسحاب / منسحب"}
+];
+
+const confusionData = [
+    {word: "boundary", ar: "حد (خط أو علامة تفصل بين منطقتين أو ملكيتين) / حد (قاعدة فى علاقة بين أشخاص أو أشياء)", ex: "The fence marks the boundary between the two houses. It's important to set clear boundaries between your work life and your personal life."},
+    {word: "border", ar: "حد (الخط الفاصل الرسمى والدولى بين دولتين أو كيانين سياسيين)", ex: "They crossed the border into Canada at dawn."},
+    {word: "limit", ar: "حد / أقصى درجة لا يمكن أو لا يُسمح بتجاوزها", ex: "There's a limit of two bags per passenger on this flight."},
+    {word: "interfere", ar: "يَتَدَخَّل (يعرقل / يسبب مشكلة)", ex: "I never interfere in matters that don't concern me. The loud music interfered with my concentration. Don't interfere between the two brothers, let them resolve it themselves."},
+    {word: "intrude", ar: "يَقتَحِم / يَتَطَفَّل", ex: "A journalist tried to intrude into the celebrity's private home. I hate it when people intrude on my privacy by reading my messages."},
+    {word: "average", ar: "مُعَدَّل (رياضيًا / إحصائيًا) - مُتَوَسِّط (نموذجى ، عادى ، ليس مرتفعًا ولا منخفضًا) - خَطٌّ وَسَطِى (فى القانون أو العمل)", ex: "The average speed of private cars on the highway was 120 km/h. The food in this restaurant was average, nothing to write home about. On average, people work 40 hours per week."}
+];
+
+const listeningVocab = [
+    ["anxiety", "قلق"],
+    ["addictive", "مُسبُبُ الإدمان"],
+    ["interfere", "يتدخل"],
+    ["replicate", "يتكرر"],
+    ["boundaries", "حدود"],
+    ["fulfilling", "مُرضٍ"]
+];
+
+const readingTitle = { en: "", ar: "" };
+const readingTextL1 = [];
+const readingQuestions = [];
+
+const listeningTitle = "Screen Time and Young People (Research Report)";
+
+const listeningTextL2 = [
+    {en: "Social Media and Self-Image", ar: "وسائل التواصل الاجتماعى وصورة الذات"},
+    {en: "Teenagers today spend an average of seven hours a day looking at screens, and that does not include time spent on screens for school.", ar: "يقضى المراهقون اليوم فى المتوسط سبع ساعات يوميًا فى النظر إلى الشاشات، ولا يشمل ذلك الوقت المُستَغرَق فى استخدام الشاشات لأغراض دراسية."},
+    {en: "Researchers and parents alike are increasingly concerned about what all this screen time is doing to developing minds.", ar: "أصبح الباحثون والآباء على حدٍ سواء أكثر قلقًا بشأن تأثير كل هذا الوقت أمام الشاشة على العقول النامية."},
+    {en: "One of the biggest concerns is the effect of social media on teenagers' self-esteem.", ar: "ومن أكبر مصادر القلق تأثير وسائل التواصل الاجتماعى على تقدير المراهقين لذاتهم."},
+    {en: "Platforms like Instagram and TikTok present carefully chosen images of people's lives, making it easy for young users to compare themselves negatively to others.", ar: "تعرض منصات مثل إنستجرام وتيك توك صورًا مختارة بعناية من حياة الناس، مما يسهّل على المستخدمين الصغار مقارنة أنفسهم سلبًا بالآخرين."},
+    {en: "Studies suggest that heavy social media use is linked to increased feelings of anxiety, loneliness, and depression, particularly among teenagers.", ar: "تشير الدراسات إلى أن الاستخدام المكثف لوسائل التواصل الاجتماعى مرتبط بزيادة مشاعر القلق والشعور بالوحدة والاكتئاب، خاصة بين المراهقين."},
+    {en: "This constant comparison can lead young people to develop a wrong sense of their own worth and appearance.", ar: "يمكن أن تؤدى هذه المقارنة المستمرة إلى تكوين الشباب لشعور خاطئ تجاه قيمتهم ومظهرهم الخاص."},
+    {en: "Experts note that the pressure to gain \"likes\" and followers can make teenagers feel they are never good enough, which may cause them to withdraw from real-world social activities.", ar: "يشير الخبراء إلى أن الضغط من أجل الحصول على \"إعجابات\" ومتابعين قد يجعل المراهقين يشعرون بأنهم غير كافين أبدًا، مما قد يدفعهم للانسحاب من الأنشطة الاجتماعية فى الواقع."},
+    {en: "Gaming: Passion or Addiction?", ar: "الألعاب الإلكترونية: شغف أم إدمان؟"},
+    {en: "Video gaming is another form of screen time that sparks debate.", ar: "ألعاب الفيديو هى شكل آخر من أشكال وقت الشاشة الذى يثير الجدل."},
+    {en: "Many experts point out that gaming can develop problem-solving skills, hand-eye coordination, and teamwork.", ar: "يشير كثير من الخبراء إلى أن الألعاب يمكن أن تطوّر مهارات حل المشكلات، والتنسيق بين اليد والعين، والعمل الجماعى."},
+    {en: "However, when gaming becomes addictive, when a person cannot stop even when they want to, it can interfere with sleep, schoolwork, and real-world relationships.", ar: "لكن عندما تصبح الألعاب مسببة للإدمان، أى عندما لا يستطيع الشخص التوقف حتى لو أراد ذلك، يمكن أن تتداخل مع النوم والواجبات الدراسية والعلاقات فى الواقع."},
+    {en: "The World Health Organization officially recognized \"gaming disorder\" as a mental health condition in 2019.", ar: "اعترفت منظمة الصحة العالمية رسميًا بـ\"اضطراب الألعاب الإلكترونية\" كحالة نفسية عام 2019."},
+    {en: "The Benefits of Stepping Away", ar: "فوائد الابتعاد عن الشاشة"},
+    {en: "Research consistently shows that taking regular breaks from screens can improve mood, concentration, and sleep quality.", ar: "تُظهر الأبحاث باستمرار أن أخذ فترات راحة منتظمة من الشاشات يمكن أن يحسّن المزاج والتركيز وجودة النوم."},
+    {en: "Outdoor activities, face-to-face socializing, and creative hobbies all provide benefits that screens simply cannot replicate.", ar: "توفر الأنشطة الخارجية والتواصل الاجتماعى وجهًا لوجه والهوايات الإبداعية فوائد لا يمكن للشاشات ببساطة أن تحاكيها."},
+    {en: "Studies have found that even short periods of time spent in nature or taking part in physical activity can significantly reduce feelings of stress and restore mental focus.", ar: "وجدت الدراسات أن حتى الفترات القصيرة من الوقت التى تُقضى فى الطبيعة أو ممارسة النشاط البدنى يمكن أن تقلل بشكل كبير من مشاعر التوتر وتستعيد التركيز الذهنى."},
+    {en: "Finding Balance", ar: "إيجاد التوازن"},
+    {en: "The key message from researchers is not that screens are entirely harmful, as they are an essential part of modern life, but that balance matters.", ar: "الرسالة الأساسية من الباحثين ليست أن الشاشات ضارة بالكامل، فهى جزء أساسى من الحياة الحديثة، بل أن التوازن هو المهم."},
+    {en: "Young people who set clear boundaries around their screen use, such as avoiding phones an hour before sleep or choosing screen-free times during meals, report feeling more in control of their habits and less anxious overall.", ar: "يُبلّغ الشباب الذين يضعون حدودًا واضحة حول استخدامهم للشاشة، مثل تجنب الهواتف قبل ساعة من النوم أو اختيار أوقات خالية من الشاشات أثناء الوجبات، بشعورهم بمزيد من التحكم فى عاداتهم وقلق أقل بشكل عام."},
+    {en: "Mindful screen use, combined with regular physical activity and offline social connections, gives young people the best chance of a healthy, fulfilling leisure life.", ar: "الاستخدام الواعى للشاشة، إلى جانب النشاط البدنى المنتظم والتواصل الاجتماعى بعيدًا عن الإنترنت، يمنح الشباب أفضل فرصة لحياة فراغ صحية ومُرضية."}
+];
+
+// ===================== بناء الواجهة =====================
+function makeWordSpans(text) {
+    const words = text.trim().split(/\s+/);
+    return words.map((w, idx) => `<span class="word" data-word-index="${idx}">${w}</span>`).join(' ');
+}
+
+function buildAllSections() {
+    const container = document.getElementById('sections-container');
+
+    function makePills(wordsArray, sectionId) {
+        return wordsArray.map((w, i) => {
+            const id = `${sectionId}_p${i}`;
+            const wordHtml = makeWordSpans(w[0]);
+            const speakText = cleanForSpeech(w[0]);
+            return `<div class="pill" id="${id}" data-speak="${speakText}" onclick="playOne('${id}')"><span class="en">${wordHtml}</span><span class="tr">${w[1]}</span></div>`;
+        }).join('');
+    }
+
+    function makeRuleItem(icon, sectionId, index, speakText, arText, displayText) {
+        const id = `${sectionId}_${index}`;
+        const wordHtml = makeWordSpans(displayText || speakText);
+        const finalSpeak = cleanForSpeech(speakText);
+        return `<div class="rule-item" id="${id}" data-speak="${finalSpeak}" onclick="playOne('${id}')">
+            <span class="rule-icon">${icon}</span>
+            <div class="rule-text">
+                <span class="en">${wordHtml}</span>
+                <span class="ar">${arText || ''}</span>
+            </div>
+        </div>`;
+    }
+
+    function playBar(sectionId) {
+        return `<div class="sec-play-bar">
+            <button class="big-btn" style="background:linear-gradient(135deg,var(--A),var(--A2))" onclick="playSection('${sectionId}')">▶ Play</button>
+            <button class="big-btn pause-btn" onclick="pauseAll()">⏸ Pause</button>
+            <button class="big-btn stop-btn" onclick="stopAll()">⏹ Stop</button>
+        </div>`;
+    }
+
+    function makeStorySection(title, titleAr, storyData) {
+        const speakerEmojis = {"Sarah":"👩‍⚕️","Operator":"🎙️","Caller":"📞"};
+        const knownSpeakers = new Set(Object.keys(speakerEmojis));
+
+        return `<div class="story-card">
+            <div style="font-weight:bold;color:var(--A);margin-bottom:6px;">${title}</div>
+            ${titleAr ? `<div class="story-title">${titleAr}</div>` : ''}
+            ${storyData.map((s,i) => {
+                const id = `secStory_${title.replace(/\s/g,'')}_${i}`;
+                let enText = s.en;
+                let speaker = '';
+                let dialogueText = enText;
+                const colonIndex = enText.indexOf(': ');
+                if (colonIndex > 0) {
+                    const candidate = enText.substring(0, colonIndex);
+                    if (knownSpeakers.has(candidate)) {
+                        speaker = candidate;
+                        dialogueText = enText.substring(colonIndex + 2);
+                    }
+                }
+                const emoji = speakerEmojis[speaker] || '📖';
+                const wordHtml = makeWordSpans(dialogueText);
+                let speakerHtml = '';
+                if (speaker) {
+                    speakerHtml = `<span class="speaker-label">${emoji} ${speaker}</span> `;
+                }
+                return `<div class="sentence" id="${id}" data-speak="${s.en}" onclick="playOne('${id}')">
+                    ${speakerHtml} ${wordHtml}
+                </div> `;
+            }).join('')}
+            <div class="story-ar">${storyData.map(s => s.ar).join(' ')}</div>
+        </div>`;
+    }
+
+    const sections = [];
+
+    // 1. Key Vocabulary
+    if (keyVocab && keyVocab.length > 0) {
+        sections.push({ title:"💊 Key Vocabulary", id:"secKeyVocab", content: `<div class="info-box"><div class="info-title">Key Vocabulary (2.1)</div><div class="vocab">${makePills(keyVocab, "secKeyVocab")}</div></div>` });
+    }
+
+    // 2. Main Vocabulary
+    if (mainVocab && mainVocab.length > 0) {
+        sections.push({ title:"📚 Main Vocabulary", id:"secMainVocab", content: `<div class="info-box"><div class="info-title">Main Vocabulary (2.1)</div><div class="vocab">${makePills(mainVocab, "secMainVocab")}</div></div>` });
+    }
+
+    // 3. Phrases, Expressions & Idioms
+    if (idiomsData && idiomsData.length > 0) {
+        sections.push({ title:"💡 Phrases, Expressions & Idioms", id:"secIdioms", content: `<div class="rules-grid">${idiomsData.map((e,i) => makeRuleItem('✨', 'secIdioms', i, e[0], e[1], e[0])).join('')}</div>` });
+    }
+
+    // 4. Prepositions
+    if (prepositionsData && prepositionsData.length > 0) {
+        sections.push({ title:"🔗 Prepositions", id:"secPrepositions", content: `<div class="rules-grid">${prepositionsData.map((p,i) => makeRuleItem('🔗', 'secPrepositions', i, p[0], p[1], p[0])).join('')}</div>` });
+    }
+
+    // 5. Definitions
+    if (defsData && defsData.length > 0) {
+        sections.push({ title:"📝 Definitions", id:"secDefs", content: `<div class="rules-grid">${defsData.map((d,i) => {
+            const speakText = cleanForSpeech(d.word) + " | " + d.def;
+            const displayText = `${d.word} → ${d.def}`;
+            return makeRuleItem('📖', 'secDefs', i, speakText, d.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 6. Synonyms & Antonyms
+    if (synData && synData.length > 0) {
+        sections.push({ title:"🔄 Synonyms", id:"secSyn", content: `<div class="rules-grid">${synData.map((s,i) => makeRuleItem('↔️', 'secSyn', i, s.word + " | " + s.syn, s.syn, s.word)).join('')}</div>` });
+    }
+    if (antData && antData.length > 0) {
+        sections.push({ title:"🚫 Antonyms", id:"secAnt", content: `<div class="rules-grid">${antData.map((a,i) => makeRuleItem('🛑', 'secAnt', i, a.word + " | " + a.ant, a.ant, a.word)).join('')}</div>` });
+    }
+
+    // 7. Derivatives
+    if (derivativesData && derivativesData.length > 0) {
+        sections.push({ title:"🔨 Derivatives (Word Families)", id:"secDerivatives", content: `<div class="rules-grid">${derivativesData.map((d,i) => {
+            const formsStr = d.forms.join(" | ");
+            const speakText = `${d.word} | ${formsStr}`;
+            const displayText = `${d.word} → ${formsStr}`;
+            return makeRuleItem('🔨', 'secDerivatives', i, speakText, d.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 8. Focus on Vocabulary (Clear the Confusion)
+    if (confusionData && confusionData.length > 0) {
+        sections.push({ title:"🧐 Focus on Vocabulary", id:"secConfusion", content: `<div class="rules-grid">${confusionData.map((c,i) => {
+            const speakText = `${c.word} | ${c.ex}`;
+            const displayText = `${c.word} → ${c.ex}`;
+            return makeRuleItem('🧐', 'secConfusion', i, speakText, c.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 9. Reading Text
+    if (readingTextL1 && readingTextL1.length > 0) {
+        let readingContent = makeStorySection(readingTitle.en, readingTitle.ar, readingTextL1);
+        if (readingQuestions && readingQuestions.length > 0) {
+            readingContent += `<div class="qbox"><div class="info-title">JRE (Justify – Reason – Evidence)</div>${readingQuestions.map(q => `<div class="qitem">${q}</div>`).join('')}</div>`;
+        }
+        sections.push({ title:"📖 Reading Text (Social Media Post for Analysis)", id:"secReadL1", content: readingContent });
+    }
+
+    // 10. Listening Text
+    if (listeningTextL2 && listeningTextL2.length > 0) {
+        let listeningContent = '';
+        if (listeningVocab && listeningVocab.length > 0) {
+            listeningContent += `<div class="info-box"><div class="info-title">Listening Glossary</div><div class="vocab">${makePills(listeningVocab, "secListenVocab")}</div></div>`;
+        }
+        listeningContent += makeStorySection(listeningTitle, '', listeningTextL2);
+        sections.push({ title:"🎧 Listening Text (Screen Time and Young People)", id:"secListenL2", content: listeningContent });
+    }
+
+    let html = '';
+    sections.forEach(sec => {
+        html += `<div class="section-block" id="${sec.id}">
+            <div class="sec-title">${sec.title}</div>
+            <div class="sec-body">
+                ${playBar(sec.id)}
+                ${sec.content}
+            </div>
+        </div>`;
+    });
+    container.innerHTML = html;
+}
+
+// ===================== نظام الصوت =====================
+const rateRange = document.getElementById('rateRange');
+const rateBadge = document.getElementById('rateBadge');
+const fabPause = document.getElementById('fabPause');
+
+const savedRate = localStorage.getItem('speechRate') || 1;
+rateRange.value = savedRate;
+rateBadge.textContent = parseFloat(savedRate).toFixed(1)+'x';
+rateRange.addEventListener('input', () => {
+    const val = parseFloat(rateRange.value).toFixed(1);
+    rateBadge.textContent = val+'x';
+    localStorage.setItem('speechRate', val);
+});
+
+let voices = [];
+let voiceLoadAttempts = 0;
+const voiceSelectEl = document.getElementById('voiceSelect');
+const voiceNoteEl = document.getElementById('voiceNote');
+
+function loadVoices() {
+    voices = window.speechSynthesis.getVoices();
+    voiceLoadAttempts++;
+    populateVoiceSelect();
+}
+
+function pickBestVoice(list, langPrefix) {
+    if (!list.length) return null;
+    const normalizeLang = (lang) => (lang || '').replace('_', '-');
+    const isLangMatch = (voiceLang) => normalizeLang(voiceLang) === langPrefix || normalizeLang(voiceLang).startsWith(langPrefix + '-');
+    const candidates = list.filter(v => isLangMatch(v.lang));
+    if (!candidates.length) return null;
+    const scored = candidates.map(v => {
+        let score = 0;
+        if (v.localService) score += 2;
+        if (/Google|Natural|Neural|Online/i.test(v.name)) score += 3;
+        if (v.default) score += 1;
+        return { v, score };
+    }).sort((a, b) => b.score - a.score);
+    return scored[0].v;
+}
+
+function accentFlag(lang) {
+    const l = (lang || '').toLowerCase();
+    if (l.startsWith('en-us')) return '🇺🇸';
+    if (l.startsWith('en-gb')) return '🇬🇧';
+    if (l.startsWith('en-au')) return '🇦🇺';
+    if (l.startsWith('en-ca')) return '🇨🇦';
+    if (l.startsWith('en-in')) return '🇮🇳';
+    if (l.startsWith('en-ie')) return '🇮🇪';
+    if (l.startsWith('en-za')) return '🇿🇦';
+    return '🌐';
+}
+
+// نفرض فقط لكنتين: أمريكى وبريطانى. حتى لو المتصفح مش بيدي أصوات منفصلة لكل لكنة،
+// بنجبر utterance.lang على القيمة المطلوبة (en-US / en-GB) — ده هو اللي بيغيّر النطق فعليًا
+// على أغلب محركات النطق (خصوصًا على الموبايل)، مش اختيار "voice" بس.
+const FORCED_ACCENTS = [
+    { code: 'en-US', label: '🇺🇸 American' },
+    { code: 'en-GB', label: '🇬🇧 British' }
+];
+
+function populateVoiceSelect() {
+    const allVoices = voices;
+    if (!allVoices.length) {
+        voiceNoteEl.textContent = voiceLoadAttempts > 4 ? '⚠️ لم يتم العثور على أصوات. جرّب تحديث الصفحة.' : '⏳ جاري تحميل الأصوات...';
+    }
+    const savedCode = localStorage.getItem('ttsLangCode') || 'en-US';
+    voiceSelectEl.innerHTML = FORCED_ACCENTS.map(a => `<option value="${a.code}">${a.label}</option>`).join('');
+    voiceSelectEl.value = savedCode;
+
+    // نوضّح للمستخدم هل فيه صوت مخصص فعليًا لكل لكنة على جهازه أم لأ (معلومة فقط، مش بتمنع التبديل)
+    if (allVoices.length) {
+        const usV = pickBestVoice(allVoices, 'en-US');
+        const gbV = pickBestVoice(allVoices, 'en-GB');
+        if (usV && gbV && usV.voiceURI === gbV.voiceURI) {
+            voiceNoteEl.textContent = 'ℹ️ الجهاز فيه صوت واحد مُثبَّت، وبيتغيّر النطق حسب اللكنة المختارة قدر الإمكان.';
+        } else {
+            voiceNoteEl.textContent = '';
+        }
+    }
+}
+voiceSelectEl.addEventListener('change', function() {
+    localStorage.setItem('ttsLangCode', this.value);
+});
+
+function getSelectedVoice() {
+    const code = localStorage.getItem('ttsLangCode') || 'en-US';
+    return pickBestVoice(voices, code) || voices.find(vv => (vv.lang || '').toLowerCase().startsWith('en')) || null;
+}
+function getSelectedLangCode() {
+    return localStorage.getItem('ttsLangCode') || 'en-US';
+}
+
+window._q = []; window._qi = 0;
+window._currentUtterance = null;
+let currentHighlightedId = null;
+
+function clearAllHighlights() {
+    document.querySelectorAll('.active-sent').forEach(e => e.classList.remove('active-sent'));
+    currentHighlightedId = null;
+}
+function showFab(show) { if (show) fabPause.classList.add('show'); else fabPause.classList.remove('show'); }
+function updateFabIcon() {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) fabPause.innerHTML = '⏸️';
+    else if (window.speechSynthesis.paused) fabPause.innerHTML = '▶️';
+    else fabPause.innerHTML = '⏯️';
+}
+
+function playQueue() {
+    if (window._qi >= window._q.length) {
+        clearAllHighlights(); showFab(false); return;
+    }
+    const item = window._q[window._qi];
+    if (currentHighlightedId !== item.id) {
+        clearAllHighlights();
+        const el = document.getElementById(item.id);
+        if (el) {
+            el.classList.add('active-sent');
+            el.scrollIntoView({behavior:'smooth',block:'nearest'});
+            currentHighlightedId = item.id;
+        }
+    }
+    const u = new SpeechSynthesisUtterance(item.text);
+    u.rate = parseFloat(rateRange.value) || 1;
+    // نحدد اللكنة عن طريق u.lang دايمًا (مش بس اختيار voice) — ده اللي بيغيّر النطق فعليًا
+    // على أغلب محركات النطق فى الموبايل حتى لو مفيش صوت منفصل مسجل لكل لكنة
+    u.lang = getSelectedLangCode();
+    const voice = getSelectedVoice();
+    if (voice) u.voice = voice;
+
+    u.onstart = () => { showFab(true); updateFabIcon(); };
+    u.onend = function() { window._qi++; playQueue(); };
+    u.onerror = function(e) { console.warn('Speech error', e); window._qi++; playQueue(); };
+    u.onpause = () => updateFabIcon();
+    u.onresume = () => updateFabIcon();
+
+    window._currentUtterance = u;
+    window.speechSynthesis.speak(u);
+}
+
+function splitAndQueue(textParts, id) {
+    textParts.forEach((p) => { const trimmed = p.trim(); if (trimmed) window._q.push({id: id, text: trimmed}); });
+}
+
+function playSection(secId) {
+    stopAll();
+    const sec = document.getElementById(secId);
+    const els = [...sec.querySelectorAll('[data-speak]')];
+    els.forEach(el => {
+        const text = el.dataset.speak;
+        const parts = text.split('|').map(p => p.trim());
+        splitAndQueue(parts, el.id);
+    });
+    window._qi = 0;
+    playQueue();
+}
+
+function playAll() {
+    stopAll();
+    const els = [...document.querySelectorAll('[data-speak]')];
+    els.forEach(el => {
+        const text = el.dataset.speak;
+        const parts = text.split('|').map(p => p.trim());
+        splitAndQueue(parts, el.id);
+    });
+    window._qi = 0;
+    playQueue();
+}
+
+function playOne(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const text = el.dataset.speak;
+    stopAll();
+    const parts = text.split('|').map(p => p.trim());
+    splitAndQueue(parts, id);
+    window._qi = 0;
+    playQueue();
+}
+
+function pauseAll() {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+        window.speechSynthesis.pause(); updateFabIcon();
+    } else if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume(); updateFabIcon();
+    }
+}
+
+function stopAll() {
+    window._q = []; window._qi = 0;
+    clearAllHighlights();
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    showFab(false);
+}
+
+function toggleFabPause() { pauseAll(); }
+
+// ===================== الثيمات =====================
+function setTheme(theme, btn) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    localStorage.setItem('theme', theme);
+}
+const savedTheme = localStorage.getItem('theme') || 'teal';
+document.documentElement.setAttribute('data-theme', savedTheme);
+document.querySelectorAll('.theme-btn').forEach(b => {
+    if (b.classList.contains('t-'+savedTheme)) b.classList.add('active');
+});
+
+// ===================== بدء التشغيل =====================
+buildAllSections();
+loadVoices();
+setTimeout(loadVoices, 300);
+setTimeout(loadVoices, 1000);
+setTimeout(loadVoices, 2500);
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadVoices;
+</script>
+</body>
+</html>

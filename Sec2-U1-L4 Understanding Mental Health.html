@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Sec 2 - Unit 1: Understanding Mental Health (Lesson 4)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --A: #1e3a8a; --A2: #1e40af; --blue4: #dbeafe; --blue5: #f8fafc;
+            --text: #1E293B; --text2: #64748B; --card: #ffffff; --border: #e2e8f0;
+            --bg: #f1f5f9; --radius: 12px; --stop: #ef4444; --pause: #94a3b8;
+            --highlight-bg: rgba(30, 58, 138, 0.08);
+            --word-highlight: #fde047;
+            --fab-bg: #1e293b; --fab-text: #ffffff;
+        }
+        [data-theme="ocean"] {
+            --A: #0e7490; --A2: #0891b2; --blue4: #cffafe; --blue5: #f0fdfa;
+            --text: #1E293B; --text2: #64748B; --card: #ffffff; --border: #e2e8f0;
+            --bg: #f1f5f9; --stop: #ef4444; --highlight-bg: rgba(14, 116, 144, 0.08);
+            --fab-bg: #0e7490; --fab-text: #ffffff;
+        }
+        [data-theme="slate"] {
+            --A: #334155; --A2: #475569; --blue4: #e2e8f0; --blue5: #f8fafc;
+            --text: #0f172a; --text2: #475569; --card: #ffffff; --border: #cbd5e1;
+            --bg: #f1f5f9; --stop: #ef4444; --highlight-bg: rgba(51, 65, 85, 0.1);
+            --fab-bg: #1e293b; --fab-text: #ffffff;
+        }
+        [data-theme="dark"] {
+            --A: #2dd4bf; --A2: #0d9488; --blue4: #134e4a; --blue5: #0f172a;
+            --text: #f8fafc; --text2: #94a3b8; --card: #1e293b; --border: #334155;
+            --bg: #0f172a; --stop: #f87171; --pause: #64748b; --highlight-bg: rgba(45, 212, 191, 0.15);
+            --word-highlight: #facc15; --fab-bg: #facc15; --fab-text: #1e293b;
+        }
+        *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+        body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:100px;overflow-x:hidden;transition:background .3s,color .3s;}
+        .hero{color:#fff;text-align:center;padding:32px 20px 26px;margin-bottom:24px;background:linear-gradient(135deg, #0f172a, var(--A2)); box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+        .hero .emoji-big{font-size:3rem;display:block;margin-bottom:8px;}
+        .hero h1{font-size:1.6rem;font-weight:900;letter-spacing:0.5px;}
+        .hero .sub{font-size:.95rem;opacity:.85;margin-top:5px;font-family:'Cairo',sans-serif;font-weight:600;}
+        .toolbar{max-width:840px;margin:0 auto 24px;padding:0 16px;text-align:center;}
+        .toolbar-inner{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px 20px;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+        .toolbar label{font-weight:800;color:var(--A);font-size:13px;}
+        input[type=range]{width:90px;accent-color:var(--A);}
+        .rate-badge{font-weight:900;font-size:13px;color:var(--A);min-width:34px;}
+        select{padding:6px 10px;border-radius:6px;border:1px solid var(--border);font-weight:600;background:var(--card);color:var(--text);}
+        .theme-switcher{display:flex;align-items:center;gap:6px;margin-left:auto;}
+        .theme-btn{-webkit-appearance:none;appearance:none;border:2px solid transparent;border-radius:8px;padding:4px 12px;font-size:11px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:#fff;letter-spacing:.5px;transition:all .2s;}
+        .theme-btn.t-teal{background:linear-gradient(135deg,#0f766e,#2dd4bf);}
+        .theme-btn.t-ocean{background:linear-gradient(135deg,#0e7490,#06b6d4);}
+        .theme-btn.t-slate{background:linear-gradient(135deg,#334155,#94a3b8);}
+        .theme-btn.t-dark{background:linear-gradient(135deg,#1e293b,#475569);color:#e2e8f0;}
+        .theme-btn.active{border-color:#fff;box-shadow:0 0 0 2px currentColor;transform:scale(1.06);}
+        .container{max-width:840px;margin:auto;padding:0 16px;}
+        .section-block{background:var(--card);border-radius:var(--radius);margin-bottom:22px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid var(--border);}
+        .sec-title{color:#fff;font-size:.8rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:12px 20px;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--A),var(--A2));}
+        .sec-title::before{content:"";display:inline-block;width:6px;height:6px;background:rgba(255,255,255,.5);border-radius:50%;flex-shrink:0;}
+        .sec-body{padding:18px;}
+        .sec-play-bar{display:flex;gap:7px;margin-bottom:18px;flex-wrap:wrap;align-items:center;}
+        .big-btn{-webkit-appearance:none;appearance:none;border:none;border-radius:6px;padding:8px 16px;font-size:13px;font-weight:800;cursor:pointer;color:#fff;display:inline-flex;align-items:center;gap:5px;transition:transform .12s;font-family:'Nunito',sans-serif;}
+        .big-btn:active{transform:scale(.95);}
+        .big-btn.pause-btn{background:var(--pause);}
+        .big-btn.stop-btn{background:var(--stop);}
+        .big-btn.play-all-btn{background:linear-gradient(135deg, var(--A), var(--A2)); margin-left: 12px;}
+        .info-box{background:var(--blue5);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px;}
+        .info-title{display:flex;align-items:center;gap:6px;font-weight:900;font-size:.78rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--A2);}
+        .vocab{display:flex;flex-wrap:wrap;gap:8px;}
+        .pill{padding:10px 14px;border-radius:6px;background:var(--card);border:1px solid var(--blue4);text-align:center;cursor:pointer;flex:1 1 auto;min-width:80px;transition:all .15s;}
+        .pill:active{transform:scale(.96);}
+        .pill .en{font-weight:800;font-size:14px;display:block;color:var(--A);}
+        .pill .tr{font-size:11px;color:var(--text2);font-family:'Cairo',sans-serif;font-weight:600;}
+        .story-card{background:var(--blue5);border:1px solid var(--border);border-left:4px solid var(--A);border-radius:8px;padding:18px;margin-bottom:12px;}
+        .sentence{display:block;cursor:pointer;border-radius:6px;padding:10px 12px;margin-bottom:12px;transition:background .2s;line-height:1.8;font-size:17px;font-weight:600;color:var(--text);background:rgba(255,255,255,0.4);}
+        [data-theme="dark"] .sentence { background: rgba(255,255,255,0.05); }
+        .sentence .word{transition:background 0.15s;border-radius:3px;padding:0 1px;}
+        .sentence .word.highlight{background:var(--word-highlight);}
+        .sentence.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .sentence .speaker-label{display:inline-block;font-weight:900;color:var(--A2);margin-right:10px;background:var(--blue4);padding:2px 10px;border-radius:20px;font-size:0.9rem;}
+        .pill.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .rule-item.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .story-ar{font-family:'Cairo',sans-serif;color:var(--text2);font-size:14px;text-align:right;direction:rtl;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-weight:600;line-height:2;}
+        .story-title{font-family:'Cairo',sans-serif;font-weight:800;color:var(--A2);font-size:15px;text-align:right;direction:rtl;margin-bottom:10px;}
+        .rules-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;}
+        .rule-item{display:flex;align-items:flex-start;gap:12px;background:var(--blue5);border:1px solid var(--border);border-radius:6px;padding:12px 14px;cursor:pointer;transition:all .2s;}
+        .rule-item .rule-text{flex:1;}
+        .rule-item .rule-text .en{font-size:15px;font-weight:700;color:var(--text);}
+        .rule-item .rule-text .ar{font-family:'Cairo',sans-serif;font-size:13px;color:var(--text2);text-align:right;direction:rtl;font-weight:600;margin-top:4px;}
+        .qbox{background:var(--blue5);border:1px dashed var(--border);border-radius:8px;padding:14px 16px;margin-top:6px;}
+        .qbox .qitem{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;}
+        .qbox .qitem:last-child{margin-bottom:0;}
+        footer{text-align:center;margin-top:14px;padding:20px;color:var(--text2);font-size:12px;}
+        footer strong{color:var(--A);}
+        .voice-note{font-size:11px;color:#b45309;margin-top:4px;display:block;}
+        .fab-pause{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:var(--fab-bg);color:var(--fab-text);border:none;box-shadow:0 4px 16px rgba(0,0,0,0.2);font-size:24px;display:none;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s,opacity 0.2s;}
+        .fab-pause:active{transform:scale(.9);}
+        .fab-pause.show{display:flex;}
+    </style>
+</head>
+<body>
+
+<div class="hero"><span class="emoji-big">🧠</span><h1>Unit 1: Understanding Mental Health</h1><p class="sub">Sec 2 - Lesson 4 (1.4)</p></div>
+
+<div class="toolbar"><div class="toolbar-inner">
+    <label for="rateRange">Speed</label><input id="rateRange" type="range" min="0.5" max="1.2" step="0.1" value="1"/>
+    <span class="rate-badge" id="rateBadge">1.0x</span>
+    <select id="voiceSelect" style="max-width:180px;"></select>
+    <span id="voiceNote" class="voice-note"></span>
+    <div class="theme-switcher">
+        <button class="theme-btn t-teal" onclick="setTheme('teal',this)">Teal</button>
+        <button class="theme-btn t-ocean" onclick="setTheme('ocean',this)">Ocean</button>
+        <button class="theme-btn t-slate" onclick="setTheme('slate',this)">Slate</button>
+        <button class="theme-btn t-dark" onclick="setTheme('dark',this)">Dark</button>
+    </div>
+    <button class="big-btn play-all-btn" onclick="playAll()">🔊 Play All</button>
+</div></div>
+
+<main class="container">
+    <div id="sections-container"></div>
+</main>
+
+<button class="fab-pause" id="fabPause" onclick="toggleFabPause()" title="إيقاف / استئناف">⏯️</button>
+
+<script>
+function cleanForSpeech(text) {
+    let result = text;
+    result = result.replace(/\([^)]*\)/g, ' ');
+    result = result.replace(/[→]/g, ' ');
+    result = result.replace(/'/g, '');
+    result = result.replace(/\s+/g, ' ').trim();
+    return result;
+}
+
+// ===================== البيانات =====================
+
+const mainVocab = [
+    ["academic (adj)", "أكاديمى / دراسى"],
+    ["aspects (n)", "جوانب"],
+    ["availability (n)", "توافر / إتاحة"],
+    ["collectivist (adj)", "جماعى / قائم على الجماعة"],
+    ["complex (adj)", "معقد"],
+    ["conclude (v)(d)", "يخلص إلى / يستنتج"],
+    ["consistent (adj)", "ثابت / متسق"],
+    ["coping strategies (n)", "استراتيجيات التكيف / التعامل"],
+    ["data (n)", "بيانات"],
+    ["decisive (adj)", "حاسم"],
+    ["define (v)(d)", "يعرّف / يحدد"],
+    ["demands (n)", "متطلبات / مطالب"],
+    ["digital media (n)", "وسائل الإعلام الرقمية"],
+    ["emotional (adj)", "عاطفى"],
+    ["examination (n)", "امتحان / فحص"],
+    ["exposure (n)", "تعرض / اطلاع"],
+    ["factor (n)", "عامل"],
+    ["findings (n)", "نتائج / استنتاجات"],
+    ["gap (n)", "فجوة"],
+    ["gather (v)(ed)", "يجمع"],
+    ["governorates (n)", "محافظات"],
+    ["household (n)", "أسرة / منزل"],
+    ["identify (v)(ied)", "يحدد / يتعرف على"],
+    ["individualistic (adj)", "فردى / قائم على الفرد"],
+    ["institutions (n)", "مؤسسات"],
+    ["interact (v)(ed)", "يتفاعل"],
+    ["moderate (adj)", "معتدل / متوسط"],
+    ["nationwide (adj)", "على مستوى الدولة / جميع أنحاء البلاد"],
+    ["participants (n)", "مشاركون"],
+    ["peers (n)", "أقران (أفراد من نفس العمر / المرحلة)"],
+    ["performance (n)", "أداء"],
+    ["periods (n)", "فترات"],
+    ["quality (n)", "جودة"],
+    ["rural (adj)", "ريفى"],
+    ["sedentary (adj)", "قليل الحركة / خامل"],
+    ["seek (v)", "يسعى إلى / يبحث عن"],
+    ["separate (adj)(v)(d)", "منفصل / يفصل"],
+    ["siblings (n)", "إخوة وأخوات"],
+    ["significant (adj)", "مهم / ملحوظ"],
+    ["social (adj)", "اجتماعى"],
+    ["social comparison (n)", "المقارنة الاجتماعية"],
+    ["survey (n)", "استطلاع / مسح"],
+    ["targeted (adj)", "مستهدف"],
+    ["teenage life (n)", "حياة المراهقة"],
+    ["urban (adj)", "حضرى"],
+    ["variables (n)", "متغيرات (فى المعادلات / المقارنات)"]
+];
+
+const idiomsData = [
+    ["be universally more effective", "يكون أكثر فعالية بشكل عام"],
+    ["do physical activity", "يمارس نشاطًا بدنيًا"],
+    ["face difficulties", "يواجه صعوبات"],
+    ["face increasing pressure", "يواجه ضغطًا متزايدًا"],
+    ["seek emotional support", "يسعى إلى / يطلب دعمًا عاطفيًا"],
+    ["in contrast", "على النقيض / فى المقابل"],
+    ["on average", "فى المتوسط"],
+    ["per week", "فى الأسبوع / أسبوعيًا"],
+    ["school counseling services", "خدمات الإرشاد المدرسى"],
+    ["the figure dropped to 31%", "انخفضت النسبة إلى 31%"]
+];
+
+const prepositionsData = [
+    ["aim to", "يهدف إلى"],
+    ["access to", "إمكانية الحصول على"],
+    ["under pressure", "تحت الضغط"],
+    ["difficult to", "من الصعب أن"],
+    ["exposure to", "التعرض لـ"],
+    ["followed by", "يليه / متبوع بـ"],
+    ["in ways", "بطرق / بأساليب"],
+    ["rely on", "يعتمد على"],
+    ["tend to", "يميل إلى"],
+    ["gap in", "فجوة فى"]
+];
+
+const synData = [
+    {word: "availability", syn: "accessibility, presence"},
+    {word: "collectivist", syn: "communal, group-oriented"},
+    {word: "complex", syn: "complicated, difficult"},
+    {word: "consistent", syn: "steady, regular"},
+    {word: "decisive", syn: "determined, conclusive"},
+    {word: "gather", syn: "collect, assemble"},
+    {word: "identify", syn: "recognize, determine"},
+    {word: "individualistic", syn: "independent, self-reliant"},
+    {word: "interact", syn: "communicate, engage"},
+    {word: "moderate", syn: "reasonable, balanced"}
+];
+
+const antData = [
+    {word: "availability", ant: "unavailability, absence"},
+    {word: "collectivist", ant: "individualistic, self-centered"},
+    {word: "complex", ant: "simple, straightforward"},
+    {word: "consistent", ant: "inconsistent, irregular"},
+    {word: "decisive", ant: "indecisive, hesitant"},
+    {word: "gather", ant: "scatter, disperse"},
+    {word: "identify", ant: "overlook, misidentify"},
+    {word: "individualistic", ant: "collectivist, communal"},
+    {word: "interact", ant: "ignore, avoid"},
+    {word: "moderate", ant: "extreme, excessive"}
+];
+
+const derivativesData = [
+    {word: "--- (v)", forms: ["availability (n)", "available (adj)"], ar: "لا يوجد فعل / توافر ، إتاحة / متاح"},
+    {word: "conclude (v)", forms: ["conclusion (n)", "conclusive (adj)"], ar: "يستنتج ، يختتم / استنتاج ، خاتمة / قاطع ، حاسم"},
+    {word: "decide (v)", forms: ["decision (n)", "decisive (adj)"], ar: "يقرر / قرار / حاسم"},
+    {word: "examine (v)", forms: ["examination (n)", "examinable (adj)"], ar: "يفحص ، يمتحن / فحص ، امتحان / قابل للفحص ، للاختبار"},
+    {word: "expose (v)", forms: ["exposure (n)", "exposed (adj)"], ar: "يعرّض ، يكشف / تعرض ، انكشاف / مُعرَّض ، مكشوف"},
+    {word: "participate (v)", forms: ["participation (n)", "participatory (adj)"], ar: "يشارك / مشاركة / تشاركى"},
+    {word: "identify (v)", forms: ["identification (n)", "identifiable (adj)"], ar: "يحدد ، يتعرف على / تحديد ، تعرّف / قابل للتحديد ، للتعرف"},
+    {word: "govern (v)", forms: ["governorate / governor (n)", "governmental (adj)"], ar: "يحكم ، يدير / محافظة ، محافظ / حكومى"}
+];
+
+const confusionData = [
+    {word: "data", ar: "معلومات خام يتم جمعها للدراسة أو التحليل", ex: "Researchers collected data from 500 students."},
+    {word: "information", ar: "بيانات تم تنظيمها أو تفسيرها وأصبح لها معنى", ex: "The survey provided useful information about teenagers."},
+    {word: "facts", ar: "حقائق مؤكدة يمكن إثبات صحتها", ex: "The report contains important facts about climate change."},
+    {word: "figures", ar: "أرقام تُستخدم لعرض نتائج أو مقارنات", ex: "The latest figures show a rise in school attendance."},
+    {word: "statistics", ar: "أرقام تم جمعها وتحليلها لدراسة ظاهرة", ex: "The statistics show that most teenagers use social media daily."},
+    {word: "findings", ar: "ما يتوصل إليه الباحث بعد تحليل البيانات", ex: "The findings revealed a strong link between sleep and performance."},
+    {word: "demand", ar: "يطالب بحق / مطلب أو حاجة مُلحة", ex: "There is a high demand for qualified teachers."},
+    {word: "request", ar: "يطلب / طلب مهذب للحصول على شىء", ex: "I made a request for more information."},
+    {word: "require", ar: "يتطلب / يحتاج", ex: "This job requires good communication skills."},
+    {word: "examination (exam)", ar: "اختبار رسمى لقياس المعرفة أو فحص دقيق لشىء", ex: "Students are preparing for their final examination."},
+    {word: "test", ar: "اختبار أقصر أو أقل رسمية لقياس المعرفة أو المهارة أو نسبة شىء", ex: "The teacher gave us a short test."},
+    {word: "assessment", ar: "تقييم – عملية أوسع لقياس مستوى الطالب أو أداء شخص ما", ex: "The teacher used different methods of assessment."},
+    {word: "check-up", ar: "فحص طبى للتأكد من صحة الشخص", ex: "I went to the doctor for a regular check-up."},
+    {word: "siblings", ar: "كلمة عامة تشمل الإخوة والأخوات، دون تحديد النوع", ex: "I have three siblings, two brothers and one sister."},
+    {word: "brothers", ar: "تشير إلى الإخوة الذكور فقط", ex: "My brothers are older than me."},
+    {word: "sisters", ar: "تشير إلى الأخوات الإناث فقط", ex: "Her sisters study at the same school."},
+    {word: "twins", ar: "شخصان وُلدا فى نفس الولادة، وقد يكونا أخوين أو أختين أو أخًا وأختًا", ex: "The twins look very similar."}
+];
+
+const listeningVocab = [
+    ["nationwide", "على مستوى الدولة"],
+    ["expectations", "توقعات"],
+    ["participants", "المشاركون"],
+    ["cited", "ذكر"],
+    ["respondents", "المشاركون فى الاستبيان"],
+    ["collectivist", "جماعى"],
+    ["in contrast", "على النقيض"],
+    ["individualistic", "فردى"],
+    ["decisive", "حاسم"],
+    ["counseling", "الإرشاد / الاستشارات"]
+];
+
+const listeningTitle = "School Health Survey (Egypt, 2023)";
+
+const listeningTextL2 = [
+    {en: "A nationwide school health survey done in Egypt in 2023 gathered data from 450 teenagers aged between 14 and 17, drawn from both urban and rural schools across five governorates.", ar: "أجرى استطلاع صحى مدرسى على مستوى الدولة فى مصر عام 2023، جُمعت فيه بيانات من 450 مراهقًا تتراوح أعمارهم بين 14 و17 عامًا، من مدارس حضرية وريفية فى خمس محافظات."},
+    {en: "The study aimed to identify the primary sources of stress among teenagers and to examine the coping strategies they most commonly adopted.", ar: "وهدفت الدراسة إلى تحديد المصادر الرئيسية للتوتر لدى المراهقين، ودراسة استراتيجيات التكيف الأكثر شيوعًا التى يتبعونها."},
+    {en: "Its findings paint a complex picture of modern teenage life, in which academic pressure, digital habits, and social expectations interact in ways that are often difficult to separate.", ar: "وترسم نتائجها صورة معقدة لحياة المراهقة الحديثة، حيث يتفاعل الضغط الدراسى والعادات الرقمية والتوقعات الاجتماعية بطرق يصعب غالبًا فصلها عن بعضها."},
+    {en: "The most significant finding was that 68% of participants reported experiencing moderate to high levels of stress during examination periods.", ar: "وكانت أهم نتيجة أن 68% من المشاركين أفادوا بأنهم يعانون من مستويات متوسطة إلى مرتفعة من التوتر خلال فترات الامتحانات."},
+    {en: "When asked to identify the main causes, students ranked academic pressure first, cited by 82% of respondents, followed by social comparison (61%), insufficient sleep (57%), and family expectations (49%).", ar: "وعندما طُلب منهم تحديد الأسباب الرئيسية، رتّب الطلاب الضغط الدراسى فى المرتبة الأولى، وذكره 82% من المشاركين فى الاستبيان، يليه المقارنة الاجتماعية (61%)، وقلة النوم (57%)، وتوقعات الأسرة (49%)."},
+    {en: "Clearly, the study found that teenagers who did regular physical activity, defined as at least 30 minutes of exercise four or more times per week, reported stress levels that were, on average, 34% lower than those of their sedentary peers, even after controlling for academic performance variables.", ar: "وبوضوح، وجدت الدراسة أن المراهقين الذين يمارسون نشاطًا بدنيًا منتظمًا، يُعرَّف بأنه 30 دقيقة على الأقل من التمرين أربع مرات أو أكثر أسبوعيًا، أفادوا بمستويات توتر أقل بنسبة 34% فى المتوسط مقارنة بأقرانهم قليلى الحركة، حتى بعد ضبط متغيرات الأداء الدراسى."},
+    {en: "Cultural background also was a significant factor in how teenagers managed stress.", ar: "كما كانت الخلفية الثقافية عاملًا مهمًا فى كيفية تعامل المراهقين مع التوتر."},
+    {en: "Students from families with strong collectivist values were considerably more likely to seek emotional support from parents or siblings when facing difficulties.", ar: "وكان الطلاب من أسر ذات قيم جماعية قوية أكثر عرضة بشكل ملحوظ لطلب الدعم العاطفى من الوالدين أو الإخوة عند مواجهة الصعوبات."},
+    {en: "In contrast, students from more individualistic household environments tended to rely on individual coping strategies, such as listening to music, exercising alone, or spending time in nature.", ar: "وعلى النقيض، مال الطلاب من بيئات أسرية أكثر فردية إلى الاعتماد على استراتيجيات تكيف فردية، مثل الاستماع إلى الموسيقى، أو ممارسة الرياضة بمفردهم، أو قضاء الوقت فى الطبيعة."},
+    {en: "Neither approach was found to be universally more effective; rather, the study suggested that the availability and quality of support networks were the decisive variables.", ar: "ولم يثبت أن أيًا من النهجين أكثر فعالية بشكل عام؛ بل أشارت الدراسة إلى أن توافر شبكات الدعم وجودتها كانا العاملين الحاسمين."},
+    {en: "The researchers also noted a significant gap in access to school counseling services between urban and rural institutions.", ar: "ولاحظ الباحثون أيضًا فجوة ملحوظة فى إمكانية الحصول على خدمات الإرشاد المدرسى بين المؤسسات الحضرية والريفية."},
+    {en: "While 74% of urban schools in the sample offered some form of counseling, the figure dropped to 31% in rural schools.", ar: "ففى حين قدّمت 74% من المدارس الحضرية فى العينة شكلًا من أشكال الإرشاد، انخفضت النسبة إلى 31% فى المدارس الريفية."},
+    {en: "The study concluded that targeted mental health support programs in schools could meaningfully reduce stress levels among teenagers.", ar: "وخلُصت الدراسة إلى أن برامج الدعم النفسى المستهدفة فى المدارس يمكن أن تُقلل بشكل ملموس من مستويات التوتر لدى المراهقين."}
+];
+
+// ===================== بناء الواجهة =====================
+function makeWordSpans(text) {
+    const words = text.trim().split(/\s+/);
+    return words.map((w, idx) => `<span class="word" data-word-index="${idx}">${w}</span>`).join(' ');
+}
+
+function buildAllSections() {
+    const container = document.getElementById('sections-container');
+
+    function makePills(wordsArray, sectionId) {
+        return wordsArray.map((w, i) => {
+            const id = `${sectionId}_p${i}`;
+            const wordHtml = makeWordSpans(w[0]);
+            const speakText = cleanForSpeech(w[0]);
+            return `<div class="pill" id="${id}" data-speak="${speakText}" onclick="playOne('${id}')"><span class="en">${wordHtml}</span><span class="tr">${w[1]}</span></div>`;
+        }).join('');
+    }
+
+    function makeRuleItem(icon, sectionId, index, speakText, arText, displayText) {
+        const id = `${sectionId}_${index}`;
+        const wordHtml = makeWordSpans(displayText || speakText);
+        const finalSpeak = cleanForSpeech(speakText);
+        return `<div class="rule-item" id="${id}" data-speak="${finalSpeak}" onclick="playOne('${id}')">
+            <span class="rule-icon">${icon}</span>
+            <div class="rule-text">
+                <span class="en">${wordHtml}</span>
+                <span class="ar">${arText || ''}</span>
+            </div>
+        </div>`;
+    }
+
+    function playBar(sectionId) {
+        return `<div class="sec-play-bar">
+            <button class="big-btn" style="background:linear-gradient(135deg,var(--A),var(--A2))" onclick="playSection('${sectionId}')">▶ Play</button>
+            <button class="big-btn pause-btn" onclick="pauseAll()">⏸ Pause</button>
+            <button class="big-btn stop-btn" onclick="stopAll()">⏹ Stop</button>
+        </div>`;
+    }
+
+    function makeStorySection(title, titleAr, storyData) {
+        const speakerEmojis = {"Sarah":"👩‍⚕️","Operator":"🎙️","Caller":"📞"};
+        const knownSpeakers = new Set(Object.keys(speakerEmojis));
+
+        return `<div class="story-card">
+            <div style="font-weight:bold;color:var(--A);margin-bottom:6px;">${title}</div>
+            ${titleAr ? `<div class="story-title">${titleAr}</div>` : ''}
+            ${storyData.map((s,i) => {
+                const id = `secStory_${title.replace(/\s/g,'')}_${i}`;
+                let enText = s.en;
+                let speaker = '';
+                let dialogueText = enText;
+                const colonIndex = enText.indexOf(': ');
+                if (colonIndex > 0) {
+                    const candidate = enText.substring(0, colonIndex);
+                    if (knownSpeakers.has(candidate)) {
+                        speaker = candidate;
+                        dialogueText = enText.substring(colonIndex + 2);
+                    }
+                }
+                const emoji = speakerEmojis[speaker] || '📖';
+                const wordHtml = makeWordSpans(dialogueText);
+                let speakerHtml = '';
+                if (speaker) {
+                    speakerHtml = `<span class="speaker-label">${emoji} ${speaker}</span> `;
+                }
+                return `<div class="sentence" id="${id}" data-speak="${s.en}" onclick="playOne('${id}')">
+                    ${speakerHtml} ${wordHtml}
+                </div> `;
+            }).join('')}
+            <div class="story-ar">${storyData.map(s => s.ar).join(' ')}</div>
+        </div>`;
+    }
+
+    const sections = [];
+
+    // 1. Main Vocabulary
+    if (mainVocab && mainVocab.length > 0) {
+        sections.push({ title:"📚 Main Vocabulary", id:"secMainVocab", content: `<div class="info-box"><div class="info-title">Main Vocabulary (1.4)</div><div class="vocab">${makePills(mainVocab, "secMainVocab")}</div></div>` });
+    }
+
+    // 2. Phrases, Expressions & Idioms
+    if (idiomsData && idiomsData.length > 0) {
+        sections.push({ title:"💡 Phrases, Expressions & Idioms", id:"secIdioms", content: `<div class="rules-grid">${idiomsData.map((e,i) => makeRuleItem('✨', 'secIdioms', i, e[0], e[1], e[0])).join('')}</div>` });
+    }
+
+    // 3. Prepositions
+    if (prepositionsData && prepositionsData.length > 0) {
+        sections.push({ title:"🔗 Prepositions", id:"secPrepositions", content: `<div class="rules-grid">${prepositionsData.map((p,i) => makeRuleItem('🔗', 'secPrepositions', i, p[0], p[1], p[0])).join('')}</div>` });
+    }
+
+    // 4. Synonyms & Antonyms
+    if (synData && synData.length > 0) {
+        sections.push({ title:"🔄 Synonyms", id:"secSyn", content: `<div class="rules-grid">${synData.map((s,i) => makeRuleItem('↔️', 'secSyn', i, s.word + " | " + s.syn, s.syn, s.word)).join('')}</div>` });
+    }
+    if (antData && antData.length > 0) {
+        sections.push({ title:"🚫 Antonyms", id:"secAnt", content: `<div class="rules-grid">${antData.map((a,i) => makeRuleItem('🛑', 'secAnt', i, a.word + " | " + a.ant, a.ant, a.word)).join('')}</div>` });
+    }
+
+    // 5. Derivatives
+    if (derivativesData && derivativesData.length > 0) {
+        sections.push({ title:"🔨 Derivatives (Word Families)", id:"secDerivatives", content: `<div class="rules-grid">${derivativesData.map((d,i) => {
+            const formsStr = d.forms.join(" | ");
+            const speakText = `${d.word} | ${formsStr}`;
+            const displayText = `${d.word} → ${formsStr}`;
+            return makeRuleItem('🔨', 'secDerivatives', i, speakText, d.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 6. Focus on Vocabulary (Clear the Confusion)
+    if (confusionData && confusionData.length > 0) {
+        sections.push({ title:"🧐 Focus on Vocabulary", id:"secConfusion", content: `<div class="rules-grid">${confusionData.map((c,i) => {
+            const speakText = `${c.word} | ${c.ex}`;
+            const displayText = `${c.word} → ${c.ex}`;
+            return makeRuleItem('🧐', 'secConfusion', i, speakText, c.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 7. Listening Text
+    if (listeningTextL2 && listeningTextL2.length > 0) {
+        let listeningContent = '';
+        if (listeningVocab && listeningVocab.length > 0) {
+            listeningContent += `<div class="info-box"><div class="info-title">Listening Glossary</div><div class="vocab">${makePills(listeningVocab, "secListenVocab")}</div></div>`;
+        }
+        listeningContent += makeStorySection(listeningTitle, '', listeningTextL2);
+        sections.push({ title:"🎧 Listening Text (School Health Survey)", id:"secListenL2", content: listeningContent });
+    }
+
+    let html = '';
+    sections.forEach(sec => {
+        html += `<div class="section-block" id="${sec.id}">
+            <div class="sec-title">${sec.title}</div>
+            <div class="sec-body">
+                ${playBar(sec.id)}
+                ${sec.content}
+            </div>
+        </div>`;
+    });
+    container.innerHTML = html;
+}
+
+// ===================== نظام الصوت =====================
+const rateRange = document.getElementById('rateRange');
+const rateBadge = document.getElementById('rateBadge');
+const fabPause = document.getElementById('fabPause');
+
+const savedRate = localStorage.getItem('speechRate') || 1;
+rateRange.value = savedRate;
+rateBadge.textContent = parseFloat(savedRate).toFixed(1)+'x';
+rateRange.addEventListener('input', () => {
+    const val = parseFloat(rateRange.value).toFixed(1);
+    rateBadge.textContent = val+'x';
+    localStorage.setItem('speechRate', val);
+});
+
+let voices = [];
+let voiceLoadAttempts = 0;
+const voiceSelectEl = document.getElementById('voiceSelect');
+const voiceNoteEl = document.getElementById('voiceNote');
+
+function loadVoices() {
+    voices = window.speechSynthesis.getVoices();
+    voiceLoadAttempts++;
+    populateVoiceSelect();
+}
+
+function pickBestVoice(list, langPrefix) {
+    if (!list.length) return null;
+    const normalizeLang = (lang) => (lang || '').replace('_', '-');
+    const isLangMatch = (voiceLang) => normalizeLang(voiceLang) === langPrefix || normalizeLang(voiceLang).startsWith(langPrefix + '-');
+    const candidates = list.filter(v => isLangMatch(v.lang));
+    if (!candidates.length) return null;
+    const scored = candidates.map(v => {
+        let score = 0;
+        if (v.localService) score += 2;
+        if (/Google|Natural|Neural|Online/i.test(v.name)) score += 3;
+        if (v.default) score += 1;
+        return { v, score };
+    }).sort((a, b) => b.score - a.score);
+    return scored[0].v;
+}
+
+function accentFlag(lang) {
+    const l = (lang || '').toLowerCase();
+    if (l.startsWith('en-us')) return '🇺🇸';
+    if (l.startsWith('en-gb')) return '🇬🇧';
+    if (l.startsWith('en-au')) return '🇦🇺';
+    if (l.startsWith('en-ca')) return '🇨🇦';
+    if (l.startsWith('en-in')) return '🇮🇳';
+    if (l.startsWith('en-ie')) return '🇮🇪';
+    if (l.startsWith('en-za')) return '🇿🇦';
+    return '🌐';
+}
+
+// نفرض فقط لكنتين: أمريكى وبريطانى. حتى لو المتصفح مش بيدي أصوات منفصلة لكل لكنة،
+// بنجبر utterance.lang على القيمة المطلوبة (en-US / en-GB) — ده هو اللي بيغيّر النطق فعليًا
+// على أغلب محركات النطق (خصوصًا على الموبايل)، مش اختيار "voice" بس.
+const FORCED_ACCENTS = [
+    { code: 'en-US', label: '🇺🇸 American' },
+    { code: 'en-GB', label: '🇬🇧 British' }
+];
+
+function populateVoiceSelect() {
+    const allVoices = voices;
+    if (!allVoices.length) {
+        voiceNoteEl.textContent = voiceLoadAttempts > 4 ? '⚠️ لم يتم العثور على أصوات. جرّب تحديث الصفحة.' : '⏳ جاري تحميل الأصوات...';
+    }
+    const savedCode = localStorage.getItem('ttsLangCode') || 'en-US';
+    voiceSelectEl.innerHTML = FORCED_ACCENTS.map(a => `<option value="${a.code}">${a.label}</option>`).join('');
+    voiceSelectEl.value = savedCode;
+
+    // نوضّح للمستخدم هل فيه صوت مخصص فعليًا لكل لكنة على جهازه أم لأ (معلومة فقط، مش بتمنع التبديل)
+    if (allVoices.length) {
+        const usV = pickBestVoice(allVoices, 'en-US');
+        const gbV = pickBestVoice(allVoices, 'en-GB');
+        if (usV && gbV && usV.voiceURI === gbV.voiceURI) {
+            voiceNoteEl.textContent = 'ℹ️ الجهاز فيه صوت واحد مُثبَّت، وبيتغيّر النطق حسب اللكنة المختارة قدر الإمكان.';
+        } else {
+            voiceNoteEl.textContent = '';
+        }
+    }
+}
+voiceSelectEl.addEventListener('change', function() {
+    localStorage.setItem('ttsLangCode', this.value);
+});
+
+function getSelectedVoice() {
+    const code = localStorage.getItem('ttsLangCode') || 'en-US';
+    return pickBestVoice(voices, code) || voices.find(vv => (vv.lang || '').toLowerCase().startsWith('en')) || null;
+}
+function getSelectedLangCode() {
+    return localStorage.getItem('ttsLangCode') || 'en-US';
+}
+
+window._q = []; window._qi = 0;
+window._currentUtterance = null;
+let currentHighlightedId = null;
+
+function clearAllHighlights() {
+    document.querySelectorAll('.active-sent').forEach(e => e.classList.remove('active-sent'));
+    currentHighlightedId = null;
+}
+function showFab(show) { if (show) fabPause.classList.add('show'); else fabPause.classList.remove('show'); }
+function updateFabIcon() {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) fabPause.innerHTML = '⏸️';
+    else if (window.speechSynthesis.paused) fabPause.innerHTML = '▶️';
+    else fabPause.innerHTML = '⏯️';
+}
+
+function playQueue() {
+    if (window._qi >= window._q.length) {
+        clearAllHighlights(); showFab(false); return;
+    }
+    const item = window._q[window._qi];
+    if (currentHighlightedId !== item.id) {
+        clearAllHighlights();
+        const el = document.getElementById(item.id);
+        if (el) {
+            el.classList.add('active-sent');
+            el.scrollIntoView({behavior:'smooth',block:'nearest'});
+            currentHighlightedId = item.id;
+        }
+    }
+    const u = new SpeechSynthesisUtterance(item.text);
+    u.rate = parseFloat(rateRange.value) || 1;
+    // نحدد اللكنة عن طريق u.lang دايمًا (مش بس اختيار voice) — ده اللي بيغيّر النطق فعليًا
+    // على أغلب محركات النطق فى الموبايل حتى لو مفيش صوت منفصل مسجل لكل لكنة
+    u.lang = getSelectedLangCode();
+    const voice = getSelectedVoice();
+    if (voice) u.voice = voice;
+
+    u.onstart = () => { showFab(true); updateFabIcon(); };
+    u.onend = function() { window._qi++; playQueue(); };
+    u.onerror = function(e) { console.warn('Speech error', e); window._qi++; playQueue(); };
+    u.onpause = () => updateFabIcon();
+    u.onresume = () => updateFabIcon();
+
+    window._currentUtterance = u;
+    window.speechSynthesis.speak(u);
+}
+
+function splitAndQueue(textParts, id) {
+    textParts.forEach((p) => { const trimmed = p.trim(); if (trimmed) window._q.push({id: id, text: trimmed}); });
+}
+
+function playSection(secId) {
+    stopAll();
+    const sec = document.getElementById(secId);
+    const els = [...sec.querySelectorAll('[data-speak]')];
+    els.forEach(el => {
+        const text = el.dataset.speak;
+        const parts = text.split('|').map(p => p.trim());
+        splitAndQueue(parts, el.id);
+    });
+    window._qi = 0;
+    playQueue();
+}
+
+function playAll() {
+    stopAll();
+    const els = [...document.querySelectorAll('[data-speak]')];
+    els.forEach(el => {
+        const text = el.dataset.speak;
+        const parts = text.split('|').map(p => p.trim());
+        splitAndQueue(parts, el.id);
+    });
+    window._qi = 0;
+    playQueue();
+}
+
+function playOne(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const text = el.dataset.speak;
+    stopAll();
+    const parts = text.split('|').map(p => p.trim());
+    splitAndQueue(parts, id);
+    window._qi = 0;
+    playQueue();
+}
+
+function pauseAll() {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+        window.speechSynthesis.pause(); updateFabIcon();
+    } else if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume(); updateFabIcon();
+    }
+}
+
+function stopAll() {
+    window._q = []; window._qi = 0;
+    clearAllHighlights();
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    showFab(false);
+}
+
+function toggleFabPause() { pauseAll(); }
+
+// ===================== الثيمات =====================
+function setTheme(theme, btn) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    localStorage.setItem('theme', theme);
+}
+const savedTheme = localStorage.getItem('theme') || 'teal';
+document.documentElement.setAttribute('data-theme', savedTheme);
+document.querySelectorAll('.theme-btn').forEach(b => {
+    if (b.classList.contains('t-'+savedTheme)) b.classList.add('active');
+});
+
+// ===================== بدء التشغيل =====================
+buildAllSections();
+loadVoices();
+setTimeout(loadVoices, 300);
+setTimeout(loadVoices, 1000);
+setTimeout(loadVoices, 2500);
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadVoices;
+</script>
+</body>
+</html>

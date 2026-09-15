@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Sec 2 - Unit 3: Social Media and Historical Events (Lesson 4)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --A: #1e3a8a; --A2: #1e40af; --blue4: #dbeafe; --blue5: #f8fafc;
+            --text: #1E293B; --text2: #64748B; --card: #ffffff; --border: #e2e8f0;
+            --bg: #f1f5f9; --radius: 12px; --stop: #ef4444; --pause: #94a3b8;
+            --highlight-bg: rgba(30, 58, 138, 0.08);
+            --word-highlight: #fde047;
+            --fab-bg: #1e293b; --fab-text: #ffffff;
+        }
+        [data-theme="ocean"] {
+            --A: #0e7490; --A2: #0891b2; --blue4: #cffafe; --blue5: #f0fdfa;
+            --text: #1E293B; --text2: #64748B; --card: #ffffff; --border: #e2e8f0;
+            --bg: #f1f5f9; --stop: #ef4444; --highlight-bg: rgba(14, 116, 144, 0.08);
+            --fab-bg: #0e7490; --fab-text: #ffffff;
+        }
+        [data-theme="slate"] {
+            --A: #334155; --A2: #475569; --blue4: #e2e8f0; --blue5: #f8fafc;
+            --text: #0f172a; --text2: #475569; --card: #ffffff; --border: #cbd5e1;
+            --bg: #f1f5f9; --stop: #ef4444; --highlight-bg: rgba(51, 65, 85, 0.1);
+            --fab-bg: #1e293b; --fab-text: #ffffff;
+        }
+        [data-theme="dark"] {
+            --A: #2dd4bf; --A2: #0d9488; --blue4: #134e4a; --blue5: #0f172a;
+            --text: #f8fafc; --text2: #94a3b8; --card: #1e293b; --border: #334155;
+            --bg: #0f172a; --stop: #f87171; --pause: #64748b; --highlight-bg: rgba(45, 212, 191, 0.15);
+            --word-highlight: #facc15; --fab-bg: #facc15; --fab-text: #1e293b;
+        }
+        *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+        body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:100px;overflow-x:hidden;transition:background .3s,color .3s;}
+        .hero{color:#fff;text-align:center;padding:32px 20px 26px;margin-bottom:24px;background:linear-gradient(135deg, #0f172a, var(--A2)); box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+        .hero .emoji-big{font-size:3rem;display:block;margin-bottom:8px;}
+        .hero h1{font-size:1.6rem;font-weight:900;letter-spacing:0.5px;}
+        .hero .sub{font-size:.95rem;opacity:.85;margin-top:5px;font-family:'Cairo',sans-serif;font-weight:600;}
+        .toolbar{max-width:840px;margin:0 auto 24px;padding:0 16px;text-align:center;}
+        .toolbar-inner{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px 20px;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+        .toolbar label{font-weight:800;color:var(--A);font-size:13px;}
+        input[type=range]{width:90px;accent-color:var(--A);}
+        .rate-badge{font-weight:900;font-size:13px;color:var(--A);min-width:34px;}
+        select{padding:6px 10px;border-radius:6px;border:1px solid var(--border);font-weight:600;background:var(--card);color:var(--text);}
+        .theme-switcher{display:flex;align-items:center;gap:6px;margin-left:auto;}
+        .theme-btn{-webkit-appearance:none;appearance:none;border:2px solid transparent;border-radius:8px;padding:4px 12px;font-size:11px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:#fff;letter-spacing:.5px;transition:all .2s;}
+        .theme-btn.t-teal{background:linear-gradient(135deg,#0f766e,#2dd4bf);}
+        .theme-btn.t-ocean{background:linear-gradient(135deg,#0e7490,#06b6d4);}
+        .theme-btn.t-slate{background:linear-gradient(135deg,#334155,#94a3b8);}
+        .theme-btn.t-dark{background:linear-gradient(135deg,#1e293b,#475569);color:#e2e8f0;}
+        .theme-btn.active{border-color:#fff;box-shadow:0 0 0 2px currentColor;transform:scale(1.06);}
+        .container{max-width:840px;margin:auto;padding:0 16px;}
+        .section-block{background:var(--card);border-radius:var(--radius);margin-bottom:22px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid var(--border);}
+        .sec-title{color:#fff;font-size:.8rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:12px 20px;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--A),var(--A2));}
+        .sec-title::before{content:"";display:inline-block;width:6px;height:6px;background:rgba(255,255,255,.5);border-radius:50%;flex-shrink:0;}
+        .sec-body{padding:18px;}
+        .sec-play-bar{display:flex;gap:7px;margin-bottom:18px;flex-wrap:wrap;align-items:center;}
+        .big-btn{-webkit-appearance:none;appearance:none;border:none;border-radius:6px;padding:8px 16px;font-size:13px;font-weight:800;cursor:pointer;color:#fff;display:inline-flex;align-items:center;gap:5px;transition:transform .12s;font-family:'Nunito',sans-serif;}
+        .big-btn:active{transform:scale(.95);}
+        .big-btn.pause-btn{background:var(--pause);}
+        .big-btn.stop-btn{background:var(--stop);}
+        .big-btn.play-all-btn{background:linear-gradient(135deg, var(--A), var(--A2)); margin-left: 12px;}
+        .info-box{background:var(--blue5);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px;}
+        .info-title{display:flex;align-items:center;gap:6px;font-weight:900;font-size:.78rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--A2);}
+        .vocab{display:flex;flex-wrap:wrap;gap:8px;}
+        .pill{padding:10px 14px;border-radius:6px;background:var(--card);border:1px solid var(--blue4);text-align:center;cursor:pointer;flex:1 1 auto;min-width:80px;transition:all .15s;}
+        .pill:active{transform:scale(.96);}
+        .pill .en{font-weight:800;font-size:14px;display:block;color:var(--A);}
+        .pill .tr{font-size:11px;color:var(--text2);font-family:'Cairo',sans-serif;font-weight:600;}
+        .story-card{background:var(--blue5);border:1px solid var(--border);border-left:4px solid var(--A);border-radius:8px;padding:18px;margin-bottom:12px;}
+        .sentence{display:block;cursor:pointer;border-radius:6px;padding:10px 12px;margin-bottom:12px;transition:background .2s;line-height:1.8;font-size:17px;font-weight:600;color:var(--text);background:rgba(255,255,255,0.4);}
+        [data-theme="dark"] .sentence { background: rgba(255,255,255,0.05); }
+        .sentence .word{transition:background 0.15s;border-radius:3px;padding:0 1px;}
+        .sentence .word.highlight{background:var(--word-highlight);}
+        .sentence.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .sentence .speaker-label{display:inline-block;font-weight:900;color:var(--A2);margin-right:10px;background:var(--blue4);padding:2px 10px;border-radius:20px;font-size:0.9rem;}
+        .pill.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .rule-item.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .story-ar{font-family:'Cairo',sans-serif;color:var(--text2);font-size:14px;text-align:right;direction:rtl;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-weight:600;line-height:2;}
+        .story-title{font-family:'Cairo',sans-serif;font-weight:800;color:var(--A2);font-size:15px;text-align:right;direction:rtl;margin-bottom:10px;}
+        .rules-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;}
+        .rule-item{display:flex;align-items:flex-start;gap:12px;background:var(--blue5);border:1px solid var(--border);border-radius:6px;padding:12px 14px;cursor:pointer;transition:all .2s;}
+        .rule-item .rule-text{flex:1;}
+        .rule-item .rule-text .en{font-size:15px;font-weight:700;color:var(--text);}
+        .rule-item .rule-text .ar{font-family:'Cairo',sans-serif;font-size:13px;color:var(--text2);text-align:right;direction:rtl;font-weight:600;margin-top:4px;}
+        .qbox{background:var(--blue5);border:1px dashed var(--border);border-radius:8px;padding:14px 16px;margin-top:6px;}
+        .qbox .qitem{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;}
+        .qbox .qitem:last-child{margin-bottom:0;}
+        footer{text-align:center;margin-top:14px;padding:20px;color:var(--text2);font-size:12px;}
+        footer strong{color:var(--A);}
+        .voice-note{font-size:11px;color:#b45309;margin-top:4px;display:block;}
+        .fab-pause{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:var(--fab-bg);color:var(--fab-text);border:none;box-shadow:0 4px 16px rgba(0,0,0,0.2);font-size:24px;display:none;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s,opacity 0.2s;}
+        .fab-pause:active{transform:scale(.9);}
+        .fab-pause.show{display:flex;}
+    </style>
+</head>
+<body>
+
+<div class="hero"><span class="emoji-big">📲</span><h1>Unit 3: Social Media and Historical Events</h1><p class="sub">Sec 2 - Lesson 4 (3.4)</p></div>
+
+<div class="toolbar"><div class="toolbar-inner">
+    <label for="rateRange">Speed</label><input id="rateRange" type="range" min="0.5" max="1.2" step="0.1" value="1"/>
+    <span class="rate-badge" id="rateBadge">1.0x</span>
+    <select id="voiceSelect" style="max-width:180px;"></select>
+    <span id="voiceNote" class="voice-note"></span>
+    <div class="theme-switcher">
+        <button class="theme-btn t-teal" onclick="setTheme('teal',this)">Teal</button>
+        <button class="theme-btn t-ocean" onclick="setTheme('ocean',this)">Ocean</button>
+        <button class="theme-btn t-slate" onclick="setTheme('slate',this)">Slate</button>
+        <button class="theme-btn t-dark" onclick="setTheme('dark',this)">Dark</button>
+    </div>
+    <button class="big-btn play-all-btn" onclick="playAll()">🔊 Play All</button>
+</div></div>
+
+<main class="container">
+    <div id="sections-container"></div>
+</main>
+
+<button class="fab-pause" id="fabPause" onclick="toggleFabPause()" title="إيقاف / استئناف">⏯️</button>
+
+<script>
+function cleanForSpeech(text) {
+    let result = text;
+    result = result.replace(/\([^)]*\)/g, ' ');
+    result = result.replace(/[→]/g, ' ');
+    result = result.replace(/'/g, '');
+    result = result.replace(/\s+/g, ' ').trim();
+    return result;
+}
+
+// ===================== البيانات =====================
+
+const keyVocab = [
+    ["accuracy (n)", "دقة"],
+    ["documentation (n)", "توثيق بالمستندات"],
+    ["excavation (n)", "أعمال حفر / التنقيب"],
+    ["fragile (adj)", "هش / قابل للكسر"],
+    ["remarkable (adj)", "مميز / رائع / جدير بالملاحظة"],
+    ["submerged (adj)", "مغمور تحت الماء"],
+    ["citizen journalism", "صحافة المواطن"],
+    ["digital archive", "أرشيف رقمى"],
+    ["hashtag", "هاشتاج / وَسْم"],
+    ["real-time documentation", "توثيق فورى"],
+    ["selective framing", "التأطير الانتقائى"]
+];
+
+const mainVocab = [
+    ["academic (adj)", "أكاديمى"],
+    ["account (n)", "حساب"],
+    ["antiquities (n)", "آثار"],
+    ["archaeology (n)", "علم الآثار"],
+    ["audience (n)", "جمهور"],
+    ["breaking (adj)", "عاجل"],
+    ["broadcast (n)", "بث / إذاعة"],
+    ["civilian (n)", "شخص مدنى"],
+    ["colonial (adj)", "استعمارى"],
+    ["curated (adj)", "منسق"],
+    ["current (adj)", "حالى"],
+    ["delay (n)(v)(ed)", "تأجيل / يؤجل"],
+    ["dig (n)(v)", "حفر / يحفر"],
+    ["documented (adj)", "موثق"],
+    ["dawn (n)", "فجر"],
+    ["enigmatic (adj)", "غامض"],
+    ["exclude (v)(d)", "يستبعد"],
+    ["finding (n)", "اكتشاف"],
+    ["former (adj)", "سابق"],
+    ["gatekeeper (n)", "حارس بوابة / مسئول أخبار"],
+    ["gear (n)", "معدات"],
+    ["house (v)(d)", "يستضيف / يحتوى"],
+    ["humanity (n)", "الإنسانية"],
+    ["iconic (adj)", "مبهر / أيقونى"],
+    ["lasting (adj)", "دائم"],
+    ["limitation (n)", "تقييد / حدود"],
+    ["lintel (n)", "عتبة الباب"],
+    ["masterpiece (n)", "تحفة فنية"],
+    ["moderation (n)", "اعتدال / إشراف"],
+    ["masters (n)", "أساتذة"],
+    ["material (n)", "مادة (خام مثلاً)"],
+    ["ministry (n)", "وزارة"],
+    ["news outlet (n)", "وكالة أنباء"],
+    ["occurrence (n)", "حدوث"],
+    ["official (adj)", "رسمى"],
+    ["papyrus (n)", "ورق البردى"],
+    ["permanently (adv)", "بشكل دائم"],
+    ["political (adj)", "سياسى"],
+    ["positive (adj)", "إيجابى"],
+    ["preservation (n)", "حفاظ / وقاية"],
+    ["precede (v)(d)", "يسبق"],
+    ["primary (adj)", "أساسى"],
+    ["professional (n)(adj)", "محترف / احترافى"],
+    ["replacement (n)", "استبدال / بديل"],
+    ["royal (adj)", "ملكى"],
+    ["routine (adj)", "روتينى"],
+    ["sculpture (n)", "تمثال / منحوتة"],
+    ["scholar (n)", "باحث"],
+    ["span (v)(ned)", "يتجاوز / يمتد إلى"],
+    ["statement (n)", "بيان / عرض"],
+    ["tag (n)(v)(ged)", "وسم / يسم"],
+    ["thread (n)", "سلسلة / مسار"],
+    ["tourism (n)", "سياحة"],
+    ["trace (n)(v)(d)", "أثر / يتعقب"],
+    ["trained (adj)", "مدرب"],
+    ["witness (n)(v)(ed)", "شاهد / يشهد"]
+];
+
+const idiomsData = [
+    ["around the world", "حول العالم"],
+    ["at the very moment", "فى اللحظة الراهنة"],
+    ["(be) on site", "يتواجد فى الموقع"],
+    ["have no disadvantages", "ليس لديه سلبيات"],
+    ["keep ... updated", "يبقى ... على اطلاع دائم"],
+    ["record the events as they happen", "يسجل الأحداث فور وقوعها"],
+    ["shape the audience's understanding", "يشكل فهم الجمهور"],
+    ["share ... out of context", "يشارك ... خارج سياقها"]
+];
+
+const prepositionsData = [
+    ["belong to", "ينتمى إلى"],
+    ["carry out", "يقوم بـ / ينفذ"],
+    ["collection of", "مجموعة من"],
+    ["date to", "يرجع تاريخه إلى"],
+    ["free from", "خالٍ من"],
+    ["replacement for", "بديل لـ"],
+    ["run by", "يُدار بواسطة"],
+    ["share with", "يشارك مع"],
+    ["work on", "عمل على"]
+];
+
+const defsData = [
+    {word: "excavation", ar: "حفر / تنقيب", def: "the activity of digging to discover old objects or buildings"},
+    {word: "remarkable", ar: "مميز / رائع", def: "very unusual or surprising in a positive way"},
+    {word: "submerged", ar: "مغمور", def: "covered or hidden under water"},
+    {word: "documentation", ar: "توثيق", def: "the process of recording and keeping information, evidence, or details"},
+    {word: "fragile", ar: "هش / قابل للكسر", def: "easily damaged or broken"},
+    {word: "accuracy", ar: "دقة", def: "the state of being correct and free from mistakes"},
+    {word: "citizen journalism", ar: "صحافة المواطن", def: "news reporting carried out by members of the public, not trained journalists"},
+    {word: "real-time documentation", ar: "توثيق فورى", def: "recording and sharing events as they happen, without delay"},
+    {word: "hashtag", ar: "هاشتاج", def: "a word or phrase preceded by # used on social media to tag content by topic"},
+    {word: "digital archive", ar: "أرشيف رقمى", def: "a collection of historical materials stored and accessible online"},
+    {word: "selective framing", ar: "التأطير الانتقائى", def: "choosing which details to include or exclude to shape the audience's understanding"}
+];
+
+const synData = [
+    {word: "accuracy", syn: "correctness, precision"},
+    {word: "documented", syn: "recorded, registered"},
+    {word: "enigmatic", syn: "mysterious, puzzling"},
+    {word: "fragile", syn: "delicate, weak"},
+    {word: "former", syn: "past, previous"},
+    {word: "official", syn: "authorized, formal"},
+    {word: "span", syn: "encompass, cover"},
+    {word: "statement", syn: "announcement, declaration"},
+    {word: "trace", syn: "follow, track"}
+];
+
+const antData = [
+    {word: "accuracy", ant: "error, mistake"},
+    {word: "documented", ant: "unrecorded, secret"},
+    {word: "enigmatic", ant: "clear, obvious"},
+    {word: "fragile", ant: "strong, sturdy"},
+    {word: "former", ant: "current, future"},
+    {word: "official", ant: "unofficial, informal"},
+    {word: "span", ant: "narrow, shorten"},
+    {word: "statement", ant: "question, silence"},
+    {word: "trace", ant: "lose, miss"}
+];
+
+const derivativesData = [
+    {word: "broadcast (v)", forms: ["broadcast (n)", "broadcast (adj)"], ar: "يبث / يذيع / بث ، إذاعة / مذاع"},
+    {word: "document (v)", forms: ["documentation / document (n)", "documented / documentary (adj)"], ar: "يوثق / يسجل / التوثيق ، الأوراق / وثيقة ، مستند / مُوَثَّق / فيلم وثائقى"},
+    {word: "excavate (v)", forms: ["excavation / excavator (n)", "excavated (adj)"], ar: "يحفر / حفر ، حفار / منقب"},
+    {word: "limit (v)", forms: ["limitation / limit (n)", "limited / limitless (adj)"], ar: "يحد / يقيد / تقييد ، حد / محدود / غير محدود"},
+    {word: "precede (v)", forms: ["precedence / precedent (n)", "preceding (adj)"], ar: "يسبق / أسبقية / متقدم ، سابق / سابق"},
+    {word: "train (v)", forms: ["training / trainer / trainee (n)", "trained (adj)"], ar: "يدرب / يتدرب / تدريب ، مُدَرِّب ، مُتَدَرِّب / مُدَرَّب"}
+];
+
+const confusionData = [
+    {word: "dig", ar: "يحفر / ينبش (عام، غالبًا)", ex: "The dog dug a hole in the garden. We need to dig a small trench for the drainage pipe."},
+    {word: "excavate", ar: "يحفر / ينقب (بشكل منهجى وعلمى، غالبًا لأغراض أثرية أو إنشائية كبيرة)", ex: "Archaeologists excavated the Ancient Roman Temple. Workers excavated the site before building the skyscraper."},
+    {word: "drill / bore", ar: "يحفر / يثقب (بآلة دوارة، غالبًا لعمل ثقب عميق أو ضيق بحثًا عن شىء أو لعمل شىء)", ex: "The crew drilled 200 meters into the ground to find water. He drilled a hole in the wall to hang a picture. They plan to bore a tunnel through the mountain."},
+    {word: "delay", ar: "يؤخر / يؤجل (سبب خارجى أو داخلى، قد يكون اضطراريًا)", ex: "The flight was delayed due to heavy rain. Please don't delay sending the report. She delayed her trip until next week."},
+    {word: "procrastinate", ar: "يماطل / يسوف / يؤجل (بسبب كسل أو خوف أو عدم رغبة)", ex: "Stop procrastinating and start your homework! He procrastinated for weeks instead of applying for the job. I always procrastinate when the task is boring."},
+    {word: "statement", ar: "بيان / تصريح (قصير، رسمى غالبًا، شفهيًا أو مكتوبًا)", ex: "The CEO released a statement about the new company policy. The witness gave a statement to the police."},
+    {word: "speech", ar: "خطاب / كلمة (طويل، شفهى، أمام جمهور، غالبًا عاطفى أو تحفيزى)", ex: "The president delivered a powerful speech about unity. She gave a heartfelt speech at her best friend's wedding."},
+    {word: "presentation", ar: "عرض تقديمى (منظم، مع وسائل مساعدة مثل شرائح، بهدف شرح أو بيع فكرة)", ex: "He gave a presentation on climate change using detailed slides. The sales team prepared a presentation for their new product."}
+];
+
+const listeningVocab = [
+    ["excavation", "أعمال حفر / التنقيب"],
+    ["remarkable", "مميز / جدير بالملاحظة"],
+    ["submerged", "مغمور تحت الماء"],
+    ["documentation", "توثيق بالمستندات"],
+    ["fragile", "هش / قابل للكسر"],
+    ["accuracy", "دقة"]
+];
+
+const readingTitle = { en: "Social Media Post for Analysis", ar: "منشور على وسائل التواصل الاجتماعى للتحليل" };
+
+const readingTextL1 = [
+    {en: "The following threads are fictional social media posts created for analysis.", ar: "السلاسل التالية عبارة عن منشورات خيالية على وسائل التواصل الاجتماعى أُنشئت لغرض التحليل."},
+    {en: "Thread 1: Art History Now © @ArtHistoryNow · 2h", ar: "السلسلة 1: Art History Now © @ArtHistoryNow · منذ ساعتين"},
+    {en: "A Museum of Art or a Journey through History?", ar: "متحف فنى أم رحلة عبر التاريخ؟"},
+    {en: "The Louvre in Paris is the world's largest art museum, housing over 30,000 works of art in a former royal palace.", ar: "متحف اللوفر فى باريس هو أكبر متحف فنى فى العالم، ويضم أكثر من 30,000 عمل فنى فى قصر ملكى سابق."},
+    {en: "But what story does it tell, and what story does it leave out?", ar: "لكن أى قصة يرويه، وأى قصة يتركها بلا رواية؟"},
+    {en: "What's on display: The Mona Lisa, Leonardo da Vinci's enigmatic masterpiece; Venus de Milo, the iconic Greek statue; works from European masters spanning centuries.", ar: "المعروضات: الموناليزا، تحفة ليوناردو دافنشى الغامضة؛ فينوس دى ميلو، التمثال اليونانى الأيقونى؛ أعمال من كبار الفنانين الأوروبيين تمتد عبر قرون."},
+    {en: "Thread 2: Art History Now @ArtHistoryNow · 4h", ar: "السلسلة 2: Art History Now @ArtHistoryNow · منذ أربع ساعات"},
+    {en: "A Collection of Artifacts or a Story of the World?", ar: "مجموعة من القطع الأثرية أم قصة العالم؟"},
+    {en: "The British Museum in London traces \"the story of world cultures from the very dawn of humanity.\"", ar: "يتتبع المتحف البريطانى فى لندن \"قصة ثقافات العالم منذ فجر الإنسانية.\""},
+    {en: "But who wrote that story? And who is left out?", ar: "لكن من كتب تلك القصة؟ ومن الذى استُبعد منها؟"},
+    {en: "What's on display: The Rosetta Stone, key to understanding hieroglyphs; Parthenon sculptures (the Elgin Marbles); artifacts from every continent.", ar: "المعروضات: حجر رشيد، مفتاح فهم الكتابة الهيروغليفية؛ منحوتات البارثينون (رخام إلجين)؛ قطع أثرية من كل قارة."}
+];
+
+const readingQuestions = [];
+
+const listeningTitle = "How social media is bringing Egyptian discoveries to the world";
+
+const listeningTextL2 = [
+    {en: "For most of human history, news of a great archaeological discovery travels slowly.", ar: "على مدار معظم تاريخ البشرية، كانت أخبار الاكتشافات الأثرية الكبرى تنتقل ببطء."},
+    {en: "A royal tomb found in the Valley of the Kings might be reported in a specialist journal months after the excavation began, reaching only a small community of scholars and museum professionals.", ar: "قد يُنشر خبر مقبرة ملكية اكتُشفت فى وادى الملوك فى مجلة متخصصة بعد أشهر من بدء أعمال التنقيب، ولا يصل إلا إلى مجتمع صغير من الباحثين والمتخصصين فى المتاحف."},
+    {en: "The wider public, whether in Egypt or abroad, would wait years before seeing even a photograph of what had been uncovered.", ar: "أما عامة الناس، سواء فى مصر أو فى الخارج، فكانوا ينتظرون سنوات قبل أن يروا حتى صورة لما تم اكتشافه."},
+    {en: "Knowledge of the past was carefully managed, moving through official channels before it reached ordinary people.", ar: "كانت معرفة الماضى تُدار بعناية، وتنتقل عبر القنوات الرسمية قبل أن تصل إلى الناس العاديين."},
+    {en: "Social media has transformed this process in remarkable ways.", ar: "غيّرت وسائل التواصل الاجتماعى هذه العملية بطرق مميزة."},
+    {en: "When an exciting find is made today, whether a sealed tomb in Luxor, a submerged city off the coast of Alexandria, or an ancient papyrus in the Delta, it can be photographed, posted, and shared with millions of people within hours.", ar: "عندما يتم اكتشاف مثير اليوم، سواء كانت مقبرة مغلقة فى الأقصر، أو مدينة مغمورة قبالة سواحل الإسكندرية، أو ورق بردى قديم فى الدلتا، يمكن تصويره ونشره ومشاركته مع ملايين الناس خلال ساعات."},
+    {en: "Official accounts run by organizations such as the Ministry of Tourism and Antiquities now use platforms like X and Instagram to document discoveries in real time, allowing followers from Cairo to Tokyo to watch history being uncovered.", ar: "تستخدم الحسابات الرسمية التى تديرها جهات مثل وزارة السياحة والآثار منصات مثل إكس وإنستجرام لتوثيق الاكتشافات فى الوقت الفعلى، مما يتيح للمتابعين من القاهرة إلى طوكيو مشاهدة التاريخ وهو يُكشف."},
+    {en: "For the first time, Egypt's extraordinary heritage is being shared with the world at the very moment it is found.", ar: "ولأول مرة، يُشارَك تراث مصر الاستثنائى مع العالم فى اللحظة ذاتها التى يُكتشف فيها."},
+    {en: "There are challenges to consider, however.", ar: "ومع ذلك، هناك تحديات ينبغى مراعاتها."},
+    {en: "A post on X can be deleted, an Instagram story expires after 24 hours, and a TikTok video may be removed by its creator or by the platform's moderation systems within minutes of going viral.", ar: "يمكن حذف منشور على إكس، وتنتهى صلاحية قصة إنستجرام بعد 24 ساعة، وقد يُزال فيديو تيك توك من قِبل صاحبه أو أنظمة إشراف المنصة خلال دقائق من انتشاره الواسع."},
+    {en: "Unlike a stone inscription or a printed journal, social media documentation is fragile.", ar: "على عكس النقش الحجرى أو المجلة المطبوعة، فإن التوثيق عبر وسائل التواصل الاجتماعى هش."},
+    {en: "There is also the question of accuracy: not every post about an Egyptian discovery is published by experts, and images or claims can sometimes be misunderstood or shared out of context.", ar: "هناك أيضًا مسألة الدقة: فليس كل منشور عن اكتشاف مصرى ينشره خبراء، وقد يُساء فهم الصور أو الادعاءات أو تُشارك خارج سياقها أحيانًا."},
+    {en: "Specialists argue that social media is most valuable when it works alongside careful academic documentation and preservation.", ar: "يرى المتخصصون أن وسائل التواصل الاجتماعى تكون الأكثر قيمة عندما تعمل جنبًا إلى جنب مع التوثيق الأكاديمى الدقيق وأعمال الحفظ."}
+];
+
+// ===================== بناء الواجهة =====================
+function makeWordSpans(text) {
+    const words = text.trim().split(/\s+/);
+    return words.map((w, idx) => `<span class="word" data-word-index="${idx}">${w}</span>`).join(' ');
+}
+
+function buildAllSections() {
+    const container = document.getElementById('sections-container');
+
+    function makePills(wordsArray, sectionId) {
+        return wordsArray.map((w, i) => {
+            const id = `${sectionId}_p${i}`;
+            const wordHtml = makeWordSpans(w[0]);
+            const speakText = cleanForSpeech(w[0]);
+            return `<div class="pill" id="${id}" data-speak="${speakText}" onclick="playOne('${id}')"><span class="en">${wordHtml}</span><span class="tr">${w[1]}</span></div>`;
+        }).join('');
+    }
+
+    function makeRuleItem(icon, sectionId, index, speakText, arText, displayText) {
+        const id = `${sectionId}_${index}`;
+        const wordHtml = makeWordSpans(displayText || speakText);
+        const finalSpeak = cleanForSpeech(speakText);
+        return `<div class="rule-item" id="${id}" data-speak="${finalSpeak}" onclick="playOne('${id}')">
+            <span class="rule-icon">${icon}</span>
+            <div class="rule-text">
+                <span class="en">${wordHtml}</span>
+                <span class="ar">${arText || ''}</span>
+            </div>
+        </div>`;
+    }
+
+    function playBar(sectionId) {
+        return `<div class="sec-play-bar">
+            <button class="big-btn" style="background:linear-gradient(135deg,var(--A),var(--A2))" onclick="playSection('${sectionId}')">▶ Play</button>
+            <button class="big-btn pause-btn" onclick="pauseAll()">⏸ Pause</button>
+            <button class="big-btn stop-btn" onclick="stopAll()">⏹ Stop</button>
+        </div>`;
+    }
+
+    function makeStorySection(title, titleAr, storyData) {
+        const speakerEmojis = {"Sarah":"👩‍⚕️","Operator":"🎙️","Caller":"📞"};
+        const knownSpeakers = new Set(Object.keys(speakerEmojis));
+
+        return `<div class="story-card">
+            <div style="font-weight:bold;color:var(--A);margin-bottom:6px;">${title}</div>
+            ${titleAr ? `<div class="story-title">${titleAr}</div>` : ''}
+            ${storyData.map((s,i) => {
+                const id = `secStory_${title.replace(/\s/g,'')}_${i}`;
+                let enText = s.en;
+                let speaker = '';
+                let dialogueText = enText;
+                const colonIndex = enText.indexOf(': ');
+                if (colonIndex > 0) {
+                    const candidate = enText.substring(0, colonIndex);
+                    if (knownSpeakers.has(candidate)) {
+                        speaker = candidate;
+                        dialogueText = enText.substring(colonIndex + 2);
+                    }
+                }
+                const emoji = speakerEmojis[speaker] || '📖';
+                const wordHtml = makeWordSpans(dialogueText);
+                let speakerHtml = '';
+                if (speaker) {
+                    speakerHtml = `<span class="speaker-label">${emoji} ${speaker}</span> `;
+                }
+                return `<div class="sentence" id="${id}" data-speak="${s.en}" onclick="playOne('${id}')">
+                    ${speakerHtml} ${wordHtml}
+                </div> `;
+            }).join('')}
+            <div class="story-ar">${storyData.map(s => s.ar).join(' ')}</div>
+        </div>`;
+    }
+
+    const sections = [];
+
+    // 1. Key Vocabulary
+    if (keyVocab && keyVocab.length > 0) {
+        sections.push({ title:"💊 Key Vocabulary", id:"secKeyVocab", content: `<div class="info-box"><div class="info-title">Key Vocabulary & Concepts (3.4)</div><div class="vocab">${makePills(keyVocab, "secKeyVocab")}</div></div>` });
+    }
+
+    // 2. Main Vocabulary
+    if (mainVocab && mainVocab.length > 0) {
+        sections.push({ title:"📚 Main Vocabulary", id:"secMainVocab", content: `<div class="info-box"><div class="info-title">Main Vocabulary (3.4)</div><div class="vocab">${makePills(mainVocab, "secMainVocab")}</div></div>` });
+    }
+
+    // 3. Phrases, Expressions & Idioms
+    if (idiomsData && idiomsData.length > 0) {
+        sections.push({ title:"💡 Phrases, Expressions & Idioms", id:"secIdioms", content: `<div class="rules-grid">${idiomsData.map((e,i) => makeRuleItem('✨', 'secIdioms', i, e[0], e[1], e[0])).join('')}</div>` });
+    }
+
+    // 4. Prepositions
+    if (prepositionsData && prepositionsData.length > 0) {
+        sections.push({ title:"🔗 Prepositions", id:"secPrepositions", content: `<div class="rules-grid">${prepositionsData.map((p,i) => makeRuleItem('🔗', 'secPrepositions', i, p[0], p[1], p[0])).join('')}</div>` });
+    }
+
+    // 5. Definitions
+    if (defsData && defsData.length > 0) {
+        sections.push({ title:"📝 Definitions", id:"secDefs", content: `<div class="rules-grid">${defsData.map((d,i) => {
+            const speakText = cleanForSpeech(d.word) + " | " + d.def;
+            const displayText = `${d.word} → ${d.def}`;
+            return makeRuleItem('📖', 'secDefs', i, speakText, d.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 6. Synonyms & Antonyms
+    if (synData && synData.length > 0) {
+        sections.push({ title:"🔄 Synonyms", id:"secSyn", content: `<div class="rules-grid">${synData.map((s,i) => makeRuleItem('↔️', 'secSyn', i, s.word + " | " + s.syn, s.syn, s.word)).join('')}</div>` });
+    }
+    if (antData && antData.length > 0) {
+        sections.push({ title:"🚫 Antonyms", id:"secAnt", content: `<div class="rules-grid">${antData.map((a,i) => makeRuleItem('🛑', 'secAnt', i, a.word + " | " + a.ant, a.ant, a.word)).join('')}</div>` });
+    }
+
+    // 7. Derivatives
+    if (derivativesData && derivativesData.length > 0) {
+        sections.push({ title:"🔨 Derivatives (Word Families)", id:"secDerivatives", content: `<div class="rules-grid">${derivativesData.map((d,i) => {
+            const formsStr = d.forms.join(" | ");
+            const speakText = `${d.word} | ${formsStr}`;
+            const displayText = `${d.word} → ${formsStr}`;
+            return makeRuleItem('🔨', 'secDerivatives', i, speakText, d.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 8. Focus on Vocabulary (Clear the Confusion)
+    if (confusionData && confusionData.length > 0) {
+        sections.push({ title:"🧐 Focus on Vocabulary", id:"secConfusion", content: `<div class="rules-grid">${confusionData.map((c,i) => {
+            const speakText = `${c.word} | ${c.ex}`;
+            const displayText = `${c.word} → ${c.ex}`;
+            return makeRuleItem('🧐', 'secConfusion', i, speakText, c.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 9. Reading Text
+    if (readingTextL1 && readingTextL1.length > 0) {
+        let readingContent = makeStorySection(readingTitle.en, readingTitle.ar, readingTextL1);
+        if (readingQuestions && readingQuestions.length > 0) {
+            readingContent += `<div class="qbox"><div class="info-title">JRE (Justify – Reason – Evidence)</div>${readingQuestions.map(q => `<div class="qitem">${q}</div>`).join('')}</div>`;
+        }
+        sections.push({ title:"📖 Reading Text (Social Media Post for Analysis)", id:"secReadL1", content: readingContent });
+    }
+
+    // 10. Listening Text
+    if (listeningTextL2 && listeningTextL2.length > 0) {
+        let listeningContent = '';
+        if (listeningVocab && listeningVocab.length > 0) {
+            listeningContent += `<div class="info-box"><div class="info-title">Listening Glossary</div><div class="vocab">${makePills(listeningVocab, "secListenVocab")}</div></div>`;
+        }
+        listeningContent += makeStorySection(listeningTitle, '', listeningTextL2);
+        sections.push({ title:"🎧 Listening Text (How Social Media Is Bringing Egyptian Discoveries to the World)", id:"secListenL2", content: listeningContent });
+    }
+
+    let html = '';
+    sections.forEach(sec => {
+        html += `<div class="section-block" id="${sec.id}">
+            <div class="sec-title">${sec.title}</div>
+            <div class="sec-body">
+                ${playBar(sec.id)}
+                ${sec.content}
+            </div>
+        </div>`;
+    });
+    container.innerHTML = html;
+}
+
+// ===================== نظام الصوت =====================
+const rateRange = document.getElementById('rateRange');
+const rateBadge = document.getElementById('rateBadge');
+const fabPause = document.getElementById('fabPause');
+
+const savedRate = localStorage.getItem('speechRate') || 1;
+rateRange.value = savedRate;
+rateBadge.textContent = parseFloat(savedRate).toFixed(1)+'x';
+rateRange.addEventListener('input', () => {
+    const val = parseFloat(rateRange.value).toFixed(1);
+    rateBadge.textContent = val+'x';
+    localStorage.setItem('speechRate', val);
+});
+
+let voices = [];
+let voiceLoadAttempts = 0;
+const voiceSelectEl = document.getElementById('voiceSelect');
+const voiceNoteEl = document.getElementById('voiceNote');
+
+function loadVoices() {
+    voices = window.speechSynthesis.getVoices();
+    voiceLoadAttempts++;
+    populateVoiceSelect();
+}
+
+function pickBestVoice(list, langPrefix) {
+    if (!list.length) return null;
+    const normalizeLang = (lang) => (lang || '').replace('_', '-');
+    const isLangMatch = (voiceLang) => normalizeLang(voiceLang) === langPrefix || normalizeLang(voiceLang).startsWith(langPrefix + '-');
+    const candidates = list.filter(v => isLangMatch(v.lang));
+    if (!candidates.length) return null;
+    const scored = candidates.map(v => {
+        let score = 0;
+        if (v.localService) score += 2;
+        if (/Google|Natural|Neural|Online/i.test(v.name)) score += 3;
+        if (v.default) score += 1;
+        return { v, score };
+    }).sort((a, b) => b.score - a.score);
+    return scored[0].v;
+}
+
+function accentFlag(lang) {
+    const l = (lang || '').toLowerCase();
+    if (l.startsWith('en-us')) return '🇺🇸';
+    if (l.startsWith('en-gb')) return '🇬🇧';
+    if (l.startsWith('en-au')) return '🇦🇺';
+    if (l.startsWith('en-ca')) return '🇨🇦';
+    if (l.startsWith('en-in')) return '🇮🇳';
+    if (l.startsWith('en-ie')) return '🇮🇪';
+    if (l.startsWith('en-za')) return '🇿🇦';
+    return '🌐';
+}
+
+// نفرض فقط لكنتين: أمريكى وبريطانى. حتى لو المتصفح مش بيدي أصوات منفصلة لكل لكنة،
+// بنجبر utterance.lang على القيمة المطلوبة (en-US / en-GB) — ده هو اللي بيغيّر النطق فعليًا
+// على أغلب محركات النطق (خصوصًا على الموبايل)، مش اختيار "voice" بس.
+const FORCED_ACCENTS = [
+    { code: 'en-US', label: '🇺🇸 American' },
+    { code: 'en-GB', label: '🇬🇧 British' }
+];
+
+function populateVoiceSelect() {
+    const allVoices = voices;
+    if (!allVoices.length) {
+        voiceNoteEl.textContent = voiceLoadAttempts > 4 ? '⚠️ لم يتم العثور على أصوات. جرّب تحديث الصفحة.' : '⏳ جاري تحميل الأصوات...';
+    }
+    const savedCode = localStorage.getItem('ttsLangCode') || 'en-US';
+    voiceSelectEl.innerHTML = FORCED_ACCENTS.map(a => `<option value="${a.code}">${a.label}</option>`).join('');
+    voiceSelectEl.value = savedCode;
+
+    // نوضّح للمستخدم هل فيه صوت مخصص فعليًا لكل لكنة على جهازه أم لأ (معلومة فقط، مش بتمنع التبديل)
+    if (allVoices.length) {
+        const usV = pickBestVoice(allVoices, 'en-US');
+        const gbV = pickBestVoice(allVoices, 'en-GB');
+        if (usV && gbV && usV.voiceURI === gbV.voiceURI) {
+            voiceNoteEl.textContent = 'ℹ️ الجهاز فيه صوت واحد مُثبَّت، وبيتغيّر النطق حسب اللكنة المختارة قدر الإمكان.';
+        } else {
+            voiceNoteEl.textContent = '';
+        }
+    }
+}
+voiceSelectEl.addEventListener('change', function() {
+    localStorage.setItem('ttsLangCode', this.value);
+});
+
+function getSelectedVoice() {
+    const code = localStorage.getItem('ttsLangCode') || 'en-US';
+    return pickBestVoice(voices, code) || voices.find(vv => (vv.lang || '').toLowerCase().startsWith('en')) || null;
+}
+function getSelectedLangCode() {
+    return localStorage.getItem('ttsLangCode') || 'en-US';
+}
+
+window._q = []; window._qi = 0;
+window._currentUtterance = null;
+let currentHighlightedId = null;
+
+function clearAllHighlights() {
+    document.querySelectorAll('.active-sent').forEach(e => e.classList.remove('active-sent'));
+    currentHighlightedId = null;
+}
+function showFab(show) { if (show) fabPause.classList.add('show'); else fabPause.classList.remove('show'); }
+function updateFabIcon() {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) fabPause.innerHTML = '⏸️';
+    else if (window.speechSynthesis.paused) fabPause.innerHTML = '▶️';
+    else fabPause.innerHTML = '⏯️';
+}
+
+function playQueue() {
+    if (window._qi >= window._q.length) {
+        clearAllHighlights(); showFab(false); return;
+    }
+    const item = window._q[window._qi];
+    if (currentHighlightedId !== item.id) {
+        clearAllHighlights();
+        const el = document.getElementById(item.id);
+        if (el) {
+            el.classList.add('active-sent');
+            el.scrollIntoView({behavior:'smooth',block:'nearest'});
+            currentHighlightedId = item.id;
+        }
+    }
+    const u = new SpeechSynthesisUtterance(item.text);
+    u.rate = parseFloat(rateRange.value) || 1;
+    // نحدد اللكنة عن طريق u.lang دايمًا (مش بس اختيار voice) — ده اللي بيغيّر النطق فعليًا
+    // على أغلب محركات النطق فى الموبايل حتى لو مفيش صوت منفصل مسجل لكل لكنة
+    u.lang = getSelectedLangCode();
+    const voice = getSelectedVoice();
+    if (voice) u.voice = voice;
+
+    u.onstart = () => { showFab(true); updateFabIcon(); };
+    u.onend = function() { window._qi++; playQueue(); };
+    u.onerror = function(e) { console.warn('Speech error', e); window._qi++; playQueue(); };
+    u.onpause = () => updateFabIcon();
+    u.onresume = () => updateFabIcon();
+
+    window._currentUtterance = u;
+    window.speechSynthesis.speak(u);
+}
+
+function splitAndQueue(textParts, id) {
+    textParts.forEach((p) => { const trimmed = p.trim(); if (trimmed) window._q.push({id: id, text: trimmed}); });
+}
+
+function playSection(secId) {
+    stopAll();
+    const sec = document.getElementById(secId);
+    const els = [...sec.querySelectorAll('[data-speak]')];
+    els.forEach(el => {
+        const text = el.dataset.speak;
+        const parts = text.split('|').map(p => p.trim());
+        splitAndQueue(parts, el.id);
+    });
+    window._qi = 0;
+    playQueue();
+}
+
+function playAll() {
+    stopAll();
+    const els = [...document.querySelectorAll('[data-speak]')];
+    els.forEach(el => {
+        const text = el.dataset.speak;
+        const parts = text.split('|').map(p => p.trim());
+        splitAndQueue(parts, el.id);
+    });
+    window._qi = 0;
+    playQueue();
+}
+
+function playOne(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const text = el.dataset.speak;
+    stopAll();
+    const parts = text.split('|').map(p => p.trim());
+    splitAndQueue(parts, id);
+    window._qi = 0;
+    playQueue();
+}
+
+function pauseAll() {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+        window.speechSynthesis.pause(); updateFabIcon();
+    } else if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume(); updateFabIcon();
+    }
+}
+
+function stopAll() {
+    window._q = []; window._qi = 0;
+    clearAllHighlights();
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    showFab(false);
+}
+
+function toggleFabPause() { pauseAll(); }
+
+// ===================== الثيمات =====================
+function setTheme(theme, btn) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    localStorage.setItem('theme', theme);
+}
+const savedTheme = localStorage.getItem('theme') || 'teal';
+document.documentElement.setAttribute('data-theme', savedTheme);
+document.querySelectorAll('.theme-btn').forEach(b => {
+    if (b.classList.contains('t-'+savedTheme)) b.classList.add('active');
+});
+
+// ===================== بدء التشغيل =====================
+buildAllSections();
+loadVoices();
+setTimeout(loadVoices, 300);
+setTimeout(loadVoices, 1000);
+setTimeout(loadVoices, 2500);
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadVoices;
+</script>
+</body>
+</html>

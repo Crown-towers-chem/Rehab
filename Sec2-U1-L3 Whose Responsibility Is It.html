@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Sec 2 - Unit 1: Whose Responsibility Is It? (Lesson 3)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --A: #1e3a8a; --A2: #1e40af; --blue4: #dbeafe; --blue5: #f8fafc;
+            --text: #1E293B; --text2: #64748B; --card: #ffffff; --border: #e2e8f0;
+            --bg: #f1f5f9; --radius: 12px; --stop: #ef4444; --pause: #94a3b8;
+            --highlight-bg: rgba(30, 58, 138, 0.08);
+            --word-highlight: #fde047;
+            --fab-bg: #1e293b; --fab-text: #ffffff;
+        }
+        [data-theme="ocean"] {
+            --A: #0e7490; --A2: #0891b2; --blue4: #cffafe; --blue5: #f0fdfa;
+            --text: #1E293B; --text2: #64748B; --card: #ffffff; --border: #e2e8f0;
+            --bg: #f1f5f9; --stop: #ef4444; --highlight-bg: rgba(14, 116, 144, 0.08);
+            --fab-bg: #0e7490; --fab-text: #ffffff;
+        }
+        [data-theme="slate"] {
+            --A: #334155; --A2: #475569; --blue4: #e2e8f0; --blue5: #f8fafc;
+            --text: #0f172a; --text2: #475569; --card: #ffffff; --border: #cbd5e1;
+            --bg: #f1f5f9; --stop: #ef4444; --highlight-bg: rgba(51, 65, 85, 0.1);
+            --fab-bg: #1e293b; --fab-text: #ffffff;
+        }
+        [data-theme="dark"] {
+            --A: #2dd4bf; --A2: #0d9488; --blue4: #134e4a; --blue5: #0f172a;
+            --text: #f8fafc; --text2: #94a3b8; --card: #1e293b; --border: #334155;
+            --bg: #0f172a; --stop: #f87171; --pause: #64748b; --highlight-bg: rgba(45, 212, 191, 0.15);
+            --word-highlight: #facc15; --fab-bg: #facc15; --fab-text: #1e293b;
+        }
+        *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+        body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:100px;overflow-x:hidden;transition:background .3s,color .3s;}
+        .hero{color:#fff;text-align:center;padding:32px 20px 26px;margin-bottom:24px;background:linear-gradient(135deg, #0f172a, var(--A2)); box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+        .hero .emoji-big{font-size:3rem;display:block;margin-bottom:8px;}
+        .hero h1{font-size:1.6rem;font-weight:900;letter-spacing:0.5px;}
+        .hero .sub{font-size:.95rem;opacity:.85;margin-top:5px;font-family:'Cairo',sans-serif;font-weight:600;}
+        .toolbar{max-width:840px;margin:0 auto 24px;padding:0 16px;text-align:center;}
+        .toolbar-inner{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px 20px;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+        .toolbar label{font-weight:800;color:var(--A);font-size:13px;}
+        input[type=range]{width:90px;accent-color:var(--A);}
+        .rate-badge{font-weight:900;font-size:13px;color:var(--A);min-width:34px;}
+        select{padding:6px 10px;border-radius:6px;border:1px solid var(--border);font-weight:600;background:var(--card);color:var(--text);}
+        .theme-switcher{display:flex;align-items:center;gap:6px;margin-left:auto;}
+        .theme-btn{-webkit-appearance:none;appearance:none;border:2px solid transparent;border-radius:8px;padding:4px 12px;font-size:11px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:#fff;letter-spacing:.5px;transition:all .2s;}
+        .theme-btn.t-teal{background:linear-gradient(135deg,#0f766e,#2dd4bf);}
+        .theme-btn.t-ocean{background:linear-gradient(135deg,#0e7490,#06b6d4);}
+        .theme-btn.t-slate{background:linear-gradient(135deg,#334155,#94a3b8);}
+        .theme-btn.t-dark{background:linear-gradient(135deg,#1e293b,#475569);color:#e2e8f0;}
+        .theme-btn.active{border-color:#fff;box-shadow:0 0 0 2px currentColor;transform:scale(1.06);}
+        .container{max-width:840px;margin:auto;padding:0 16px;}
+        .section-block{background:var(--card);border-radius:var(--radius);margin-bottom:22px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid var(--border);}
+        .sec-title{color:#fff;font-size:.8rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:12px 20px;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--A),var(--A2));}
+        .sec-title::before{content:"";display:inline-block;width:6px;height:6px;background:rgba(255,255,255,.5);border-radius:50%;flex-shrink:0;}
+        .sec-body{padding:18px;}
+        .sec-play-bar{display:flex;gap:7px;margin-bottom:18px;flex-wrap:wrap;align-items:center;}
+        .big-btn{-webkit-appearance:none;appearance:none;border:none;border-radius:6px;padding:8px 16px;font-size:13px;font-weight:800;cursor:pointer;color:#fff;display:inline-flex;align-items:center;gap:5px;transition:transform .12s;font-family:'Nunito',sans-serif;}
+        .big-btn:active{transform:scale(.95);}
+        .big-btn.pause-btn{background:var(--pause);}
+        .big-btn.stop-btn{background:var(--stop);}
+        .big-btn.play-all-btn{background:linear-gradient(135deg, var(--A), var(--A2)); margin-left: 12px;}
+        .info-box{background:var(--blue5);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px;}
+        .info-title{display:flex;align-items:center;gap:6px;font-weight:900;font-size:.78rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--A2);}
+        .vocab{display:flex;flex-wrap:wrap;gap:8px;}
+        .pill{padding:10px 14px;border-radius:6px;background:var(--card);border:1px solid var(--blue4);text-align:center;cursor:pointer;flex:1 1 auto;min-width:80px;transition:all .15s;}
+        .pill:active{transform:scale(.96);}
+        .pill .en{font-weight:800;font-size:14px;display:block;color:var(--A);}
+        .pill .tr{font-size:11px;color:var(--text2);font-family:'Cairo',sans-serif;font-weight:600;}
+        .story-card{background:var(--blue5);border:1px solid var(--border);border-left:4px solid var(--A);border-radius:8px;padding:18px;margin-bottom:12px;}
+        .sentence{display:block;cursor:pointer;border-radius:6px;padding:10px 12px;margin-bottom:12px;transition:background .2s;line-height:1.8;font-size:17px;font-weight:600;color:var(--text);background:rgba(255,255,255,0.4);}
+        [data-theme="dark"] .sentence { background: rgba(255,255,255,0.05); }
+        .sentence .word{transition:background 0.15s;border-radius:3px;padding:0 1px;}
+        .sentence .word.highlight{background:var(--word-highlight);}
+        .sentence.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .sentence .speaker-label{display:inline-block;font-weight:900;color:var(--A2);margin-right:10px;background:var(--blue4);padding:2px 10px;border-radius:20px;font-size:0.9rem;}
+        .pill.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .rule-item.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .story-ar{font-family:'Cairo',sans-serif;color:var(--text2);font-size:14px;text-align:right;direction:rtl;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-weight:600;line-height:2;}
+        .story-title{font-family:'Cairo',sans-serif;font-weight:800;color:var(--A2);font-size:15px;text-align:right;direction:rtl;margin-bottom:10px;}
+        .rules-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;}
+        .rule-item{display:flex;align-items:flex-start;gap:12px;background:var(--blue5);border:1px solid var(--border);border-radius:6px;padding:12px 14px;cursor:pointer;transition:all .2s;}
+        .rule-item .rule-text{flex:1;}
+        .rule-item .rule-text .en{font-size:15px;font-weight:700;color:var(--text);}
+        .rule-item .rule-text .ar{font-family:'Cairo',sans-serif;font-size:13px;color:var(--text2);text-align:right;direction:rtl;font-weight:600;margin-top:4px;}
+        .qbox{background:var(--blue5);border:1px dashed var(--border);border-radius:8px;padding:14px 16px;margin-top:6px;}
+        .qbox .qitem{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;}
+        .qbox .qitem:last-child{margin-bottom:0;}
+        footer{text-align:center;margin-top:14px;padding:20px;color:var(--text2);font-size:12px;}
+        footer strong{color:var(--A);}
+        .voice-note{font-size:11px;color:#b45309;margin-top:4px;display:block;}
+        .fab-pause{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:var(--fab-bg);color:var(--fab-text);border:none;box-shadow:0 4px 16px rgba(0,0,0,0.2);font-size:24px;display:none;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s,opacity 0.2s;}
+        .fab-pause:active{transform:scale(.9);}
+        .fab-pause.show{display:flex;}
+    </style>
+</head>
+<body>
+
+<div class="hero"><span class="emoji-big">⚖️</span><h1>Unit 1: Whose Responsibility Is It?</h1><p class="sub">Sec 2 - Lesson 3 (1.3)</p></div>
+
+<div class="toolbar"><div class="toolbar-inner">
+    <label for="rateRange">Speed</label><input id="rateRange" type="range" min="0.5" max="1.2" step="0.1" value="1"/>
+    <span class="rate-badge" id="rateBadge">1.0x</span>
+    <select id="voiceSelect" style="max-width:180px;"></select>
+    <span id="voiceNote" class="voice-note"></span>
+    <div class="theme-switcher">
+        <button class="theme-btn t-teal" onclick="setTheme('teal',this)">Teal</button>
+        <button class="theme-btn t-ocean" onclick="setTheme('ocean',this)">Ocean</button>
+        <button class="theme-btn t-slate" onclick="setTheme('slate',this)">Slate</button>
+        <button class="theme-btn t-dark" onclick="setTheme('dark',this)">Dark</button>
+    </div>
+    <button class="big-btn play-all-btn" onclick="playAll()">🔊 Play All</button>
+</div></div>
+
+<main class="container">
+    <div id="sections-container"></div>
+</main>
+
+<button class="fab-pause" id="fabPause" onclick="toggleFabPause()" title="إيقاف / استئناف">⏯️</button>
+
+<script>
+function cleanForSpeech(text) {
+    let result = text;
+    result = result.replace(/\([^)]*\)/g, ' ');
+    result = result.replace(/[→]/g, ' ');
+    result = result.replace(/'/g, '');
+    result = result.replace(/\s+/g, ' ').trim();
+    return result;
+}
+
+// ===================== البيانات =====================
+
+const keyVocab = [
+    ["agency (n)", "القدرة على التصرف واتخاذ القرار / الاستقلالية"],
+    ["disempowering (adj)", "مُضعِف للقدرة أو الثقة بالنفس"],
+    ["locus of control (n)", "مركز التحكم (اعتقاد الشخص بمن يتحكم فى نتائج حياته)"],
+    ["nudge (n)(v)(d)", "دفعة / تشجيع بسيط / يحفز بلطف"],
+    ["perspective (n)", "مَنظُور / رؤية"],
+    ["resilience (n)", "المرونة / القدرة على التكيف والتعافى"],
+    ["self-efficacy (n)", "الكفاءة الذاتية / ثقة الشخص بقدرته على النجاح"],
+    ["structural barriers (n)", "عوائق هيكلية أو نظامية"]
+];
+
+const mainVocab = [
+    ["abandon (v)(ed)", "يتخلى عن"],
+    ["adolescent (n)(adj)", "مراهق / خاص بالمراهقة"],
+    ["advocates (n)", "مؤيدون / داعمون"],
+    ["affordable (adj)", "فى متناول الجميع / ميسور التكلفة"],
+    ["argue (v)(d)", "يجادل / يناقش"],
+    ["attribute (v)(d)", "يعزو / ينسب"],
+    ["available (adj)", "متاح / متوفر"],
+    ["behavior (n)", "سلوك"],
+    ["belief (n)", "اعتقاد"],
+    ["benefits (n)", "فوائد"],
+    ["campaign (n)", "حملة"],
+    ["capacity (n)", "قدرة"],
+    ["capture (v)(d)", "يعبّر عن / يأسر"],
+    ["case (n)", "حالة"],
+    ["concept (n)", "مفهوم"],
+    ["conditions (n)", "ظروف"],
+    ["convincing (adj)", "مُقنِع"],
+    ["demonstrate (v)(d)", "يثبت / يوضح"],
+    ["determine (v)(d)", "يحدد"],
+    ["entirely (adv)", "بالكامل / تمامًا"],
+    ["external (adj)", "خارجى"],
+    ["factors (n)", "عوامل"],
+    ["failures (n)", "إخفاقات"],
+    ["force (n)(v)(d)", "قوة / يجبر"],
+    ["genuine (adj)", "حقيقى / أصيل"],
+    ["impressionable (adj)", "سريع التأثر"],
+    ["income (n)", "دخل"],
+    ["independent (adj)", "مستقل"],
+    ["internal (adj)", "داخلى"],
+    ["invest (v)(ed)", "يستثمر"],
+    ["junk food (n)", "الوجبات السريعة غير الصحية"],
+    ["landmark study (n)", "دراسة بارزة / محورية"],
+    ["limited (adj)", "مَخدُود / محدد"],
+    ["measures (n)", "إجراءات / تدابير"],
+    ["neighborhood (n)", "حى سكنى"],
+    ["nutritiously (adv)", "بشكل مُغذٍّ / متعلق بالتغذية"],
+    ["obstacles (n)", "عقبات"],
+    ["outcomes (n)", "نتائج"],
+    ["ownership (n)", "ملكية / تحمُّل المسئولية"],
+    ["passive (adj)", "خامل / سلبى"],
+    ["philosopher (n)", "فيلسوف"],
+    ["policy (n)", "سياسة"],
+    ["possess (v)(ed)", "يمتلك"],
+    ["preference (n)", "تفضيل"],
+    ["prioritize (v)(d)", "يعطى أولوية لـ"],
+    ["professionals (n)", "متخصصون / محترفون"],
+    ["profound (adj)", "عميق"],
+    ["promote (v)(d)", "يشجع / يروج"],
+    ["proponents (n)", "مؤيدون"],
+    ["raise (v)(d)", "يرفع / يزيد"],
+    ["research (n)", "بحث"],
+    ["restrict (v)(ed)", "يقيَد / يحد من"],
+    ["shift (n)(v)(ed)", "تحويل / يغير"],
+    ["socioeconomic (adj)", "اجتماعى واقتصادى"],
+    ["sociology (n)", "علم الاجتماع"],
+    ["sports facilities (n)", "مرافق رياضية"],
+    ["struggle (v)(d)", "يكافح"],
+    ["target (v)(ed)", "يستهدف"],
+    ["taxes (n)", "ضرائب"],
+    ["viewpoint (n)", "وجهة نظر"],
+    ["willpower (n)", "قوة الإرادة"]
+];
+
+const idiomsData = [
+    ["an either-or choice", "اختيار بين أمرين لا ثالث لهما"],
+    ["feel in control", "يشعر بأنه مسيطر على الأمور"],
+    ["make positive changes", "يُحدث تغييرات إيجابية"],
+    ["a sense of purpose", "الشعور بوجود هدف فى الحياة"],
+    ["lies at the heart of", "يكمن فى صميم / جوهر"],
+    ["shape human behavior", "يشكل السلوك البشرى"],
+    ["by contrast", "على النقيض / فى المقابل"],
+    ["make a decision", "يتخذ قرارًا"],
+    ["take control of", "يسيطر على / يتولى زمام"],
+    ["exert enormous pressure on", "يفرض ضغطًا هائلًا على"],
+    ["make choices", "يتخذ خيارات"],
+    ["well-lived life", "حياة مليئة بالإنجازات"]
+];
+
+const prepositionsData = [
+    ["attribute ... to", "ينسب / يعزو ... إلى"],
+    ["belief about", "الاعتقاد بشأن"],
+    ["believe in", "يؤمن بـ / يثق فى"],
+    ["benefit of", "فائدة / منفعة"],
+    ["built into", "مُدمج فى"],
+    ["capable of", "قادر على"],
+    ["central to", "أساسى فى"],
+    ["perspective on", "وجهة نظر حول"],
+    ["refer to", "يشير إلى"],
+    ["responsible for", "مسئول عن"]
+];
+
+const defsData = [
+    {word: "agency", ar: "القدرة على اتخاذ القرار والتصرف باستقلالية", def: "the power to make choices and take independent action"},
+    {word: "self-efficacy", ar: "الكفاءة الذاتية / الثقة بالقدرة على النجاح", def: "the belief in one's own capacity to succeed"},
+    {word: "structural barriers", ar: "عوائق هيكلية أو نظامية", def: "obstacles in the environment that limit genuine choice"},
+    {word: "locus of control", ar: "مركز التحكم", def: "a person's belief about whether they control their own life"},
+    {word: "resilience", ar: "المرونة والقدرة على التعافى", def: "the ability to recover and adapt in the face of difficulty"},
+    {word: "nudge", ar: "دفعة بسيطة لطيفة", def: "a gentle push toward a certain behavior without force"},
+    {word: "disempowering", ar: "مُضعِف للثقة أو للقدرة", def: "making someone feel less capable or in control"}
+];
+
+const synData = [
+    {word: "agency", syn: "autonomy, independence, freedom"},
+    {word: "resilience", syn: "toughness, adaptability, flexibility"},
+    {word: "self-efficacy", syn: "self-confidence, self-belief, confidence"},
+    {word: "available", syn: "accessible, obtainable, ready"},
+    {word: "benefits", syn: "advantages, profits"},
+    {word: "demonstrate", syn: "show, prove, display"},
+    {word: "genuine", syn: "real, authentic, true"},
+    {word: "impressionable", syn: "sensitive, receptive"},
+    {word: "independent", syn: "self-reliant, autonomous"},
+    {word: "obstacles", syn: "barriers, difficulties, challenges"},
+    {word: "profound", syn: "deep, significant, meaningful"},
+    {word: "restrict", syn: "limit, control, reduce"},
+    {word: "willpower", syn: "determination, self-control"}
+];
+
+const antData = [
+    {word: "agency", ant: "dependence, helplessness"},
+    {word: "resilience", ant: "weakness, fragility"},
+    {word: "self-efficacy", ant: "self-doubt, insecurity"},
+    {word: "available", ant: "unavailable, inaccessible"},
+    {word: "benefits", ant: "disadvantages, drawbacks"},
+    {word: "demonstrate", ant: "hide, conceal"},
+    {word: "genuine", ant: "fake, false"},
+    {word: "impressionable", ant: "independent, unaffected"},
+    {word: "independent", ant: "dependent, reliant"},
+    {word: "obstacles", ant: "advantages, opportunities"},
+    {word: "profound", ant: "shallow, superficial"},
+    {word: "restrict", ant: "allow, permit"},
+    {word: "willpower", ant: "weakness, indecision"}
+];
+
+const derivativesData = [
+    {word: "disempower (v)", forms: ["disempowerment (n)", "disempowering (adj)"], ar: "يسلب القوة أو الصلاحية / سلب القوة أو التمكين / مُضعِف للقدرة أو الثقة"},
+    {word: "afford (v)", forms: ["affordability (n)", "affordable (adj)"], ar: "يتحمل التكلفة / القدرة على تحمل التكلفة / فى متناول اليد ماليًا"},
+    {word: "believe (v)", forms: ["belief / believer (n)", "believable (adj)"], ar: "يؤمن / اعتقاد ، مُصدِّق ، مُؤمِن / قابل للتصديق"},
+    {word: "demonstrate (v)", forms: ["demonstration (n)", "demonstrative (adj)"], ar: "يُظهر ، يثبت / عرض ، إثبات / توضيحى"},
+    {word: "determine (v)", forms: ["determination (n)", "determined (adj)"], ar: "يحدد / تصميم ، تحديد / مُصمَّم"},
+    {word: "depend (v)", forms: ["dependence / independence (n)", "independent / dependent (adj)"], ar: "يعتمد على / اعتماد ، استقلال / مستقل ، متواكل"},
+    {word: "attribute (v)", forms: ["attribute / attribution (n)", "attributable (adj)"], ar: "ينسب ، يعزو / صفة ، سمة ، النسب ، الإسناد / يمكن نسبه إلى"},
+    {word: "neighbor (v)", forms: ["neighborhood (n)", "neighboring / neighborly (adj)"], ar: "يجاور / حى سكنى / مجاور ، وَدُود"},
+    {word: "possess (v)", forms: ["possession (n)", "possessive (adj)"], ar: "يمتلك / ملكية ، ممتلكات / امتلاكى"},
+    {word: "restrict (v)", forms: ["restriction (n)", "restrictive (adj)"], ar: "يقيَد / قيد ، تقييد / تقييدى"}
+];
+
+const confusionData = [
+    {word: "nudge", ar: "يدفع / يحفَز بلطف – دفع أو تشجيع خفيف لجعل شخص يفعل شيئًا دون إجباره", ex: "The teacher nudged the students to read more books."},
+    {word: "push", ar: "يدفع بقوة – دفع جسدى أو ضغط قوى لتحقيق هدف", ex: "He pushed the heavy box across the floor."},
+    {word: "motivate", ar: "يحفَز – جعل الشخص راغبًا فى بذل الجهد لتحقيق هدف معين", ex: "The coach motivated the team to win the match."},
+    {word: "resilience", ar: "المرونة / القدرة على التعافى – القدرة على التعافى من الصعوبات والعودة إلى الحالة الطبيعية بسرعة بعد الفشل", ex: "Her resilience helped her recover after failing the exam."},
+    {word: "perseverance", ar: "المثابرة – الاستمرار فى العمل رغم الصعوبات وعدم الاستسلام", ex: "His perseverance led him to success."},
+    {word: "determination", ar: "العزيمة / الإصرار – التصميم القوى على تحقيق هدف معين", ex: "With determination, she achieved her dream."},
+    {word: "adaptability", ar: "القدرة على التكيف – القدرة على التكيف مع المواقف أو البيئات الجديدة بسهولة", ex: "Adaptability is important in a fast-changing world."},
+    {word: "policy", ar: "سياسة / نهج – مجموعة من القواعد والإجراءات التى تتبعها مؤسسة أو شركة لتحقيق هدف معين", ex: "The government introduced a new health policy."},
+    {word: "politics", ar: "مجال وعلم السياسة – النشاط المتعلق بحكم الدولة، والأحزاب، والانتخابات، واتخاذ القرارات السياسية", ex: "My uncle is interested in politics and international relations."},
+    {word: "political (adj.)", ar: "سياسى – صفة معناها متعلق بالسياسة أو مهتم بها", ex: "Education and health are major political issues."},
+    {word: "politician (n.)", ar: "سياسى – اسم معناه رجل سياسة / شخصية سياسية", ex: "Mr. Mohamed is a clever and ambitious politician."},
+    {word: "demonstrate", ar: "يوضح / يثبت – تُستخدم لإظهار حقيقة أو إثبات فكرة بالأدلة أو الأمثلة أو التجربة", ex: "The experiment demonstrated that the new method was effective."},
+    {word: "explain", ar: "يشرح / يفسر – إعطاء شخص ما المعلومات التى يحتاجها لفهم شىء بطريقة واضحة وسهلة الفهم", ex: "Talented teachers explain complex ideas very clearly."},
+    {word: "illustrate", ar: "يوضح – تعنى شرح فكرة باستخدام أمثلة أو صور أو رسومات", ex: "The teacher illustrated the lesson with pictures."}
+];
+
+const readingVocab = [
+    ["responsibility", "مسئولية"],
+    ["agency", "الاستقلالية"],
+    ["nutritiously", "بشكل مُغذٍّ"],
+    ["forces", "قوى"],
+    ["landmark study", "دراسة محورية"],
+    ["significantly", "بشكل واضح"],
+    ["background", "خلفية"],
+    ["limited income", "دخل محدود"],
+    ["brands", "علامات تجارية"],
+    ["entirely", "تمامًا"],
+    ["communities", "مجتمعات"],
+    ["proponents", "المناصرون"],
+    ["freedom", "الحرية"],
+    ["shift", "يغير / يبدل"]
+];
+
+const readingTitle = {
+    en: "Modern Health \u201cPerspectives on Responsibility and Well-being\u201d",
+    ar: "الصحة الحديثة «وجهات نظر حول المسئولية والرفاهية»"
+};
+
+const readingParts = [
+    {
+        heading: "1. The Case for Personal Responsibility",
+        sentences: [
+            {en: "Many health professionals and philosophers argue that personal responsibility lies at the heart of a well-lived life.", ar: "يرى كثير من المتخصصين فى الصحة والفلاسفة أن المسئولية الشخصية تكمن فى صميم الحياة المليئة بالإنجازات."},
+            {en: "From this perspective, every individual possesses the agency - the capacity to choose and act, and it is through the exercise of this agency that identity is formed.", ar: "ومن هذا المنظور، يمتلك كل فرد الاستقلالية - أى القدرة على الاختيار والتصرف، ومن خلال ممارسة هذه الاستقلالية تتشكل الهوية."},
+            {en: "Choosing to exercise, to eat nutritiously, to sleep well, and to manage stress are not simply habits; they are expressions of who we are and what we value.", ar: "فاختيار ممارسة الرياضة، والأكل بشكل مُغذٍّ، والنوم الجيد، والتعامل مع التوتر ليست مجرد عادات؛ بل هى تعبيرات عمّن نحن وما نُقدِّره."},
+            {en: "Psychologists refer to this as having an 'internal locus of control' - a belief that one's own actions, rather than external forces, determine outcomes.", ar: "ويشير علماء النفس إلى هذا بمصطلح «مركز التحكم الداخلى» - وهو اعتقاد بأن أفعال الشخص نفسه، وليس القوى الخارجية، هى التى تحدد النتائج."},
+            {en: "Research often supports the benefits of taking personal ownership.", ar: "وغالبًا ما تدعم الأبحاث فوائد تحمُّل المسئولية الشخصية."},
+            {en: "A landmark study published in the Journal of Health Psychology found that individuals who scored highly on self-efficacy measures - that is, those who believed in their ability to make positive changes - were significantly more likely to maintain healthy behaviors over time, regardless of their socioeconomic background.", ar: "ووجدت دراسة محورية نُشرت فى مجلة Journal of Health Psychology أن الأفراد الذين حصلوا على درجات مرتفعة فى مقاييس الكفاءة الذاتية - أى الذين يؤمنون بقدرتهم على إحداث تغييرات إيجابية - كانوا أكثر عرضة بشكل واضح للحفاظ على سلوكيات صحية بمرور الوقت، بغض النظر عن خلفيتهم الاجتماعية والاقتصادية."},
+            {en: "Furthermore, advocates of personal responsibility argue that framing health as someone else's problem can be disempowering.", ar: "علاوة على ذلك، يرى مؤيدو المسئولية الشخصية أن اعتبار الصحة مشكلة شخص آخر يمكن أن يكون مُضعِفًا للثقة والقدرة."},
+            {en: "When individuals attribute their choices entirely to outside forces, they risk becoming passive.", ar: "وعندما ينسب الأفراد خياراتهم بالكامل إلى قوى خارجية، فإنهم يخاطرون بأن يصبحوا سلبيين."},
+            {en: "Taking ownership, by contrast, builds confidence, resilience, and a sense of purpose, qualities that are central to a positive identity.", ar: "أما تحمُّل المسئولية، على النقيض، فيبنى الثقة والمرونة والشعور بوجود هدف، وهى صفات أساسية لهوية إيجابية."}
+        ]
+    },
+    {
+        heading: "2. Social and Environmental Influences",
+        sentences: [
+            {en: "However, the idea that individuals are entirely responsible for their own health is increasingly challenged by social scientists and public health experts.", ar: "ومع ذلك، فإن فكرة أن الأفراد مسئولون بالكامل عن صحتهم تواجه تحديًا متزايدًا من قِبل علماء الاجتماع وخبراء الصحة العامة."},
+            {en: "Research in sociology demonstrates that where we grow up, how much money our family has, and the cultural rules we are raised with profoundly shape the choices available to us.", ar: "وتُثبت الأبحاث فى علم الاجتماع أن المكان الذى نشأنا فيه، ومقدار المال الذى تمتلكه أسرتنا، والقواعد الثقافية التى تربينا عليها، كل ذلك يشكل بعمق الخيارات المتاحة لنا."},
+            {en: "A teenager growing up in a neighborhood with no safe parks or affordable sports facilities cannot simply 'choose' to exercise more easily.", ar: "فالمراهق الذى ينشأ فى حى سكنى بلا حدائق آمنة أو مرافق رياضية ميسورة التكلفة لا يستطيع ببساطة أن «يختار» ممارسة الرياضة بسهولة أكبر."},
+            {en: "A family with limited income may struggle to prioritize fresh vegetables over cheaper processed foods.", ar: "وقد تكافح الأسرة ذات الدخل المحدود لإعطاء أولوية للخضراوات الطازجة على الأطعمة المُصنَّعة الأرخص."},
+            {en: "These are not failures of willpower; they are structural barriers, obstacles built into the environment that restrict genuine choice.", ar: "وهذه ليست إخفاقات فى قوة الإرادة؛ بل هى عوائق هيكلية، عقبات مُدمجة فى البيئة تُقيِّد الاختيار الحقيقى."},
+            {en: "Moreover, advertising and social media exert enormous pressure on young people.", ar: "علاوة على ذلك، تفرض الإعلانات ووسائل التواصل الاجتماعى ضغطًا هائلًا على الشباب."},
+            {en: "Brands invest billions in campaigns designed to shape preferences and habits, often targeting teenagers who are at a particularly impressionable stage of development.", ar: "وتستثمر العلامات التجارية مليارات فى حملات مصممة لتشكيل التفضيلات والعادات، وغالبًا ما تستهدف المراهقين الذين يمرون بمرحلة نمو شديدة التأثر."}
+        ]
+    },
+    {
+        heading: "3. The Role of Government and Shared Responsibility",
+        sentences: [
+            {en: "A third perspective argues that responsibility is not an either-or choice; it does not belong entirely to the individual or entirely to society, but is shared.", ar: "يرى منظور ثالث أن المسئولية ليست اختيارًا بين أمرين لا ثالث لهما؛ فهى لا تخص الفرد وحده أو المجتمع وحده بالكامل، بل هى مسئولية مشتركة."},
+            {en: "Governments, schools, families, and communities all have a role in creating the conditions that make healthy living possible and accessible.", ar: "فالحكومات والمدارس والأسر والمجتمعات جميعها لها دور فى تهيئة الظروف التى تجعل الحياة الصحية ممكنة ومتاحة."},
+            {en: "In recent decades, many governments have introduced public health policies intended to guide and encourage better choices: taxes on high-sugar drinks, restrictions on junk food advertising near schools, and national campaigns promoting physical activity.", ar: "وفى العقود الأخيرة، أدخلت العديد من الحكومات سياسات صحية عامة تهدف إلى توجيه وتشجيع خيارات أفضل: ضرائب على المشروبات عالية السكر، وقيود على إعلانات الوجبات السريعة بالقرب من المدارس، وحملات وطنية تروج للنشاط البدنى."},
+            {en: "Proponents argue that these measures do not remove individual freedom - they reshape the environment so that the healthier choice becomes the easier choice.", ar: "ويرى المناصرون أن هذه الإجراءات لا تُلغى الحرية الفردية - بل تُعيد تشكيل البيئة بحيث يصبح الخيار الأصح هو الخيار الأسهل."},
+            {en: "Economist Richard Thaler's concept of the 'nudge' captures this idea precisely: small, well-designed changes to the context in which decisions are made can shift behavior without restricting freedom.", ar: "ويعبِّر مفهوم «الدفعة اللطيفة» (nudge) للاقتصادى ريتشارد ثالر عن هذه الفكرة بدقة: فالتغييرات الصغيرة والمصممة بعناية فى السياق الذى تُتخذ فيه القرارات يمكن أن تُغيِّر السلوك دون تقييد الحرية."},
+            {en: "From this viewpoint, responsibility is not abandoned by the individual — it is supported and shared by the structures around them.", ar: "ومن هذا المنظور، فإن المسئولية لا يتخلى عنها الفرد - بل تدعمها وتشاركه فيها الهياكل المحيطة به."}
+        ]
+    }
+];
+
+// ===================== بناء الواجهة =====================
+function makeWordSpans(text) {
+    const words = text.trim().split(/\s+/);
+    return words.map((w, idx) => `<span class="word" data-word-index="${idx}">${w}</span>`).join(' ');
+}
+
+function buildAllSections() {
+    const container = document.getElementById('sections-container');
+
+    function makePills(wordsArray, sectionId) {
+        return wordsArray.map((w, i) => {
+            const id = `${sectionId}_p${i}`;
+            const wordHtml = makeWordSpans(w[0]);
+            const speakText = cleanForSpeech(w[0]);
+            return `<div class="pill" id="${id}" data-speak="${speakText}" onclick="playOne('${id}')"><span class="en">${wordHtml}</span><span class="tr">${w[1]}</span></div>`;
+        }).join('');
+    }
+
+    function makeRuleItem(icon, sectionId, index, speakText, arText, displayText) {
+        const id = `${sectionId}_${index}`;
+        const wordHtml = makeWordSpans(displayText || speakText);
+        const finalSpeak = cleanForSpeech(speakText);
+        return `<div class="rule-item" id="${id}" data-speak="${finalSpeak}" onclick="playOne('${id}')">
+            <span class="rule-icon">${icon}</span>
+            <div class="rule-text">
+                <span class="en">${wordHtml}</span>
+                <span class="ar">${arText || ''}</span>
+            </div>
+        </div>`;
+    }
+
+    function playBar(sectionId) {
+        return `<div class="sec-play-bar">
+            <button class="big-btn" style="background:linear-gradient(135deg,var(--A),var(--A2))" onclick="playSection('${sectionId}')">▶ Play</button>
+            <button class="big-btn pause-btn" onclick="pauseAll()">⏸ Pause</button>
+            <button class="big-btn stop-btn" onclick="stopAll()">⏹ Stop</button>
+        </div>`;
+    }
+
+    function makeStorySection(title, titleAr, storyData) {
+        const speakerEmojis = {"Sarah":"👩‍⚕️","Operator":"🎙️","Caller":"📞"};
+        const knownSpeakers = new Set(Object.keys(speakerEmojis));
+
+        return `<div class="story-card">
+            <div style="font-weight:bold;color:var(--A);margin-bottom:6px;">${title}</div>
+            ${titleAr ? `<div class="story-title">${titleAr}</div>` : ''}
+            ${storyData.map((s,i) => {
+                const id = `secStory_${title.replace(/\s/g,'')}_${i}`;
+                let enText = s.en;
+                let speaker = '';
+                let dialogueText = enText;
+                const colonIndex = enText.indexOf(': ');
+                if (colonIndex > 0) {
+                    const candidate = enText.substring(0, colonIndex);
+                    if (knownSpeakers.has(candidate)) {
+                        speaker = candidate;
+                        dialogueText = enText.substring(colonIndex + 2);
+                    }
+                }
+                const emoji = speakerEmojis[speaker] || '📖';
+                const wordHtml = makeWordSpans(dialogueText);
+                let speakerHtml = '';
+                if (speaker) {
+                    speakerHtml = `<span class="speaker-label">${emoji} ${speaker}</span> `;
+                }
+                return `<div class="sentence" id="${id}" data-speak="${s.en}" onclick="playOne('${id}')">
+                    ${speakerHtml} ${wordHtml}
+                </div> `;
+            }).join('')}
+            <div class="story-ar">${storyData.map(s => s.ar).join(' ')}</div>
+        </div>`;
+    }
+
+    const sections = [];
+
+    // 1. Key Vocabulary
+    if (keyVocab && keyVocab.length > 0) {
+        sections.push({ title:"💊 Key Vocabulary", id:"secKeyVocab", content: `<div class="info-box"><div class="info-title">Key Vocabulary (1.3)</div><div class="vocab">${makePills(keyVocab, "secKeyVocab")}</div></div>` });
+    }
+
+    // 2. Main Vocabulary
+    if (mainVocab && mainVocab.length > 0) {
+        sections.push({ title:"📚 Main Vocabulary", id:"secMainVocab", content: `<div class="info-box"><div class="info-title">Main Vocabulary (1.3)</div><div class="vocab">${makePills(mainVocab, "secMainVocab")}</div></div>` });
+    }
+
+    // 3. Phrases, Expressions & Idioms
+    if (idiomsData && idiomsData.length > 0) {
+        sections.push({ title:"💡 Phrases, Expressions & Idioms", id:"secIdioms", content: `<div class="rules-grid">${idiomsData.map((e,i) => makeRuleItem('✨', 'secIdioms', i, e[0], e[1], e[0])).join('')}</div>` });
+    }
+
+    // 4. Prepositions
+    if (prepositionsData && prepositionsData.length > 0) {
+        sections.push({ title:"🔗 Prepositions", id:"secPrepositions", content: `<div class="rules-grid">${prepositionsData.map((p,i) => makeRuleItem('🔗', 'secPrepositions', i, p[0], p[1], p[0])).join('')}</div>` });
+    }
+
+    // 5. Definitions
+    if (defsData && defsData.length > 0) {
+        sections.push({ title:"📝 Definitions", id:"secDefs", content: `<div class="rules-grid">${defsData.map((d,i) => {
+            const speakText = cleanForSpeech(d.word) + " | " + d.def;
+            const displayText = `${d.word} → ${d.def}`;
+            return makeRuleItem('📖', 'secDefs', i, speakText, d.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 6. Synonyms & Antonyms
+    if (synData && synData.length > 0) {
+        sections.push({ title:"🔄 Synonyms", id:"secSyn", content: `<div class="rules-grid">${synData.map((s,i) => makeRuleItem('↔️', 'secSyn', i, s.word + " | " + s.syn, s.syn, s.word)).join('')}</div>` });
+    }
+    if (antData && antData.length > 0) {
+        sections.push({ title:"🚫 Antonyms", id:"secAnt", content: `<div class="rules-grid">${antData.map((a,i) => makeRuleItem('🛑', 'secAnt', i, a.word + " | " + a.ant, a.ant, a.word)).join('')}</div>` });
+    }
+
+    // 7. Derivatives
+    if (derivativesData && derivativesData.length > 0) {
+        sections.push({ title:"🔨 Derivatives (Word Families)", id:"secDerivatives", content: `<div class="rules-grid">${derivativesData.map((d,i) => {
+            const formsStr = d.forms.join(" | ");
+            const speakText = `${d.word} | ${formsStr}`;
+            const displayText = `${d.word} → ${formsStr}`;
+            return makeRuleItem('🔨', 'secDerivatives', i, speakText, d.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 8. Focus on Vocabulary (Clear the Confusion)
+    if (confusionData && confusionData.length > 0) {
+        sections.push({ title:"🧐 Focus on Vocabulary", id:"secConfusion", content: `<div class="rules-grid">${confusionData.map((c,i) => {
+            const speakText = `${c.word} | ${c.ex}`;
+            const displayText = `${c.word} → ${c.ex}`;
+            return makeRuleItem('🧐', 'secConfusion', i, speakText, c.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 9. Reading Text
+    if (readingParts && readingParts.length > 0) {
+        let readingContent = '';
+        if (readingVocab && readingVocab.length > 0) {
+            readingContent += `<div class="info-box"><div class="info-title">Reading Glossary</div><div class="vocab">${makePills(readingVocab, "secReadVocab")}</div></div>`;
+        }
+        readingContent += `<div style="font-weight:bold;color:var(--A);margin-bottom:4px;">${readingTitle.en}</div><div class="story-title">${readingTitle.ar}</div>`;
+        readingParts.forEach((part, pi) => {
+            readingContent += `<div class="story-card"><div style="font-weight:800;color:var(--A2);margin-bottom:8px;">${part.heading}</div>`;
+            part.sentences.forEach((s, si) => {
+                const id = `secReadPart_${pi}_${si}`;
+                readingContent += `<div class="sentence" id="${id}" data-speak="${s.en}" onclick="playOne('${id}')">${makeWordSpans(s.en)}</div>`;
+            });
+            readingContent += `<div class="story-ar">${part.sentences.map(s => s.ar).join(' ')}</div></div>`;
+        });
+        sections.push({ title:"📖 Reading Text (Modern Health Perspectives)", id:"secReadL3", content: readingContent });
+    }
+
+    let html = '';
+    sections.forEach(sec => {
+        html += `<div class="section-block" id="${sec.id}">
+            <div class="sec-title">${sec.title}</div>
+            <div class="sec-body">
+                ${playBar(sec.id)}
+                ${sec.content}
+            </div>
+        </div>`;
+    });
+    container.innerHTML = html;
+}
+
+// ===================== نظام الصوت =====================
+const rateRange = document.getElementById('rateRange');
+const rateBadge = document.getElementById('rateBadge');
+const fabPause = document.getElementById('fabPause');
+
+const savedRate = localStorage.getItem('speechRate') || 1;
+rateRange.value = savedRate;
+rateBadge.textContent = parseFloat(savedRate).toFixed(1)+'x';
+rateRange.addEventListener('input', () => {
+    const val = parseFloat(rateRange.value).toFixed(1);
+    rateBadge.textContent = val+'x';
+    localStorage.setItem('speechRate', val);
+});
+
+let voices = [];
+let voiceLoadAttempts = 0;
+const voiceSelectEl = document.getElementById('voiceSelect');
+const voiceNoteEl = document.getElementById('voiceNote');
+
+function loadVoices() {
+    voices = window.speechSynthesis.getVoices();
+    voiceLoadAttempts++;
+    populateVoiceSelect();
+}
+
+function pickBestVoice(list, langPrefix) {
+    if (!list.length) return null;
+    const normalizeLang = (lang) => (lang || '').replace('_', '-');
+    const isLangMatch = (voiceLang) => normalizeLang(voiceLang) === langPrefix || normalizeLang(voiceLang).startsWith(langPrefix + '-');
+    const candidates = list.filter(v => isLangMatch(v.lang));
+    if (!candidates.length) return null;
+    const scored = candidates.map(v => {
+        let score = 0;
+        if (v.localService) score += 2;
+        if (/Google|Natural|Neural|Online/i.test(v.name)) score += 3;
+        if (v.default) score += 1;
+        return { v, score };
+    }).sort((a, b) => b.score - a.score);
+    return scored[0].v;
+}
+
+function accentFlag(lang) {
+    const l = (lang || '').toLowerCase();
+    if (l.startsWith('en-us')) return '🇺🇸';
+    if (l.startsWith('en-gb')) return '🇬🇧';
+    if (l.startsWith('en-au')) return '🇦🇺';
+    if (l.startsWith('en-ca')) return '🇨🇦';
+    if (l.startsWith('en-in')) return '🇮🇳';
+    if (l.startsWith('en-ie')) return '🇮🇪';
+    if (l.startsWith('en-za')) return '🇿🇦';
+    return '🌐';
+}
+
+// نفرض فقط لكنتين: أمريكى وبريطانى. حتى لو المتصفح مش بيدي أصوات منفصلة لكل لكنة،
+// بنجبر utterance.lang على القيمة المطلوبة (en-US / en-GB) — ده هو اللي بيغيّر النطق فعليًا
+// على أغلب محركات النطق (خصوصًا على الموبايل)، مش اختيار "voice" بس.
+const FORCED_ACCENTS = [
+    { code: 'en-US', label: '🇺🇸 American' },
+    { code: 'en-GB', label: '🇬🇧 British' }
+];
+
+function populateVoiceSelect() {
+    const allVoices = voices;
+    if (!allVoices.length) {
+        voiceNoteEl.textContent = voiceLoadAttempts > 4 ? '⚠️ لم يتم العثور على أصوات. جرّب تحديث الصفحة.' : '⏳ جاري تحميل الأصوات...';
+    }
+    const savedCode = localStorage.getItem('ttsLangCode') || 'en-US';
+    voiceSelectEl.innerHTML = FORCED_ACCENTS.map(a => `<option value="${a.code}">${a.label}</option>`).join('');
+    voiceSelectEl.value = savedCode;
+
+    // نوضّح للمستخدم هل فيه صوت مخصص فعليًا لكل لكنة على جهازه أم لأ (معلومة فقط، مش بتمنع التبديل)
+    if (allVoices.length) {
+        const usV = pickBestVoice(allVoices, 'en-US');
+        const gbV = pickBestVoice(allVoices, 'en-GB');
+        if (usV && gbV && usV.voiceURI === gbV.voiceURI) {
+            voiceNoteEl.textContent = 'ℹ️ الجهاز فيه صوت واحد مُثبَّت، وبيتغيّر النطق حسب اللكنة المختارة قدر الإمكان.';
+        } else {
+            voiceNoteEl.textContent = '';
+        }
+    }
+}
+voiceSelectEl.addEventListener('change', function() {
+    localStorage.setItem('ttsLangCode', this.value);
+});
+
+function getSelectedVoice() {
+    const code = localStorage.getItem('ttsLangCode') || 'en-US';
+    return pickBestVoice(voices, code) || voices.find(vv => (vv.lang || '').toLowerCase().startsWith('en')) || null;
+}
+function getSelectedLangCode() {
+    return localStorage.getItem('ttsLangCode') || 'en-US';
+}
+
+window._q = []; window._qi = 0;
+window._currentUtterance = null;
+let currentHighlightedId = null;
+
+function clearAllHighlights() {
+    document.querySelectorAll('.active-sent').forEach(e => e.classList.remove('active-sent'));
+    currentHighlightedId = null;
+}
+function showFab(show) { if (show) fabPause.classList.add('show'); else fabPause.classList.remove('show'); }
+function updateFabIcon() {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) fabPause.innerHTML = '⏸️';
+    else if (window.speechSynthesis.paused) fabPause.innerHTML = '▶️';
+    else fabPause.innerHTML = '⏯️';
+}
+
+function playQueue() {
+    if (window._qi >= window._q.length) {
+        clearAllHighlights(); showFab(false); return;
+    }
+    const item = window._q[window._qi];
+    if (currentHighlightedId !== item.id) {
+        clearAllHighlights();
+        const el = document.getElementById(item.id);
+        if (el) {
+            el.classList.add('active-sent');
+            el.scrollIntoView({behavior:'smooth',block:'nearest'});
+            currentHighlightedId = item.id;
+        }
+    }
+    const u = new SpeechSynthesisUtterance(item.text);
+    u.rate = parseFloat(rateRange.value) || 1;
+    // نحدد اللكنة عن طريق u.lang دايمًا (مش بس اختيار voice) — ده اللي بيغيّر النطق فعليًا
+    // على أغلب محركات النطق فى الموبايل حتى لو مفيش صوت منفصل مسجل لكل لكنة
+    u.lang = getSelectedLangCode();
+    const voice = getSelectedVoice();
+    if (voice) u.voice = voice;
+
+    u.onstart = () => { showFab(true); updateFabIcon(); };
+    u.onend = function() { window._qi++; playQueue(); };
+    u.onerror = function(e) { console.warn('Speech error', e); window._qi++; playQueue(); };
+    u.onpause = () => updateFabIcon();
+    u.onresume = () => updateFabIcon();
+
+    window._currentUtterance = u;
+    window.speechSynthesis.speak(u);
+}
+
+function splitAndQueue(textParts, id) {
+    textParts.forEach((p) => { const trimmed = p.trim(); if (trimmed) window._q.push({id: id, text: trimmed}); });
+}
+
+function playSection(secId) {
+    stopAll();
+    const sec = document.getElementById(secId);
+    const els = [...sec.querySelectorAll('[data-speak]')];
+    els.forEach(el => {
+        const text = el.dataset.speak;
+        const parts = text.split('|').map(p => p.trim());
+        splitAndQueue(parts, el.id);
+    });
+    window._qi = 0;
+    playQueue();
+}
+
+function playAll() {
+    stopAll();
+    const els = [...document.querySelectorAll('[data-speak]')];
+    els.forEach(el => {
+        const text = el.dataset.speak;
+        const parts = text.split('|').map(p => p.trim());
+        splitAndQueue(parts, el.id);
+    });
+    window._qi = 0;
+    playQueue();
+}
+
+function playOne(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const text = el.dataset.speak;
+    stopAll();
+    const parts = text.split('|').map(p => p.trim());
+    splitAndQueue(parts, id);
+    window._qi = 0;
+    playQueue();
+}
+
+function pauseAll() {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+        window.speechSynthesis.pause(); updateFabIcon();
+    } else if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume(); updateFabIcon();
+    }
+}
+
+function stopAll() {
+    window._q = []; window._qi = 0;
+    clearAllHighlights();
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    showFab(false);
+}
+
+function toggleFabPause() { pauseAll(); }
+
+// ===================== الثيمات =====================
+function setTheme(theme, btn) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    localStorage.setItem('theme', theme);
+}
+const savedTheme = localStorage.getItem('theme') || 'teal';
+document.documentElement.setAttribute('data-theme', savedTheme);
+document.querySelectorAll('.theme-btn').forEach(b => {
+    if (b.classList.contains('t-'+savedTheme)) b.classList.add('active');
+});
+
+// ===================== بدء التشغيل =====================
+buildAllSections();
+loadVoices();
+setTimeout(loadVoices, 300);
+setTimeout(loadVoices, 1000);
+setTimeout(loadVoices, 2500);
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadVoices;
+</script>
+</body>
+</html>

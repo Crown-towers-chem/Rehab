@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Novel: The Lost World — Chapter 5: Trapped in the Lost World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --A: #1e3a8a; --A2: #1e40af; --blue4: #dbeafe; --blue5: #f8fafc;
+            --text: #1E293B; --text2: #64748B; --card: #ffffff; --border: #e2e8f0;
+            --bg: #f1f5f9; --radius: 12px; --stop: #ef4444; --pause: #94a3b8;
+            --highlight-bg: rgba(30, 58, 138, 0.08);
+            --word-highlight: #fde047;
+            --fab-bg: #1e293b; --fab-text: #ffffff;
+        }
+        [data-theme="ocean"] {
+            --A: #0e7490; --A2: #0891b2; --blue4: #cffafe; --blue5: #f0fdfa;
+            --text: #1E293B; --text2: #64748B; --card: #ffffff; --border: #e2e8f0;
+            --bg: #f1f5f9; --stop: #ef4444; --highlight-bg: rgba(14, 116, 144, 0.08);
+            --fab-bg: #0e7490; --fab-text: #ffffff;
+        }
+        [data-theme="slate"] {
+            --A: #334155; --A2: #475569; --blue4: #e2e8f0; --blue5: #f8fafc;
+            --text: #0f172a; --text2: #475569; --card: #ffffff; --border: #cbd5e1;
+            --bg: #f1f5f9; --stop: #ef4444; --highlight-bg: rgba(51, 65, 85, 0.1);
+            --fab-bg: #1e293b; --fab-text: #ffffff;
+        }
+        [data-theme="dark"] {
+            --A: #2dd4bf; --A2: #0d9488; --blue4: #134e4a; --blue5: #0f172a;
+            --text: #f8fafc; --text2: #94a3b8; --card: #1e293b; --border: #334155;
+            --bg: #0f172a; --stop: #f87171; --pause: #64748b; --highlight-bg: rgba(45, 212, 191, 0.15);
+            --word-highlight: #facc15; --fab-bg: #facc15; --fab-text: #1e293b;
+        }
+        *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+        body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:100px;overflow-x:hidden;transition:background .3s,color .3s;}
+        .hero{color:#fff;text-align:center;padding:32px 20px 26px;margin-bottom:24px;background:linear-gradient(135deg, #0f172a, var(--A2)); box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+        .hero .emoji-big{font-size:3rem;display:block;margin-bottom:8px;}
+        .hero h1{font-size:1.6rem;font-weight:900;letter-spacing:0.5px;}
+        .hero .sub{font-size:.95rem;opacity:.85;margin-top:5px;font-family:'Cairo',sans-serif;font-weight:600;}
+        .toolbar{max-width:840px;margin:0 auto 24px;padding:0 16px;text-align:center;}
+        .toolbar-inner{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px 20px;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+        .toolbar label{font-weight:800;color:var(--A);font-size:13px;}
+        input[type=range]{width:90px;accent-color:var(--A);}
+        .rate-badge{font-weight:900;font-size:13px;color:var(--A);min-width:34px;}
+        select{padding:6px 10px;border-radius:6px;border:1px solid var(--border);font-weight:600;background:var(--card);color:var(--text);}
+        .theme-switcher{display:flex;align-items:center;gap:6px;margin-left:auto;}
+        .theme-btn{-webkit-appearance:none;appearance:none;border:2px solid transparent;border-radius:8px;padding:4px 12px;font-size:11px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:#fff;letter-spacing:.5px;transition:all .2s;}
+        .theme-btn.t-teal{background:linear-gradient(135deg,#0f766e,#2dd4bf);}
+        .theme-btn.t-ocean{background:linear-gradient(135deg,#0e7490,#06b6d4);}
+        .theme-btn.t-slate{background:linear-gradient(135deg,#334155,#94a3b8);}
+        .theme-btn.t-dark{background:linear-gradient(135deg,#1e293b,#475569);color:#e2e8f0;}
+        .theme-btn.active{border-color:#fff;box-shadow:0 0 0 2px currentColor;transform:scale(1.06);}
+        .container{max-width:840px;margin:auto;padding:0 16px;}
+        .section-block{background:var(--card);border-radius:var(--radius);margin-bottom:22px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid var(--border);}
+        .sec-title{color:#fff;font-size:.8rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:12px 20px;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--A),var(--A2));}
+        .sec-title::before{content:"";display:inline-block;width:6px;height:6px;background:rgba(255,255,255,.5);border-radius:50%;flex-shrink:0;}
+        .sec-body{padding:18px;}
+        .sec-play-bar{display:flex;gap:7px;margin-bottom:18px;flex-wrap:wrap;align-items:center;}
+        .big-btn{-webkit-appearance:none;appearance:none;border:none;border-radius:6px;padding:8px 16px;font-size:13px;font-weight:800;cursor:pointer;color:#fff;display:inline-flex;align-items:center;gap:5px;transition:transform .12s;font-family:'Nunito',sans-serif;}
+        .big-btn:active{transform:scale(.95);}
+        .big-btn.pause-btn{background:var(--pause);}
+        .big-btn.stop-btn{background:var(--stop);}
+        .big-btn.play-all-btn{background:linear-gradient(135deg, var(--A), var(--A2)); margin-left: 12px;}
+        .info-box{background:var(--blue5);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px;}
+        .info-title{display:flex;align-items:center;gap:6px;font-weight:900;font-size:.78rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--A2);}
+        .vocab{display:flex;flex-wrap:wrap;gap:8px;}
+        .pill{padding:10px 14px;border-radius:6px;background:var(--card);border:1px solid var(--blue4);text-align:center;cursor:pointer;flex:1 1 auto;min-width:80px;transition:all .15s;}
+        .pill:active{transform:scale(.96);}
+        .pill .en{font-weight:800;font-size:14px;display:block;color:var(--A);}
+        .pill .tr{font-size:11px;color:var(--text2);font-family:'Cairo',sans-serif;font-weight:600;}
+        .story-card{background:var(--blue5);border:1px solid var(--border);border-left:4px solid var(--A);border-radius:8px;padding:18px;margin-bottom:12px;}
+        .sentence{display:block;cursor:pointer;border-radius:6px;padding:10px 12px;margin-bottom:12px;transition:background .2s;line-height:1.8;font-size:17px;font-weight:600;color:var(--text);background:rgba(255,255,255,0.4);}
+        [data-theme="dark"] .sentence { background: rgba(255,255,255,0.05); }
+        .sentence .word{transition:background 0.15s;border-radius:3px;padding:0 1px;}
+        .sentence .word.highlight{background:var(--word-highlight);}
+        .sentence.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .sentence .speaker-label{display:inline-block;font-weight:900;color:var(--A2);margin-right:10px;background:var(--blue4);padding:2px 10px;border-radius:20px;font-size:0.9rem;}
+        .pill.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .rule-item.active-sent{background:var(--highlight-bg);outline:2px solid var(--A);outline-offset:1px;}
+        .story-ar{font-family:'Cairo',sans-serif;color:var(--text2);font-size:14px;text-align:right;direction:rtl;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-weight:600;line-height:2;}
+        .story-title{font-family:'Cairo',sans-serif;font-weight:800;color:var(--A2);font-size:15px;text-align:right;direction:rtl;margin-bottom:10px;}
+        .rules-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;}
+        .rule-item{display:flex;align-items:flex-start;gap:12px;background:var(--blue5);border:1px solid var(--border);border-radius:6px;padding:12px 14px;cursor:pointer;transition:all .2s;}
+        .rule-item .rule-text{flex:1;}
+        .rule-item .rule-text .en{font-size:15px;font-weight:700;color:var(--text);}
+        .rule-item .rule-text .ar{font-family:'Cairo',sans-serif;font-size:13px;color:var(--text2);text-align:right;direction:rtl;font-weight:600;margin-top:4px;}
+        .qbox{background:var(--blue5);border:1px dashed var(--border);border-radius:8px;padding:14px 16px;margin-top:6px;}
+        .qbox .qitem{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;}
+        .qbox .qitem:last-child{margin-bottom:0;}
+        footer{text-align:center;margin-top:14px;padding:20px;color:var(--text2);font-size:12px;}
+        footer strong{color:var(--A);}
+        .voice-note{font-size:11px;color:#b45309;margin-top:4px;display:block;}
+        .fab-pause{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:var(--fab-bg);color:var(--fab-text);border:none;box-shadow:0 4px 16px rgba(0,0,0,0.2);font-size:24px;display:none;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s,opacity 0.2s;}
+        .fab-pause:active{transform:scale(.9);}
+        .fab-pause.show{display:flex;}
+    </style>
+</head>
+<body>
+
+<div class="hero"><span class="emoji-big">🦕</span><h1>The Lost World</h1><p class="sub">Chapter 5: Trapped in the Lost World</p></div>
+
+<div class="toolbar"><div class="toolbar-inner">
+    <label for="rateRange">Speed</label><input id="rateRange" type="range" min="0.5" max="1.2" step="0.1" value="1"/>
+    <span class="rate-badge" id="rateBadge">1.0x</span>
+    <select id="voiceSelect" style="max-width:180px;"></select>
+    <span id="voiceNote" class="voice-note"></span>
+    <div class="theme-switcher">
+        <button class="theme-btn t-teal" onclick="setTheme('teal',this)">Teal</button>
+        <button class="theme-btn t-ocean" onclick="setTheme('ocean',this)">Ocean</button>
+        <button class="theme-btn t-slate" onclick="setTheme('slate',this)">Slate</button>
+        <button class="theme-btn t-dark" onclick="setTheme('dark',this)">Dark</button>
+    </div>
+    <button class="big-btn play-all-btn" onclick="playAll()">🔊 Play All</button>
+</div></div>
+
+<main class="container">
+    <div id="sections-container"></div>
+</main>
+
+<button class="fab-pause" id="fabPause" onclick="toggleFabPause()" title="إيقاف / استئناف">⏯️</button>
+
+<script>
+function cleanForSpeech(text) {
+    let result = text;
+    result = result.replace(/\([^)]*\)/g, ' ');
+    result = result.replace(/[→]/g, ' ');
+    result = result.replace(/'/g, '');
+    result = result.replace(/"/g, '');
+    result = result.replace(/\s+/g, ' ').trim();
+    return result;
+}
+
+function escAttr(text) {
+    return String(text).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+}
+
+// ===================== البيانات =====================
+
+const keyVocab = [];
+
+const mainVocab = [
+    ["basin (n)", "حوض"],
+    ["beaks (n)", "مناقير"],
+    ["bleed (v)", "ينزف"],
+    ["carnivorous (adj)", "آكل لحوم"],
+    ["classify (v) (ied)", "يصنف"],
+    ["claw (n)", "مخلب"],
+    ["clearing (n)", "مكان فسيح"],
+    ["crush (v) (ed)", "يسحق"],
+    ["disturbing (adj)", "مُقلق"],
+    ["dusk (n)", "غسق"],
+    ["energetic (adj)", "نشيط"],
+    ["faithful (adj)", "مخلص"],
+    ["food tin (n)", "علبة طعام"],
+    ["forehead (n)", "جبهة"],
+    ["form (n)", "شكل"],
+    ["frown (v) (ed)", "يعبس/يكشر"],
+    ["glade (n)", "فسحة"],
+    ["hollow (n)", "جوف"],
+    ["leathery (adj)", "جلدي"],
+    ["nesting (n)", "تعشيش"],
+    ["scatter (v) (ed)", "يبعثر"],
+    ["secure (adj)", "آمن"],
+    ["shelter (n)", "مأوى"],
+    ["snap (n)", "صوت فرقعة"],
+    ["stab (n)", "طعنة/يطعن"],
+    ["stream (n)", "مجرى مائي"],
+    ["swamp (n)", "مستنقع"],
+    ["swampy (adj)", "مستنقعي"],
+    ["thorny (adj)", "شائك"],
+    ["track (n)", "أثر"],
+    ["vanish (v) (ed)", "يختفي"],
+    ["whisper (v) (ed)", "همس"],
+    ["withdraw (v)", "ينسحب"]
+];
+
+const idiomsData = [
+    ["at close range", "على مسافة قريبة"],
+    ["compared with", "مقارنة بـ"],
+    ["crowd around", "يحتشد/يتجمع حول"],
+    ["focus on", "يركز على"],
+    ["give us a warning", "يعطينا تحذيرًا"],
+    ["hung over", "معلق فوق"],
+    ["race toward", "يتسابق نحو"],
+    ["took turns on watch", "تناوبوا على الحراسة"],
+    ["watch ... in silence", "يراقب ... في صمت"]
+];
+
+const prepositionsData = [];
+const defsData = [];
+const synData = [];
+const antData = [];
+const derivativesData = [];
+const confusionData = [];
+const listeningVocab = [];
+const listeningTitle = "";
+const listeningTextL2 = [];
+
+const readingTitle = { en: "Chapter 5: Trapped in the Lost World — from \"The Lost World\"", ar: "الفصل الخامس: محاصرون في العالم المفقود — من رواية \"العالم المفقود\"" };
+
+const readingTextL1 = [
+    {en: "Our first task was simple: find water and a safe place to camp. We followed a small stream into the forest and built a rough shelter in an open area surrounded by thorny branches. Lord John called it \"Fort Challenger\". Professor Challenger pretended to dislike the joke, but I noticed that he did not suggest a different name.", ar: "كانت مهمتنا الأولى بسيطة: العثور على الماء ومكان آمن للتخييم. تبعنا جدولاً صغيراً إلى الغابة وبنينا مأوى بدائياً في منطقة مفتوحة محاطة بأغصان شائكة. أطلق عليه اللورد جون \"قلعة تشالنجر\". تظاهر البروفيسور تشالنجر بعدم إعجابه بالمزحة، لكنني لاحظت أنه لم يقترح اسماً آخر."},
+    {en: "The plateau was unlike any place I had ever seen. Some plants looked familiar, while others seemed larger or older in form. Insects of brilliant colors moved through the air. Every distant sound made us stop and listen.", ar: "كانت الهضبة مختلفة عن أي مكان رأيته من قبل. بدت بعض النباتات مألوفة، بينما بدت أخرى أكبر أو أقدم في الشكل. تحركت حشرات بألوان زاهية عبر الهواء. كل صوت بعيد جعلنا نتوقف ونستمع."},
+    {en: "We did not have to wait long for proof that Challenger had been right.", ar: "لم نضطر للانتظار طويلاً للحصول على دليل على أن تشالنجر كان محقاً."},
+    {en: "One morning we entered a broad glade and saw several enormous animals feeding among the trees. They stood on powerful back legs, using shorter front legs to pull down branches.", ar: "في صباح أحد الأيام دخلنا فسحة واسعة ورأينا عدة حيوانات ضخمة تتغذى بين الأشجار. وقفت على أرجل خلفية قوية، مستخدمة أرجل أمامية أقصر لسحب الأغصان."},
+    {en: "Their heads were small compared with their heavy bodies and long tails.", ar: "كانت رؤوسهم صغيرة مقارنة بأجسادهم الثقيلة وذيولهم الطويلة."},
+    {en: "\"Iguanodons,\" Challenger whispered.", ar: "همس تشالنجر: \"إجواندون\"."},
+    {en: "Even Summerlee forgot to argue. His face changed from doubt to amazement.", ar: "حتى سمرلي نسي أن يجادل. تغير وجهه من الشك إلى الدهشة."},
+    {en: "There were adults and young ones. For several minutes we watched them in silence. \"You were right,\" Summerlee said at last.", ar: "كان هناك بالغون وصغار. لعدة دقائق راقبناهم في صمت. قال سمرلي أخيراً: \"كنت محقاً\"."},
+    {en: "Challenger looked almost disappointed. \"Of course I was right.\"", ar: "بدا تشالنجر خائب الأمل تقريباً. \"بالطبع كنت محقاً\"."},
+    {en: "Their peace did not last. The next time we returned, one of the great plant-eaters had been torn apart. Deep claw and tooth marks showed that a far more dangerous animal lived nearby.", ar: "لم يدم سلامهم. في المرة التالية التي عدنا فيها، كان أحد آكلات النباتات العظيمة قد تمزق. أظهرت علامات المخالب والأسنان العميقة أن حيواناً أكثر خطورة بكثير يعيش بالقرب."},
+    {en: "\"A large carnivorous dinosaur,\" Summerlee said. \"Possibly an allosaurus,\" Challenger replied.", ar: "قال سمرلي: \"ديناصور آكل لحوم كبير\". رد تشالنجر: \"ربما ألوصور\"."},
+    {en: "Lord John checked his rifle. \"Call it what you like. I prefer not to meet it at close range.\" Another discovery was even more disturbing.", ar: "تفقد اللورد جون بندقيته. \"سمه ما شئت. أفضل ألا أقابله عن قرب.\" كان اكتشاف آخر أكثر إقلاقاً."},
+    {en: "We heard a constant harsh crying from a rocky hollow and crawled forward to investigate.", ar: "سمعنا صراخاً قاسياً مستمراً من جوف صخري وزحفنا للأمام للتحقيق."},
+    {en: "Below us lay a swampy basin filled with pterodactyls. Hundreds of them crowded around pools of green water. Young animals moved between leathery eggs, while large adults rested on rocks with folded wings.", ar: "تحتنا كان حوض مستنقعي مملوء بالبتيروداكتيل. احتشد المئات منهم حول برك من الماء الأخضر. تحركت الحيوانات الصغيرة بين بيض جلدي، بينما استراح البالغون الكبار على الصخور بأجنحة مطوية."},
+    {en: "For Challenger and Summerlee, it was a scientific treasure. They whispered excitedly about wings, teeth, nesting behavior, and species. Lord John and I were more interested in the animals' sharp beaks and watchful eyes.", ar: "بالنسبة لتشالنجر وسمرلي، كانت كنزاً علمياً. همسوا بحماس عن الأجنحة والأسنان وسلوك التعشيش والأنواع. كان اللورد جون وأنا أكثر اهتماماً بمناقير الحيوانات الحادة وعيونها اليقظة."},
+    {en: "We tried to withdraw quietly, but one creature saw us. Its cry was answered by others. In seconds the sky seemed full of wings.", ar: "حاولنا الانسحاب بهدوء، لكن أحد المخلوقات رآنا. أجاب آخرون على صراخه. في ثوانٍ بدت السماء مليئة بالأجنحة."},
+    {en: "\"Run!\" Lord John shouted.", ar: "صاح اللورد جون: \"اهربوا!\""},
+    {en: "We raced toward the trees. Beaks snapped near our heads. Wings struck our shoulders.", ar: "تسابقنا نحو الأشجار. فرقعت المناقير بالقرب من رؤوسنا. ضربت الأجنحة أكتافنا."},
+    {en: "One pterodactyl stabbed me in the neck with its beak. Lord John's coat was torn. Challenger was knocked down. At last Lord John fired his rifle and the attack weakened enough for us to escape beneath thicker branches.", ar: "طعنني أحد البتيروداكتيل في رقبتي بمنقاره. تمزق معطف اللورد جون. سقط تشالنجر أرضاً. أخيراً أطلق اللورد جون النار من بندقيته وضعف الهجوم بما يكفي لنفر من تحت الأغصان الكثيفة."},
+    {en: "Summerlee, bleeding from a cut on his forehead, looked back toward the swamp. \"Remarkable,\" he said.", ar: "نظر سمرلي، وهو ينزف من جرح في جبهته، عائداً نحو المستنقع. قال: \"مذهل\"."},
+    {en: "\"Remarkable?\" Lord John replied. \"They nearly killed us.\" \"That does not make them less remarkable.\"", ar: "رد اللورد جون: \"مذهل؟ كادوا يقتلوننا.\" \"هذا لا يجعلهم أقل إثارة للإعجاب\"."},
+    {en: "The scientists collected every fact they could, even when the facts had teeth.", ar: "جمع العلماء كل حقيقة استطاعوا، حتى عندما كانت الحقائق ذات أسنان."},
+    {en: "When we returned to Fort Challenger, we found another problem. Something had entered the camp while we were away. Food tins had been crushed. A wooden ammunition box had been broken. Supplies were scattered across the ground.", ar: "عندما عدنا إلى قلعة تشالنجر، وجدنا مشكلة أخرى. دخل شيء ما المخيم بينما كنا بعيدين. سحقت علب الطعام. تحطم صندوق ذخيرة خشبي. تناثرت الإمدادات على الأرض."},
+    {en: "There were no clear footprints. \"Whatever did this was strong,\" I said.", ar: "لم تكن هناك آثار أقدام واضحة. قلت: \"أياً كان ما فعل هذا، فقد كان قوياً\"."},
+    {en: "\"And clever enough to enter without breaking the thorn wall,\" Lord John added.", ar: "أضاف اللورد جون: \"وذكياً بما يكفي للدخول دون كسر جدار الأشواك\"."},
+    {en: "A large branch hung over one side of the camp. Something could have climbed through the tree.", ar: "تدلى غصن كبير فوق أحد جانبي المخيم. كان بإمكان شيء ما التسلق عبر الشجرة."},
+    {en: "That night we kept two fires burning and took turns on watch. In the following days we explored widely. We saw more iguanodons, giant insects, strange birds, and tracks we could not identify. Once, at dusk, a huge shadow moved between the trees. It was too large to be any modern animal I knew.", ar: "تلك الليلة أبقينا على نارين مشتعلتين وتناوبنا على الحراسة. في الأيام التالية استكشفنا على نطاق واسع. رأينا المزيد من الإغواندون، وحشرات عملاقة، وطيوراً غريبة، وآثار أقدام لم نتمكن من التعرف عليها. ذات مرة، عند الغسق، تحرك ظل ضخم بين الأشجار. كان كبيراً جداً ليكون أي حيوان حديث أعرفه."},
+    {en: "Despite the danger, Challenger was happier than I had ever seen him. The plateau was proving his story in every direction. Summerlee, now convinced that prehistoric life had survived, became just as energetic. Their arguments continued, but the subject had changed. They no longer argued about whether the lost world existed; they argued about how to classify everything inside it.", ar: "على الرغم من الخطر، كان تشالنجر أكثر سعادة مما رأيته في أي وقت مضى. كانت الهضبة تثبت قصته في كل اتجاه. أصبح سمرلي، المقتنع الآن بأن حياة ما قبل التاريخ قد نجت، بنفس النشاط. استمرت مجادلاتهم، لكن الموضوع تغير. لم يعودوا يتجادلون حول ما إذا كان العالم المفقود موجوداً؛ بل تجادلوا حول كيفية تصنيف كل شيء بداخله."},
+    {en: "Lord John focused on survival. He chose safe paths, watched the wind, studied animal tracks, and never allowed us to walk carelessly into thick cover.", ar: "ركز اللورد جون على البقاء. اختار مسارات آمنة، وراقب الرياح، ودرس آثار الحيوانات، ولم يسمح لنا أبداً بالسير بلا مبالاة في غطاء كثيف."},
+    {en: "I tried to do both jobs: observe and survive. I was a reporter, and I knew that if we ever returned to London, people would want a clear record of what we had seen. But returning was still the great question.", ar: "حاولت القيام بكلتا المهمتين: المراقبة والبقاء. كنت مراسلاً، وعرفت أنه إذا عدنا يوماً إلى لندن، فسيرغب الناس في سجل واضح لما رأيناه. لكن العودة كانت لا تزال السؤال الكبير."},
+    {en: "Every day we went to the cliff and called to Zambo. He remained at his little camp below, faithful to his promise. Some of the Indigenous guides had gone back toward the river, carrying letters from me and requests for strong rope. We could only hope help would eventually arrive.", ar: "كل يوم كنا نذهب إلى الجرف وننادي زامبو. بقي في مخيمه الصغير بالأسفل، مخلصاً لوعده. عاد بعض المرشدين الأصليين نحو النهر، حاملين رسائل مني وطلبات لحبل قوي. لم يكن لدينا سوى الأمل في أن تصل المساعدة في النهاية."},
+    {en: "Meanwhile, the plateau held another mystery.", ar: "وفي الوقت نفسه، كانت الهضبة تحمل لغزاً آخر."},
+    {en: "More than once we had the feeling that we were being watched.", ar: "أكثر من مرة شعرنا بأننا مراقبون."},
+    {en: "A shadow moved high in a tree and disappeared. We heard a clicking call unlike any bird.", ar: "تحرك ظل عالياً في شجرة واختفى. سمعنا نداءً بنقرات لا يشبه أي طائر."},
+    {en: "Food vanished from places we thought were secure. Once Lord John found a footprint that looked disturbingly human, but broader and heavier.", ar: "اختفى الطعام من أماكن ظننا أنها آمنة. ذات مرة وجد اللورد جون أثر قدم بدا بشرياً بشكل مقلق، لكنه أوسع وأثقل."},
+    {en: "\"There may be people here!\" I said.", ar: "قلت: \"قد يكون هناك أناس هنا!\""},
+    {en: "\"Or something close to people,\" Challenger replied.", ar: "رد تشالنجر: \"أو شيء قريب من البشر\"."},
+    {en: "Summerlee frowned. \"Let us not create a theory before we have evidence.\" It was good advice. Yet the forest seemed to be giving us a warning.", ar: "عبس سمرلي: \"دعونا لا نصنع نظرية قبل أن يكون لدينا دليل.\" كانت نصيحة جيدة. ومع ذلك، بدت الغابة وكأنها تعطينا تحذيراً."},
+    {en: "One afternoon I climbed a high tree at the edge of a clearing. From the upper branches I hoped to see more of the plateau and perhaps discover a possible escape route.", ar: "في إحدى الأمسيات صعدت شجرة عالية على حافة فسحة. من الأغصان العلوية أملت رؤية المزيد من الهضبة وربما اكتشاف طريق هروب محتمل."},
+    {en: "The view was astonishing.", ar: "كان المنظر مذهلاً."},
+    {en: "The plateau was far larger than I had imagined. Forest covered most of it, but in the center lay a broad lake shining in the sun. On the far side I could make out a line of cliffs with dark openings that might be caves.", ar: "كانت الهضبة أكبر بكثير مما تخيلت. غطت الغابة معظمها، لكن في المركز كان هناك بحيرة واسعة تلمع في الشمس. على الجانب البعيد تمكنت من تمييز خط من المنحدرات بفتحات مظلمة قد تكون كهوفاً."},
+    {en: "Then I noticed something else.", ar: "ثم لاحظت شيئاً آخر."},
+    {en: "A thin line of smoke rose near those caves. Smoke meant fire.", ar: "ارتفع خط رفيع من الدخان بالقرب من تلك الكهوف. الدخان يعني النار."},
+    {en: "And fire usually meant people.", ar: "والنار عادة تعني الناس."},
+    {en: "I climbed down with my mind racing.", ar: "نزلت وعقلي يتسابق."},
+    {en: "The lost world was not only a land of prehistoric animals. Someone—or something—was living there too.", ar: "لم يكن العالم المفقود مجرد أرض لحيوانات ما قبل التاريخ. كان هناك شخص ما - أو شيء ما - يعيش هناك أيضاً."}
+];
+
+const readingQuestions = [];
+
+// ===================== بناء الواجهة =====================
+function makeWordSpans(text) {
+    const words = text.trim().split(/\s+/);
+    return words.map((w, idx) => `<span class="word" data-word-index="${idx}">${w}</span>`).join(' ');
+}
+
+function buildAllSections() {
+    const container = document.getElementById('sections-container');
+
+    function makePills(wordsArray, sectionId) {
+        return wordsArray.map((w, i) => {
+            const id = `${sectionId}_p${i}`;
+            const wordHtml = makeWordSpans(w[0]);
+            const speakText = cleanForSpeech(w[0]);
+            return `<div class="pill" id="${id}" data-speak="${escAttr(speakText)}" onclick="playOne('${id}')"><span class="en">${wordHtml}</span><span class="tr">${w[1]}</span></div>`;
+        }).join('');
+    }
+
+    function makeRuleItem(icon, sectionId, index, speakText, arText, displayText) {
+        const id = `${sectionId}_${index}`;
+        const wordHtml = makeWordSpans(displayText || speakText);
+        const finalSpeak = cleanForSpeech(speakText);
+        return `<div class="rule-item" id="${id}" data-speak="${escAttr(finalSpeak)}" onclick="playOne('${id}')">
+            <span class="rule-icon">${icon}</span>
+            <div class="rule-text">
+                <span class="en">${wordHtml}</span>
+                <span class="ar">${arText || ''}</span>
+            </div>
+        </div>`;
+    }
+
+    function playBar(sectionId) {
+        return `<div class="sec-play-bar">
+            <button class="big-btn" style="background:linear-gradient(135deg,var(--A),var(--A2))" onclick="playSection('${sectionId}')">▶ Play</button>
+            <button class="big-btn pause-btn" onclick="pauseAll()">⏸ Pause</button>
+            <button class="big-btn stop-btn" onclick="stopAll()">⏹ Stop</button>
+        </div>`;
+    }
+
+    function makeStorySection(title, titleAr, storyData, idPrefix) {
+        const speakerEmojis = {"Malone":"🧑‍💼","Challenger":"🧔","Summerlee":"👨‍🔬","Lord John":"🤠","Zambo":"💪","Gomez":"😠","Gladys":"👩","Austin":"🕴️","Mrs. Challenger":"👩","Henry":"📝"};
+        const knownSpeakers = new Set(Object.keys(speakerEmojis));
+
+        return `<div class="story-card">
+            <div style="font-weight:bold;color:var(--A);margin-bottom:6px;">${title}</div>
+            ${titleAr ? `<div class="story-title">${titleAr}</div>` : ''}
+            ${storyData.map((s,i) => {
+                const id = `${idPrefix}_s${i}`;
+                let enText = s.en;
+                let speaker = '';
+                let dialogueText = enText;
+                const colonIndex = enText.indexOf(': ');
+                if (colonIndex > 0) {
+                    const candidate = enText.substring(0, colonIndex);
+                    if (knownSpeakers.has(candidate)) {
+                        speaker = candidate;
+                        dialogueText = enText.substring(colonIndex + 2);
+                    }
+                }
+                const emoji = speakerEmojis[speaker] || '📖';
+                const wordHtml = makeWordSpans(dialogueText);
+                let speakerHtml = '';
+                if (speaker) {
+                    speakerHtml = `<span class="speaker-label">${emoji} ${speaker}</span> `;
+                }
+                return `<div class="sentence" id="${id}" data-speak="${escAttr(s.en)}" onclick="playOne('${id}')">
+                    ${speakerHtml} ${wordHtml}
+                </div> `;
+            }).join('')}
+            <div class="story-ar">${storyData.map(s => s.ar).join(' ')}</div>
+        </div>`;
+    }
+
+    const sections = [];
+
+    // 1. Key Vocabulary
+    if (keyVocab && keyVocab.length > 0) {
+        sections.push({ title:"💊 Key Vocabulary", id:"secKeyVocab", content: `<div class="info-box"><div class="info-title">Key Vocabulary (5.1)</div><div class="vocab">${makePills(keyVocab, "secKeyVocab")}</div></div>` });
+    }
+
+    // 2. Main Vocabulary
+    if (mainVocab && mainVocab.length > 0) {
+        sections.push({ title:"📚 Vocabulary", id:"secMainVocab", content: `<div class="info-box"><div class="info-title">Vocabulary (Chapter 5)</div><div class="vocab">${makePills(mainVocab, "secMainVocab")}</div></div>` });
+    }
+
+    // 3. Phrases, Expressions & Idioms
+    if (idiomsData && idiomsData.length > 0) {
+        sections.push({ title:"💡 Expressions, Phrases & Prepositions", id:"secIdioms", content: `<div class="rules-grid">${idiomsData.map((e,i) => makeRuleItem('✨', 'secIdioms', i, e[0], e[1], e[0])).join('')}</div>` });
+    }
+
+    // 4. Prepositions
+    if (prepositionsData && prepositionsData.length > 0) {
+        sections.push({ title:"🔗 Prepositions", id:"secPrepositions", content: `<div class="rules-grid">${prepositionsData.map((p,i) => makeRuleItem('🔗', 'secPrepositions', i, p[0], p[1], p[0])).join('')}</div>` });
+    }
+
+    // 5. Definitions
+    if (defsData && defsData.length > 0) {
+        sections.push({ title:"📝 Definitions", id:"secDefs", content: `<div class="rules-grid">${defsData.map((d,i) => {
+            const speakText = cleanForSpeech(d.word) + " | " + d.def;
+            const displayText = `${d.word} → ${d.def}`;
+            return makeRuleItem('📖', 'secDefs', i, speakText, d.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 6. Synonyms & Antonyms
+    if (synData && synData.length > 0) {
+        sections.push({ title:"🔄 Synonyms", id:"secSyn", content: `<div class="rules-grid">${synData.map((s,i) => makeRuleItem('↔️', 'secSyn', i, s.word + " | " + s.syn, s.syn, s.word)).join('')}</div>` });
+    }
+    if (antData && antData.length > 0) {
+        sections.push({ title:"🚫 Antonyms", id:"secAnt", content: `<div class="rules-grid">${antData.map((a,i) => makeRuleItem('🛑', 'secAnt', i, a.word + " | " + a.ant, a.ant, a.word)).join('')}</div>` });
+    }
+
+    // 7. Derivatives
+    if (derivativesData && derivativesData.length > 0) {
+        sections.push({ title:"🔨 Derivatives (Word Families)", id:"secDerivatives", content: `<div class="rules-grid">${derivativesData.map((d,i) => {
+            const formsStr = d.forms.join(" | ");
+            const speakText = `${d.word} | ${formsStr}`;
+            const displayText = `${d.word} → ${formsStr}`;
+            return makeRuleItem('🔨', 'secDerivatives', i, speakText, d.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 8. Focus on Vocabulary (Clear the Confusion)
+    if (confusionData && confusionData.length > 0) {
+        sections.push({ title:"🧐 Focus on Vocabulary", id:"secConfusion", content: `<div class="rules-grid">${confusionData.map((c,i) => {
+            const speakText = `${c.word} | ${c.ex}`;
+            const displayText = `${c.word} → ${c.ex}`;
+            return makeRuleItem('🧐', 'secConfusion', i, speakText, c.ar, displayText);
+        }).join('')}</div>` });
+    }
+
+    // 9. Reading Text
+    if (readingTextL1 && readingTextL1.length > 0) {
+        let readingContent = makeStorySection(readingTitle.en, readingTitle.ar, readingTextL1, 'secReadL1');
+        if (readingQuestions && readingQuestions.length > 0) {
+            readingContent += `<div class="qbox"><div class="info-title">JRE (Justify – Reason – Evidence)</div>${readingQuestions.map(q => `<div class="qitem">${q}</div>`).join('')}</div>`;
+        }
+        sections.push({ title:"📖 Chapter Text", id:"secReadL1", content: readingContent });
+    }
+
+    // 10. Listening Text
+    if (listeningTextL2 && listeningTextL2.length > 0) {
+        let listeningContent = '';
+        if (listeningVocab && listeningVocab.length > 0) {
+            listeningContent += `<div class="info-box"><div class="info-title">Listening Glossary</div><div class="vocab">${makePills(listeningVocab, "secListenVocab")}</div></div>`;
+        }
+        listeningContent += makeStorySection(listeningTitle, '', listeningTextL2, 'secListenL2');
+        sections.push({ title:"🎧 Listening Text", id:"secListenL2", content: listeningContent });
+    }
+
+    let html = '';
+    sections.forEach(sec => {
+        html += `<div class="section-block" id="${sec.id}">
+            <div class="sec-title">${sec.title}</div>
+            <div class="sec-body">
+                ${playBar(sec.id)}
+                ${sec.content}
+            </div>
+        </div>`;
+    });
+    container.innerHTML = html;
+}
+
+// ===================== نظام الصوت =====================
+const rateRange = document.getElementById('rateRange');
+const rateBadge = document.getElementById('rateBadge');
+const fabPause = document.getElementById('fabPause');
+
+const savedRate = localStorage.getItem('speechRate') || 1;
+rateRange.value = savedRate;
+rateBadge.textContent = parseFloat(savedRate).toFixed(1)+'x';
+rateRange.addEventListener('input', () => {
+    const val = parseFloat(rateRange.value).toFixed(1);
+    rateBadge.textContent = val+'x';
+    localStorage.setItem('speechRate', val);
+});
+
+let voices = [];
+let voiceLoadAttempts = 0;
+const voiceSelectEl = document.getElementById('voiceSelect');
+const voiceNoteEl = document.getElementById('voiceNote');
+
+function loadVoices() {
+    voices = window.speechSynthesis.getVoices();
+    voiceLoadAttempts++;
+    populateVoiceSelect();
+}
+
+function pickBestVoice(list, langPrefix) {
+    if (!list.length) return null;
+    const normalizeLang = (lang) => (lang || '').replace('_', '-');
+    const isLangMatch = (voiceLang) => normalizeLang(voiceLang) === langPrefix || normalizeLang(voiceLang).startsWith(langPrefix + '-');
+    const candidates = list.filter(v => isLangMatch(v.lang));
+    if (!candidates.length) return null;
+    const scored = candidates.map(v => {
+        let score = 0;
+        if (v.localService) score += 2;
+        if (/Google|Natural|Neural|Online/i.test(v.name)) score += 3;
+        if (v.default) score += 1;
+        return { v, score };
+    }).sort((a, b) => b.score - a.score);
+    return scored[0].v;
+}
+
+const FORCED_ACCENTS = [
+    { code: 'en-US', label: '🇺🇸 American' },
+    { code: 'en-GB', label: '🇬🇧 British' }
+];
+
+function populateVoiceSelect() {
+    const allVoices = voices;
+    if (!allVoices.length) {
+        voiceNoteEl.textContent = voiceLoadAttempts > 4 ? '⚠️ لم يتم العثور على أصوات. جرّب تحديث الصفحة.' : '⏳ جاري تحميل الأصوات...';
+    }
+    const savedCode = localStorage.getItem('ttsLangCode') || 'en-US';
+    voiceSelectEl.innerHTML = FORCED_ACCENTS.map(a => `<option value="${a.code}">${a.label}</option>`).join('');
+    voiceSelectEl.value = savedCode;
+
+    if (allVoices.length) {
+        const usV = pickBestVoice(allVoices, 'en-US');
+        const gbV = pickBestVoice(allVoices, 'en-GB');
+        if (usV && gbV && usV.voiceURI === gbV.voiceURI) {
+            voiceNoteEl.textContent = 'ℹ️ الجهاز فيه صوت واحد مُثبَّت، وبيتغيّر النطق حسب اللكنة المختارة قدر الإمكان.';
+        } else {
+            voiceNoteEl.textContent = '';
+        }
+    }
+}
+voiceSelectEl.addEventListener('change', function() {
+    localStorage.setItem('ttsLangCode', this.value);
+});
+
+function getSelectedVoice() {
+    const code = localStorage.getItem('ttsLangCode') || 'en-US';
+    return pickBestVoice(voices, code) || voices.find(vv => (vv.lang || '').toLowerCase().startsWith('en')) || null;
+}
+function getSelectedLangCode() {
+    return localStorage.getItem('ttsLangCode') || 'en-US';
+}
+
+window._q = []; window._qi = 0;
+window._currentUtterance = null;
+let currentHighlightedId = null;
+
+function clearAllHighlights() {
+    document.querySelectorAll('.active-sent').forEach(e => e.classList.remove('active-sent'));
+    currentHighlightedId = null;
+}
+function showFab(show) { if (show) fabPause.classList.add('show'); else fabPause.classList.remove('show'); }
+function updateFabIcon() {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) fabPause.innerHTML = '⏸️';
+    else if (window.speechSynthesis.paused) fabPause.innerHTML = '▶️';
+    else fabPause.innerHTML = '⏯️';
+}
+
+function playQueue() {
+    if (window._qi >= window._q.length) {
+        clearAllHighlights(); showFab(false); return;
+    }
+    const item = window._q[window._qi];
+    if (currentHighlightedId !== item.id) {
+        clearAllHighlights();
+        const el = document.getElementById(item.id);
+        if (el) {
+            el.classList.add('active-sent');
+            el.scrollIntoView({behavior:'smooth',block:'nearest'});
+            currentHighlightedId = item.id;
+        }
+    }
+    const u = new SpeechSynthesisUtterance(item.text);
+    u.rate = parseFloat(rateRange.value) || 1;
+    u.lang = getSelectedLangCode();
+    const voice = getSelectedVoice();
+    if (voice) u.voice = voice;
+
+    u.onstart = () => { showFab(true); updateFabIcon(); };
+    u.onend = function() { window._qi++; playQueue(); };
+    u.onerror = function(e) { console.warn('Speech error', e); window._qi++; playQueue(); };
+    u.onpause = () => updateFabIcon();
+    u.onresume = () => updateFabIcon();
+
+    window._currentUtterance = u;
+    window.speechSynthesis.speak(u);
+}
+
+function splitAndQueue(textParts, id) {
+    textParts.forEach((p) => { const trimmed = p.trim(); if (trimmed) window._q.push({id: id, text: trimmed}); });
+}
+
+function playSection(secId) {
+    stopAll();
+    const sec = document.getElementById(secId);
+    const els = [...sec.querySelectorAll('[data-speak]')];
+    els.forEach(el => {
+        const text = el.dataset.speak;
+        const parts = text.split('|').map(p => p.trim());
+        splitAndQueue(parts, el.id);
+    });
+    window._qi = 0;
+    playQueue();
+}
+
+function playAll() {
+    stopAll();
+    const els = [...document.querySelectorAll('[data-speak]')];
+    els.forEach(el => {
+        const text = el.dataset.speak;
+        const parts = text.split('|').map(p => p.trim());
+        splitAndQueue(parts, el.id);
+    });
+    window._qi = 0;
+    playQueue();
+}
+
+function playOne(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const text = el.dataset.speak;
+    stopAll();
+    const parts = text.split('|').map(p => p.trim());
+    splitAndQueue(parts, id);
+    window._qi = 0;
+    playQueue();
+}
+
+function pauseAll() {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+        window.speechSynthesis.pause(); updateFabIcon();
+    } else if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume(); updateFabIcon();
+    }
+}
+
+function stopAll() {
+    window._q = []; window._qi = 0;
+    clearAllHighlights();
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    showFab(false);
+}
+
+function toggleFabPause() { pauseAll(); }
+
+// ===================== الثيمات =====================
+function setTheme(theme, btn) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    localStorage.setItem('theme', theme);
+}
+const savedTheme = localStorage.getItem('theme') || 'teal';
+document.documentElement.setAttribute('data-theme', savedTheme);
+document.querySelectorAll('.theme-btn').forEach(b => {
+    if (b.classList.contains('t-'+savedTheme)) b.classList.add('active');
+});
+
+// ===================== بدء التشغيل =====================
+buildAllSections();
+loadVoices();
+setTimeout(loadVoices, 300);
+setTimeout(loadVoices, 1000);
+setTimeout(loadVoices, 2500);
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadVoices;
+</script>
+</body>
+</html>
